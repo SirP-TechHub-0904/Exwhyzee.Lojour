@@ -1,0 +1,121 @@
+﻿@page "{id:int?}"
+@model Exwhyzee.Lojour.Website.Areas.APanel.Pages.Property.UpdatePublishModel
+@{
+
+    ViewData["Title"] = "UpdatePublish Property";
+
+    Layout = "/Views/Shared/_ClientLayout.cshtml";
+
+}
+
+@if (TempData["error"] != null)
+{
+    <div class="alert alert-danger alert-dismissible" role="alert">
+        <p>@TempData["error"]</p>
+    </div>
+}
+<!-- page content -->
+<div class="row">
+    <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="x_panel">
+            <div class="x_title">
+                <h2>Edit Property <small></small></h2>
+
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+                <form class="form-horizontal form-label-left" method="post" novalidate>
+                    <div class="row">
+                        <!--Raffle Properties-->
+                        <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
+
+                            <div class="item form-group">
+                                <label for="sortOrder" class="control-label col-md-3">Sort Order</label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <input id="sortOrder" type="number" asp-for="Data.SortOrder" name="Data.SortOrder" placeholder="sort order" class="form-control col-md-7 col-xs-12" required="required">
+                                </div>
+                            </div>
+                            <div class="item form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="telephone">
+                                    Property Status <span class="required">*</span>
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    @Html.DropDownListFor(model => model.Data.PropertyStatus, new SelectList(Enum.GetValues(typeof(Exwhyzee.Enums.PropertyStatus))), new { @class = "form-control col-md-7 col-xs-12" })
+                                </div>
+                            </div>
+                            <div class="item form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="telephone">
+                                    Position in Home <span class="required">*</span>
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    @Html.DropDownListFor(model => model.Data.HomeLocation, new SelectList(Enum.GetValues(typeof(Exwhyzee.Enums.HomeLocation))), new { @class = "form-control col-md-7 col-xs-12" })
+                                </div>
+                            </div>
+                            <div class="item form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="telephone">
+                                    Verification Status <span class="required">*</span>
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    @Html.DropDownListFor(model => model.Data.VerificationStatus, new SelectList(Enum.GetValues(typeof(Exwhyzee.Enums.VerificationStatus))), new { @class = "form-control col-md-7 col-xs-12" })
+                                </div>
+                            </div>
+                          
+
+                        </div>
+
+
+                    </div>
+                    <div class="ln_solid"></div>
+                    <div class="form-group">
+                        <div class="col-md-6 col-md-offset-3">
+                           
+                            <button type="button" class="btn btn-primary" asp-route="/Property/Index">Cancel</button>
+                            <button id="submit" type="submit" class="btn btn-success">Submit</button>
+                        </div>
+                    </div>
+                </form>
+
+
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- /page content -->
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+    <script type="text/jscript">
+        $(function () {
+            $('#State').change(function () {
+
+                var fruits = ["apple", "orange", "cherry"];
+                fruits.forEach(myFunction);
+                var res = "";
+                function myFunction(item, index) {
+                    res += index + ":" + item + "<br>";
+                }
+                console.log(res);
+                $.getJSON('/Home/LGAList/', {
+                    name: $('#State').val()
+                }, function (data) {
+
+                    var items = '<option>Choose LGA in the State</option>';
+                    $.each(jQuery.map(data, function (i, local) {
+                        items += "<option value='" + i.value + "'>" + i.text + "</option>";
+
+                    }));
+                    items += '<option value="None">Not Listed</option>';
+
+                    console.log(data);
+                    console.log("jd");
+                    console.log(data.data);
+
+                    console.log(items);
+                    $('#LGA').html(items);
+                });
+            });
+        });
+    </script>
+}

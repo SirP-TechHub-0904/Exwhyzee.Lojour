@@ -1,0 +1,28 @@
+#analytics-detail-date {
+    font-weight: bold; 
+    font-family: inherit; 
+    overflow: hidden; 
+    resize: none; 
+    min-height: unset;
+    margin: 24px 0 0 0;
+    padding: 8px 14px;
+    font-size: 18px;
+    background: #f1f1f1;
+    border: 1px solid #d5d9dd;
+    border-radius: 3px;
+    text-align: center;
+}
+
+.col .rightalign {
+    text-align: right;
+}
+
+.no-data { text-align: center; background: #f9f9ed;}
+
+@media (max-width: 767px) {
+
+    #analytics-detail-date {
+        min-width: unset;
+    } 
+
+}

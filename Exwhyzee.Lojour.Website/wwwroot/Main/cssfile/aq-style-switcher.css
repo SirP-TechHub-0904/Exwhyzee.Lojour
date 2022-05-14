@@ -1,0 +1,145 @@
+/** 
+ * Aqua Style Switcher
+ *
+ * Stylings based on Avada style switcher <http://theme-fusion.com/avada/>
+ *
+ * Author: Syamil MJ
+ * Author URI: http://aquagraphite.com
+ */
+
+ .demo_bg{
+	width: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index:-1;
+	height: 100%;
+}
+#style_selector{
+	background:#fff;
+	width:193px;
+	position:fixed;
+	right:0;
+	top: 20px;
+	z-index: 999999;
+}
+#style_selector_container {
+	height: 800px;
+	overflow-y: scroll;
+	-webkit-box-shadow: 0 2px 9px 2px rgba(0,0,0,0.14);
+	-moz-box-shadow: 0 2px 9px 2px rgba(0,0,0,0.14);
+	box-shadow: 0 2px 9px 2px rgba(0,0,0,0.14);
+	border:1px solid rgba(23,24,26,0.15);
+	-webkit-border-top-left-radius: 2px;
+	-webkit-border-bottom-left-radius: 2px;
+	-moz-border-radius-topleft: 2px;
+	-moz-border-radius-bottomleft: 2px;
+	border-top-left-radius: 2px;
+	border-bottom-left-radius: 2px;
+}
+.style-main-title{
+	color:#000000;
+	font-size:15px;
+	height:44px;
+	line-height:44px;
+	text-align:center;
+	border-bottom:1px solid rgba(23,24,26,0.15);
+
+	background-image: linear-gradient(top, #FFFFFF 0%, #F7F4F4 100%);
+	background-image: -o-linear-gradient(top, #FFFFFF 0%, #F7F4F4 100%);
+	background-image: -moz-linear-gradient(top, #FFFFFF 0%, #F7F4F4 100%);
+	background-image: -webkit-linear-gradient(top, #FFFFFF 0%, #F7F4F4 100%);
+	background-image: -ms-linear-gradient(top, #FFFFFF 0%, #F7F4F4 100%);
+
+	background-image: -webkit-gradient(
+		linear,
+		left top,
+		left bottom,
+		color-stop(0, #FFFFFF),
+		color-stop(1, #F7F4F4)
+	);
+}
+.box-title{
+	font-size:12px;
+	height:41px;
+	line-height:41px;
+	text-align:center;
+	border-bottom:1px solid rgba(23,24,26,0.15);
+}
+.input-box{
+	padding:10px;
+	padding-left:40px;
+	border-bottom:1px solid rgba(23,24,26,0.15);
+}
+.input-box input[type=text]{
+	background:#f7f7f7;
+	width:60px;
+	border:1px solid rgba(23,24,26,0.15);
+	font-size:11px;
+	color:#000000;
+	padding:3px;
+	margin-left:10px;
+}
+.input-box select{
+	background:#f7f7f7;
+	width:120px;
+	border:1px solid rgba(23,24,26,0.15);
+	font-size:11px;
+	color:#000000;
+}
+#style_selector .style-toggle {
+	padding: 4% 6%;
+	background: #fff;
+	border-top-left-radius: 3px;
+	border-bottom-left-radius: 3px;
+	border: 1px solid rgba(23,24,26,0.15);
+	border-right-color: #fff;
+	-webkit-box-shadow: 0px 0px 5px rgba(50, 50, 50, 0.3);
+	-moz-box-shadow: 0px 0px 5px rgba(50, 50, 50, 0.3);
+	box-shadow: 0px 0px 5px rgba(50, 50, 50, 0.3);
+	cursor:pointer;
+}
+#style_selector .close {
+	background-position:top left;
+	position:absolute;
+	top: 45px;
+	left: -37px;
+}
+#style_selector .open {
+	background: #fff;
+	position: absolute;
+	top: 45px;
+	right: 0;
+	text-transform: uppercase;
+	font-size: 0.75rem;
+}
+	#style_selector .open i { display: inline-block; margin: 0 4px 0 0;}
+#style_selector .images{
+	width:165px;
+	padding-left:25px;
+	margin-top:15px;
+	border-bottom:1px solid rgba(23,24,26,0.15);
+	padding-bottom:10px;
+	position:relative;
+	z-index:1000000;
+}
+#style_selector .images img{
+	width:25px;
+	height:24px;
+	margin-right:7px;
+	margin-bottom:7px;
+	z-index:1000;
+}
+#style_selector .images img.active{
+	border:0px solid #ccc;
+	opacity:0.5;
+}
+#style_selector ul#demo-list { margin: 0; padding: 10px 10px 0 10px; list-style: none;}
+	#style_selector ul#demo-list li { margin-bottom: 10px; text-align: center;}
+		#style_selector ul#demo-list li img { padding: 3px; border-radius: 3px; border: 1px solid #d5d9dd;}
+		#style_selector #demo-list .title { display: inline-block; margin: 5px 0 0 0; font-size: .85rem;}
+
+/* Smaller than standard 960 (devices and browsers) */
+@media only screen and (max-width: 959px) {
+	#style_selector .open { top: 100px;}
+}

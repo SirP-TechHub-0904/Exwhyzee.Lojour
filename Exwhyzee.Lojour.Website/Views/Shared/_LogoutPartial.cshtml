@@ -1,0 +1,17 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using Exwhyzee.Lojour.Core.Authorization.Users
+
+@inject SignInManager<ApplicationUser> SignInManager
+
+    <li><a href="javascript:document.getElementById('logoutForm').submit()"><i class="fa fa-lock"></i> Logout</a></li>
+
+    @if (SignInManager.IsSignedIn(User))
+    {
+        <form asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })" method="post" id="logoutForm">
+            @*<div class="profile-btn profile-wim">
+                <button type="submit" class="submit-btn btn pull-right" style="font-size:12px;">LOGOUT</button>
+            </div>*@
+
+        </form>
+    }
+

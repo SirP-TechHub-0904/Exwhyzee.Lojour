@@ -1,0 +1,70 @@
+﻿@page
+@model Exwhyzee.Lojour.Website.Areas.Account.Pages.ProfileModel
+@{
+    Layout = "/Views/Shared/_ClientLayout.cshtml";
+
+}
+
+<style>
+    .btn.btn-app {
+   
+    margin: 0 0 0px 0px !important;
+   
+}
+</style>
+
+
+<div class="">
+    <div class="page-title">
+        <div class="title_left">
+            <h3>Profile</h3>
+        </div>
+        <div class="title_right">
+            <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
+                <div class="input-group">
+                    <input type="text" disabled class="form-control" placeholder="Search for..." value="Active" style="color:#ff0000;font-weight:900;">
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="clearfix"></div>
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+                <div class="x_title">
+                    <h2>My Profile </h2>
+                    
+                    <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+                    <div class="col-md-12 col-sm-12 col-xs-12 profile_left">
+                        <div class="profile_img">
+                            <div id="crop-avatar">
+
+                            </div>
+                        </div>
+
+                        <a class="btn btn-success" asp-page="./UpdateProfile"><i class="fa fa-edit m-right-xs"></i>Edit Profile</a>
+                        <br />
+                        <!-- start skills -->
+                        <h4>Welcome to your Lojour Dashboard.</h4>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <a href="" class="btn btn-success btn-lg">View My CV</a>
+                            </div>
+                            <div class="col-md-6">
+                                <a asp-page="./WebFolio" class="btn btn-success btn-lg">View My Website</a>
+                            </div>
+                        </div>
+                       
+                        <!-- end of skills -->
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

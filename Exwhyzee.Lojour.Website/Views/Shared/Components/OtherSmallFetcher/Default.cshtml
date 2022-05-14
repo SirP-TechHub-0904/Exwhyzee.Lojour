@@ -1,0 +1,9 @@
+﻿@model IEnumerable<Exwhyzee.Lojour.Core.PropertyImage.PropertyImage>
+
+@foreach (var i in Model.OrderByDescending(x=>x.Id))
+{
+    
+    <li data-thumb="@i.Url" class="flex-active-slide" style="width: 120px; float: left; display: block;">
+        <img src="@i.Url" class="attachment-listings-featured-image size-listings-featured-image" alt="" draggable="false">
+    </li>
+}

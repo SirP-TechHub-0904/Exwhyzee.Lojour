@@ -1,0 +1,12 @@
+﻿CREATE TABLE [dbo].[Tour]
+(
+	[Id] BIGINT NOT NULL PRIMARY KEY IDENTITY(1,1),
+   
+    [PhoneNumber] NVARCHAR(MAX) NULL,
+    [Email] NVARCHAR(MAX) NOT NULL,
+    [Date] NVARCHAR(MAX) NULL,
+    [Time] NVARCHAR(MAX) NULL,
+    [Payment] NVARCHAR(MAX) NULL,
+    [FullName] NVARCHAR(MAX) NULL,
+    [TourId] NVARCHAR(MAX) NULL
+)

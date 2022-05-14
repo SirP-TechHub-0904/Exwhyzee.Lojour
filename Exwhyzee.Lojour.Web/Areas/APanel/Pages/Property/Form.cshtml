@@ -1,0 +1,270 @@
+﻿@page "{id:int?}"
+@model Exwhyzee.Lojour.Web.Areas.APanel.Pages.Property.FormModel
+@{
+
+    ViewData["Title"] = "Edit Property";
+
+    Layout = "/Views/Shared/_ClientLayout.cshtml";
+
+}
+
+@if (TempData["error"] != null)
+{
+    <div class="alert alert-danger alert-dismissible" role="alert">
+        <p>@TempData["error"]</p>
+    </div>
+}
+<!-- page content -->
+<div class="row">
+    <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="x_panel">
+            <div class="x_title">
+                <h2>Property <small></small></h2>
+
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+                <div id="wizard" class="form_wizard wizard_horizontal">
+                    <ul class="wizard_steps anchor">
+                        <li>
+                            <a href="#step-1" class="done" isdone="1" rel="1">
+                                <span class="step_no">1</span>
+                                <span class="step_descr">
+                                    Step 1<br>
+                                    <small>Property description</small>
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#step-2" class="selected" isdone="0" rel="2">
+                                <span class="step_no">2</span>
+                                <span class="step_descr">
+                                    Step 2<br>
+                                    <small>Detailed information</small>
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#step-3" class="disabled" isdone="0" rel="3">
+                                <span class="step_no">3</span>
+                                <span class="step_descr">
+                                    Step 3<br>
+                                    <small>Features and landmark</small>
+                                </span>
+                            </a>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+                <span class="section">Property Details</span>
+                <form class="form-horizontal form-label-left" enctype="multipart/form-data" method="post">
+                    <div class="row">
+                        <!--Raffle Properties-->
+                        <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
+                            <div class="item form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">
+                                    Title <span class="required">*</span>
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <input id="name" class="form-control col-md-7 col-xs-12" asp-for="Data.PropertyName" name="Data.PropertyName" placeholder="Enter property" autofocus required="required" type="text">
+                                </div>
+                            </div>
+
+                            <div class="item form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="textarea">
+                                    Description <span class="required">*</span>
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <textarea rows="5" id="description" placeholder="Provide a description about this property" asp-for="Data.Description" required="required" name="Data.Description" class="form-control col-md-7 col-xs-12"></textarea>
+                                </div>
+                            </div>
+
+                            <div class="item form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">
+                                    Longitude
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <input id="name" class="form-control col-md-7 col-xs-12" asp-for="Data.Longitude" name="Data.Longitude" placeholder="e.g 40.741895" autofocus type="text">
+                                </div>
+                            </div>
+                            <div class="item form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">
+                                    Latitude
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <input id="name" class="form-control col-md-7 col-xs-12" asp-for="Data.Latitude" name="Data.Latitude" placeholder="e.g -73.989308" autofocus type="text">
+                                </div>
+                            </div>
+                            <div class="item form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="pricePerTicket">
+                                    Price <span class="required">*</span>
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+
+
+
+                                    <input id="pricePerTicket" type="number" asp-for="Data.Amount" name="Data.Amount" placeholder="Enter Price" class="optional form-control col-md-7 col-xs-12">
+                                </div>
+                            </div>
+                            <div class="item form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="textarea">
+                                    Property Document <span class="required">*</span>
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <textarea rows="5" id="description" placeholder="List the documents of this property" asp-for="Data.PropertyProfile" required="required" name="Data.PropertyProfile" class="form-control col-md-7 col-xs-12"></textarea>
+                                </div>
+                            </div>
+
+
+
+                            <div class="item form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">
+                                    Address
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <input id="name" class="form-control col-md-7 col-xs-12" asp-for="Data.PropertyAddress" name="Data.PropertyAddress" placeholder="Address" autofocus type="text">
+                                </div>
+                            </div>
+                            <div class="item form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="category">
+                                    State <span class="required">*</span>
+                                </label>
+
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <select class="form-control selectpicker" id="State" asp-for="Data.State" name="Data.State" data-live-search="true" asp-items="@(new SelectList(Model.State, "Name", "Name"))">
+                                        <option value="" disabled selected>Select the State</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="item form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">
+                                    LGA
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <select name="Data.LGA" id="LGA" class="form-control col-md-7 col-xs-12" placeholder="L.G.A in which property is located"></select>
+                                </div>
+                            </div>
+                            <div class="item form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">
+                                    Property Youtube video link
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <input id="name" class="form-control col-md-7 col-xs-12" asp-for="Data.Video" name="Data.Video" placeholder="Video Link" autofocus type="text">
+                                </div>
+                            </div>
+                            <div class="item form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">
+                                    Property Embed Map link
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <input id="name" class="form-control col-md-7 col-xs-12" asp-for="Data.MapLink" name="Data.MapLink" placeholder="Map Link" autofocus type="text">
+                                </div>
+                            </div>
+
+                            <div class="item form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="textarea">
+                                    Agent Details
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <textarea rows="5" id="description" placeholder="Name, Phone, Address, State" asp-for="Data.AgentDetails" required="required" name="Data.AgentDetails" class="form-control col-md-7 col-xs-12"></textarea>
+                                </div>
+                            </div>
+                            <!--Images of Raffle-->
+                            <div class="item form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="file">
+                                    Upload one or more images, Note! Not more than 10 images <span class="required"></span>
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <input class="form-control" type="file" name="files" id="gallery-photo-add" multiple />
+                                    <div class="gallery"></div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                    <div class="ln_solid"></div>
+                    <div class="form-group">
+                        <div class="col-md-6 col-md-offset-3">
+
+                            <button type="button" class="btn btn-primary" asp-route="/Property/Index">Cancel</button>
+                            <button id="submit" type="submit" class="btn btn-success">Submit</button>
+                        </div>
+                    </div>
+                </form>
+
+
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- /page content -->
+@section scripts{
+    <!---->
+    <script type="text/javascript">
+        $(function () {
+            // multiple images prevuiew in browser
+            var imagesPreview = function (input, placeToInsertImagePreview) {
+                if (input.files) {
+                    var regex = /^([a-zA-Z0-9\s_\\.\-:])+(.jpg|.jpeg|.gif|.png|.bmp)$/;
+                    var filesAmount = input.files.length;
+                    if (filesAmount <= 10) {
+                        for (i = 0; i < filesAmount; i++) {
+                            var reader = new FileReader();
+                            reader.onload = function (event) {
+                                $($.parseHTML('<img>')).attr('src', event.target.result).attr('width', '100px').attr('height', '100px').attr('margin', '10px').attr('padding', '10px').appendTo(placeToInsertImagePreview);
+                            }
+                            reader.readAsDataURL(input.files[i]);
+                        }
+                    } else {
+                        window.alert("You cant upload more than 8 images");
+                    }
+                }
+            };
+            $('#gallery-photo-add').on('change', function () {
+                imagesPreview(this, 'div.gallery');
+            });
+        });
+
+
+    </script>
+    <script type="text/jscript">
+        $(function () {
+            $('#State').change(function () {
+
+                var fruits = ["apple", "orange", "cherry"];
+                fruits.forEach(myFunction);
+                var res = "";
+                function myFunction(item, index) {
+                    res += index + ":" + item + "<br>";
+                }
+                console.log(res);
+                $.getJSON('/Home/LGAList/', {
+                    name: $('#State').val()
+                }, function (data) {
+
+                    var items = '<option>Choose LGA in the State</option>';
+                    $.each(jQuery.map(data, function (i, local) {
+                        items += "<option value='" + i.value + "'>" + i.text + "</option>";
+
+                    }));
+                    items += '<option value="None">Not Listed</option>';
+
+                    console.log(data);
+                    console.log("jd");
+                    console.log(data.data);
+
+                    console.log(items);
+                    $('#LGA').html(items);
+                });
+            });
+        });
+    </script>
+
+}

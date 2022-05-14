@@ -1,0 +1,659 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    @*<div class="fit-vids-style" id="fit-vids-style" style="display: none;">
+            ­
+            <style>
+                .fluid-width-video-wrapper {
+                    width: 100%;
+                    position: relative;
+                    padding: 0;
+                }
+
+                    .fluid-width-video-wrapper iframe, .fluid-width-video-wrapper object, .fluid-width-video-wrapper embed {
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 100%;
+                    }
+            </style>
+        </div>*@
+
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <style>
+        .gm-style .gm-style-mtc label, .gm-style .gm-style-mtc div {
+            font-weight: 400
+        }
+    </style>
+    <style>
+        .gm-control-active > img {
+            box-sizing: content-box;
+            display: none;
+            left: 50%;
+            pointer-events: none;
+            position: absolute;
+            top: 50%;
+            transform: translate(-50%,-50%)
+        }
+
+            .gm-control-active > img:nth-child(1) {
+                display: block
+            }
+
+        .gm-control-active:hover > img:nth-child(1), .gm-control-active:active > img:nth-child(1) {
+            display: none
+        }
+
+        .gm-control-active:hover > img:nth-child(2), .gm-control-active:active > img:nth-child(3) {
+            display: block
+        }
+    </style>
+    <link type="text/css" rel="stylesheet" href="~/Main/cssfile/css.css">
+    <style>
+        .gm-ui-hover-effect {
+            opacity: .6
+        }
+
+            .gm-ui-hover-effect:hover {
+                opacity: 1
+            }
+    </style>
+    <style>
+        .gm-style .gm-style-cc span, .gm-style .gm-style-cc a, .gm-style .gm-style-mtc div {
+            font-size: 10px;
+            box-sizing: border-box
+        }
+    </style>
+    <style>
+        @@media print {
+            .gm-style .gmnoprint, .gmnoprint {
+                display: none
+            }
+        }
+
+        @@media screen {
+            .gm-style .gmnoscreen, .gmnoscreen {
+                display: none
+            }
+        }
+    </style>
+    <style>
+        .gm-style-pbc {
+            transition: opacity ease-in-out;
+            background-color: rgba(0,0,0,0.45);
+            text-align: center
+        }
+
+        .gm-style-pbt {
+            font-size: 22px;
+            color: white;
+            font-family: Roboto,Arial,sans-serif;
+            position: relative;
+            margin: 0;
+            top: 50%;
+            -webkit-transform: translateY(-50%);
+            -ms-transform: translateY(-50%);
+            transform: translateY(-50%)
+        }
+    </style>
+    <style>
+        .gm-style img {
+            max-width: none;
+        }
+
+        .gm-style {
+            font: 400 11px Roboto, Arial, sans-serif;
+            text-decoration: none;
+        }
+    </style>
+    <style>
+        .pac-container {
+            background-color: #fff;
+            position: absolute !important;
+            z-index: 1000;
+            border-radius: 2px;
+            border-top: 1px solid #d9d9d9;
+            font-family: Arial,sans-serif;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+            -moz-box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+            overflow: hidden
+        }
+
+        .pac-logo:after {
+            content: "";
+            padding: 1px 1px 1px 0;
+            height: 18px;
+            box-sizing: border-box;
+            text-align: right;
+            display: block;
+            background-image: url(https://maps.gstatic.com/mapfiles/api-3/images/powered-by-google-on-white3.png);
+            background-position: right;
+            background-repeat: no-repeat;
+            background-size: 120px 14px
+        }
+
+        .hdpi.pac-logo:after {
+            background-image: url(https://maps.gstatic.com/mapfiles/api-3/images/powered-by-google-on-white3_hdpi.png)
+        }
+
+        .pac-item {
+            cursor: default;
+            padding: 0 4px;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            white-space: nowrap;
+            line-height: 30px;
+            text-align: left;
+            border-top: 1px solid #e6e6e6;
+            font-size: 11px;
+            color: #999
+        }
+
+            .pac-item:hover {
+                background-color: #fafafa
+            }
+
+        .pac-item-selected, .pac-item-selected:hover {
+            background-color: #ebf2fe
+        }
+
+        .pac-matched {
+            font-weight: 700
+        }
+
+        .pac-item-query {
+            font-size: 13px;
+            padding-right: 3px;
+            color: #000
+        }
+
+        .pac-icon {
+            width: 15px;
+            height: 20px;
+            margin-right: 7px;
+            margin-top: 6px;
+            display: inline-block;
+            vertical-align: top;
+            background-image: url(https://maps.gstatic.com/mapfiles/api-3/images/autocomplete-icons.png);
+            background-size: 34px
+        }
+
+        .hdpi .pac-icon {
+            background-image: url(https://maps.gstatic.com/mapfiles/api-3/images/autocomplete-icons_hdpi.png)
+        }
+
+        .pac-icon-search {
+            background-position: -1px -1px
+        }
+
+        .pac-item-selected .pac-icon-search {
+            background-position: -18px -1px
+        }
+
+        .pac-icon-marker {
+            background-position: -1px -161px
+        }
+
+        .pac-item-selected .pac-icon-marker {
+            background-position: -18px -161px
+        }
+
+        .pac-placeholder {
+            color: gray
+        }
+    </style>
+
+    <link href="~/Main/js/revolution-slider/fonts/font-awesome/css/font-awesome.css" rel="stylesheet" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+    <title>Lojour: Real Estate, Apartments, Hostels &amp; Landed Properties</title>
+
+
+    <meta name="theme-color" content="#2e6da4">
+    <meta name="description" content="Find the latest property for sale or for rent across in Nigeria from trusted landlords and agents. Sell your property with us or find a new home easily and convenient from our wide range of flats, apartments, houses and more. Read our free expert advice on real estate and make an informed decision on your next home">
+    <meta name="robots" content="INDEX, FOLLOW">
+    <meta property="og:url" content="@ViewBag.url" />
+    <meta property="og:title" content="@ViewBag.title">
+    <meta property="og:description" content="@ViewBag.description">
+    <meta property="og:image" content="@ViewBag.image">
+
+
+    <script src="~/Main/js/wp-emoji-release.min.js" type="text/javascript" defer=""></script>
+    <style type="text/css">
+        img.wp-smiley,
+        img.emoji {
+            display: inline !important;
+            border: none !important;
+            box-shadow: none !important;
+            height: 1em !important;
+            width: 1em !important;
+            margin: 0 .07em !important;
+            vertical-align: -0.1em !important;
+            background: none !important;
+            padding: 0 !important;
+        }
+    </style>
+    <link href="~/css/bootstrap.css" rel="stylesheet" />
+
+    <link rel="stylesheet" id="wpfp-css" href="~/Main/cssfile/wpfp.css" type="text/css">
+    <link rel="stylesheet" id="aq-switcher-view-css-css" href="~/Main/cssfile/aq-style-switcher.css" type="text/css" media="all">
+    <link rel="stylesheet" id="wp-block-library-css" href="~/Main/cssfile/style.min.css" type="text/css" media="all">
+    <link rel="stylesheet" id="contact-form-7-css" href="~/Main/cssfile/styles.css" type="text/css" media="all">
+    <link rel="stylesheet" id="ct_listing_analytics-css" href="~/Main/cssfile/ct-listing-analytics.min.css" type="text/css" media="all">
+    <link rel="stylesheet" id="ct_la_chart_style-css" href="~/Main/cssfile/Chart.min.css" type="text/css" media="all">
+    <link rel="stylesheet" id="ct_la_daterangepicker_style-css" href="~/Main/cssfile/lightpick.css" type="text/css" media="all">
+    <link rel="stylesheet" id="packages-css" href="~/Main/cssfile/packages.css" type="text/css" media="all">
+    <link rel="stylesheet" id="rs-plugin-settings-css" href="~/Main/cssfile/settings.css" type="text/css" media="all">
+    <style id="rs-plugin-settings-inline-css" type="text/css">
+        .tp-caption a {
+            color: #ff7302;
+            text-shadow: none;
+            -webkit-transition: all 0.2s ease-out;
+            -moz-transition: all 0.2s ease-out;
+            -o-transition: all 0.2s ease-out;
+            -ms-transition: all 0.2s ease-out
+        }
+
+            .tp-caption a:hover {
+                color: #ffa902
+            }
+    </style>
+    <link rel="stylesheet" id="wsl-widget-css" href="~/Main/cssfile/style.css" type="text/css" media="all">
+    <link rel="stylesheet" id="base-css" href="~/Main/cssfile/base.css" type="text/css" media="screen, projection">
+    <link rel="stylesheet" id="headingFont-css" href="~/Main/cssfile/css(1).css" type="text/css" media="all">
+    <link rel="stylesheet" id="bodyFont-css" href="~/Main/cssfile/css(2).css" type="text/css" media="all">
+    <link rel="stylesheet" id="framework-css" href="~/Main/cssfile/responsive-gs-12col.css" type="text/css" media="screen, projection">
+
+
+    <link rel="stylesheet" id="layout-css" href="~/Main/cssfile/layout.css" type="text/css" media="screen, projection">
+    <link rel="stylesheet" id="ctFlexslider-css" href="~/Main/cssfile/flexslider.css" type="text/css" media="screen, projection">
+    <link rel="stylesheet" id="ctFlexsliderNav-css" href="~/Main/cssfile/flexslider-direction-nav.css" type="text/css" media="screen, projection">
+    <link rel="stylesheet" id="fontawesome-css" href="~/Main/cssfile/font-awesome.min.css" type="text/css" media="screen, projection">
+    <link rel="stylesheet" id="animate-css" href="~/Main/cssfile/animate.min.css" type="text/css" media="screen, projection">
+    <link rel="stylesheet" id="ctModal-css" href="~/Main/cssfile/ct-modal-overlay.css" type="text/css" media="screen, projection">
+    <link rel="stylesheet" id="ctSlidePush-css" href="~/Main/cssfile/ct-sp-menu.css" type="text/css" media="screen, projection">
+    <link rel="stylesheet" id="print-css" href="~/Main/cssfile/listing-print.css" type="text/css" media="print">
+    <link rel="stylesheet" id="ctLightbox-css" href="~/Main/cssfile/ct-lightbox.css" type="text/css" media="screen, projection">
+    <link rel="stylesheet" id="owlCarousel-css" href="~/Main/cssfile/owl-carousel.css" type="text/css" media="screen, projection">
+    <link rel="stylesheet" id="comments-css" href="~/Main/cssfile/comments.css" type="text/css" media="screen, projection">
+    <link rel="stylesheet" id="validationEngine-css" href="~/Main/cssfile/validationEngine.jquery.css" type="text/css" media="screen, projection">
+    <link rel="stylesheet" id="dropdowns-css" href="~/Main/cssfile/ct-dropdowns.css" type="text/css" media="screen, projection">
+    <link rel="stylesheet" id="ctNiceSelect-css" href="~/Main/cssfile/nice-select.css" type="text/css" media="screen, projection">
+    <link rel="stylesheet" id="ct-theme-style-css" href="~/Main/cssfile/style(1).css" type="text/css" media="screen, projection">
+    <link rel="stylesheet" id="ct_social_css-css" href="~/Main/cssfile/style(2).css" type="text/css" media="all">
+    <link rel="stylesheet" id="ionicons-style-css" href="~/Main/cssfile/ionicons.css" type="text/css" media="all">
+    <link rel="stylesheet" id="ra-style-css" href="~/Main/cssfile/style(3).css" type="text/css" media="all">
+    @*<script type="text/javascript" src="~/Main/js/jquery.js"></script>*@
+    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+    <script src="~/Scripts/bootstrap.js"></script>
+    <script type="text/javascript" src="~/Main/js/jquery-migrate.min.js"></script>
+    <script type="text/javascript">
+        /* <![CDATA[ */
+        var monsterinsights_frontend = { "js_events_tracking": "true", "download_extensions": "doc,exe,js,pdf,ppt,tgz,zip,xls", "inbound_paths": "[]", "home_url": "https:\/\/contempothemes.com\/wp-real-estate-7\/multi-three-demo", "hash_tracking": "false" };
+        /* ]]> */
+    </script>
+    <script type="text/javascript" src="~/Main/js/frontend.min.js"></script>
+    <script type="text/javascript" src="~/Main/js/Chart.min.js"></script>
+    <script type="text/javascript" src="~/Main/js/moment.min.js"></script>
+    <script type="text/javascript" src="~/Main/js/lightpick.js"></script>
+
+
+    <script type="text/javascript" src="~/Main/js/ct.advanced.search.js"></script>
+    <script type="text/javascript" src="~/Main/js/ct.lightbox.min.js"></script>
+    <script type="text/javascript" src="~/Main/js/owl.carousel.min.js"></script>
+    <script type="text/javascript" src="~/Main/js/ct.select.js"></script>
+    <script type="text/javascript" src="~/Main/js/jquery.nice-select.min.js"></script>
+
+
+    <script>
+        jQuery(window).load(function () {
+            jQuery('#carousel').flexslider({
+                animation: "slide",
+                controlNav: false,
+                animateHeight: true,
+                directionNav: true,
+                animationLoop: false,
+                slideshow: "true",
+                slideshowSpeed: 7000,
+                animationDuration: 600,
+                itemWidth: 120,
+                itemMargin: 0,
+                asNavFor: '#slider'
+            });
+
+            jQuery('#slider').flexslider({
+                animation: "fade",
+                slideDirection: "horizontal",
+                slideshow: "true",
+                slideshowSpeed: 7000,
+                animationDuration: 600,
+                smoothHeight: true,
+                controlNav: false,
+                animationLoop: false,
+                slideshow: false,
+                sync: "#carousel"
+            });
+
+            // Slider for Testimonails
+            jQuery('.flexslider').flexslider({
+                animation: "fade",
+                slideDirection: "horizontal",
+                slideshow: "true",
+                slideshowSpeed: 7000,
+                animationDuration: 600,
+                controlNav: false,
+                directionNav: true,
+                keyboardNav: true,
+                randomize: false,
+                pauseOnAction: true,
+                pauseOnHover: false,
+                animationLoop: true
+            });
+        });
+
+        jQuery(document).ready(function () {
+            jQuery("#listingscontact").validationEngine({
+                ajaxSubmit: true,
+                ajaxSubmitFile: "https://contempothemes.com/wp-real-estate-7/multi-three-demo/wp-content/themes/realestate-7/includes/ajax-submit-listings.php",
+                ajaxSubmitMessage: "Thanks, we&#039;ll be getting back to you shortly!",
+                success: false,
+                failure: function () { }
+            });
+            jQuery('.gallery-item').magnificPopup({
+                type: 'image',
+                gallery: {
+                    enabled: true
+                }
+            });
+        });
+    </script>
+
+
+    <style type="text/css">
+        h1, h2, h3, h4, h5, h6 {
+            font-family: "Montserrat";
+        }
+
+        body, .slider-wrap, input[type="submit"].btn {
+            font-family: "Lato";
+        }
+
+        .fa-close:before {
+            content: "\f00d";
+        }
+
+        .hero-search {
+            background: url() no-repeat center center;
+            background-size: cover;
+            padding-top: 15%;
+            padding-bottom: 15%;
+        }
+
+        .search-listings #map-wrap {
+            margin-bottom: 0;
+            background-color: #fff;
+        }
+
+        span.map-toggle, span.search-toggle {
+            border-bottom-right-radius: 3px;
+        }
+
+        span.searching {
+            border-bottom-left-radius: 3px;
+        }
+
+        .form-group {
+            width: 49.0%;
+        }
+    </style>
+    <style type="text/css">
+        .home #map-wrap,
+        .home .testimonials {
+            margin: 0;
+        }
+
+        li.listing.minimal .location {
+            color: #f1f1f1 !important;
+        }
+
+        .page-template-template-demo-home-listings-slider #header-wrap {
+            z-index: 999999;
+            background: none;
+        }
+
+        .page-template-template-demo-home-listings-slider #topbar-wrap,
+        .page-template-template-demo-home-listings-slider #header-search-wrap {
+            display: none;
+        }
+
+        .page-template-template-demo-home-listings-slider-content #main-content {
+            position: relative;
+            top: -149px;
+        }
+
+        .page-id-2611 #main-content {
+            margin-bottom: -48px !important;
+            background: #000;
+        }
+
+        .hero-search h1, .hero-search h2 {
+            text-shadow: 0px 0px 20px #777;
+        }
+
+        .page-builder-three {
+            padding: 3% 0 6% 0;
+            background: url('https://contempothemes.com/wp-real-estate-7/images/street-map.png');
+            background-size: cover;
+            text-align: center;
+        }
+
+            .page-builder-three h3 {
+                margin-bottom: 0;
+                text-transform: uppercase;
+                color: #fff;
+                font-weight: 800;
+            }
+
+            .page-builder-three p.lead {
+                margin-bottom: 3%;
+            }
+
+        .page-id-1211 .wpb_button, .wpb_content_element, ul.wpb_thumbnails-fluid > li {
+            margin-bottom: 0;
+        }
+
+        .page-id-1211 h4 {
+            color: #fff;
+        }
+
+        #compare-list aside {
+            border-top-right-radius: 0;
+            border-bottom-right-radius: 0;
+        }
+
+        [data-tooltip]:before {
+            position: absolute;
+            bottom: 120%;
+            left: 115%;
+            margin-bottom: 5px;
+            margin-left: -60px;
+            padding: 7px;
+            width: 60px;
+            -webkit-border-radius: 3px;
+            -moz-border-radius: 3px;
+            border-radius: 3px;
+            background-color: #000;
+            background-color: hsla(0, 0%, 0%, 0.9);
+            color: #fff;
+            content: attr(data-tooltip);
+            text-align: center;
+            font-size: 10px;
+            text-transform: uppercase;
+            line-height: 1.2;
+        }
+
+        [data-tooltip]:after {
+            position: absolute;
+            bottom: 120%;
+            left: 50%;
+            margin-left: -5px;
+            width: 0;
+            border-top: 5px solid #000;
+            border-top: 5px solid hsla(0, 0%, 0%, 0.9);
+            border-right: 5px solid transparent;
+            border-left: 5px solid transparent;
+            content: " ";
+            font-size: 0;
+            line-height: 0;
+        }
+
+        h2.wpb_video_heading {
+            font-size: 1.35em;
+            text-align: center;
+            border: 1px solid #d5d9dd;
+            border-top-right-radius: 3px;
+            border-top-left-radius: 3px;
+            background: #efefef;
+            margin: 0;
+            padding: 32px 0;
+        }
+
+        .wpb_video_widget .wpb_video_wrapper {
+            background: #ccc;
+        }
+
+        #page .vc_cta3-style-classic {
+            margin-top: 10%;
+        }
+
+        ul.propfeatures.col.span_6 {
+            list-style: none;
+        }
+
+        ul.attachments.col.span_4 {
+            list-style: none;
+        }
+
+        @@media only screen and (max-width: 479px) {
+            #advanced_search.header-search select {
+                width: 100% !important;
+            }
+        }
+    </style>
+
+    <style type="text/css">
+        @@-webkit-keyframes _gm797 {
+            0% {
+                -webkit-transform: translate3d(0px,-500px,0);
+                -webkit-animation-timing-function: ease-in;
+            }
+
+            50% {
+                -webkit-transform: translate3d(0px,0px,0);
+                -webkit-animation-timing-function: ease-out;
+            }
+
+            75% {
+                -webkit-transform: translate3d(0px,-20px,0);
+                -webkit-animation-timing-function: ease-in;
+            }
+
+            100% {
+                -webkit-transform: translate3d(0px,0px,0);
+                -webkit-animation-timing-function: ease-out;
+            }
+        }
+
+        .navbar-inverse {
+            background-color: #29333d;
+            border-color: #29333d;
+        }
+    </style>
+    <link rel="icon" href="~/img/icon.png" type="image/x-icon" />
+</head>
+
+<body id="single" class="listings-template-default single single-listings postid-1792 cbp-spmenu-push listings-one wpb-js-composer js-comp-ver-5.7 vc_responsive">
+
+
+
+
+    <!-- Wrapper -->
+    <div id="wrapper">
+
+        <div id="masthead-anchor"></div>
+
+     
+        <partial name="_Menu" />
+
+        <div class="clear"></div>
+
+
+        <!-- Main Content -->
+        @RenderBody()
+
+        <partial name="_Footer" />
+
+
+
+
+
+    </div>
+      
+        <script type="text/javascript" src="~/Main/js/aq-style-switcher.js"></script>
+        <script type="text/javascript" src="~/Main/js/jquery.cookie.js"></script>
+        <script type="text/javascript">
+          
+        </script>
+        <script type="text/javascript" src="~/Main/js/downloads.min.js"></script>
+        <script type="text/javascript">
+          
+        </script>
+        <script type="text/javascript" src="~/Main/js/scripts.js"></script>
+        <script type="text/javascript">
+          
+        </script>
+        <script type="text/javascript" src="~/Main/js/save-remove-search.js"></script>
+        <script type="text/javascript" src="~/Main/js/calc.js"></script>
+        <script type="text/javascript" src="~/Main/js/core.min.js"></script>
+        <script type="text/javascript" src="~/Main/js/widget.min.js"></script>
+        <script type="text/javascript" src="~/Main/js/mouse.min.js"></script>
+        <script type="text/javascript" src="~/Main/js/slider.min.js"></script>
+        <script type="text/javascript" src="~/Main/js/ct.search.sliders.js"></script>
+        <script type="text/javascript" src="~/Main/js/jquery.ui.touch-punch.min.js"></script>
+        @*<script type="text/javascript" src="~/Main/js/ct.mobile.menu.js"></script>*@
+        <script type="text/javascript" src="~/Main/js/ct.wpfp.js"></script>
+        <script type="text/javascript" src="~/Main/js/js.cookie.js"></script>
+        <script type="text/javascript" src="~/Main/js/jquery.fitvids.js"></script>
+        <script type="text/javascript" src="~/Main/js/jquery.cycle.lite.js"></script>
+        <script type="text/javascript" src="~/Main/js/jquery.flexslider-min.js"></script>
+        <script type="text/javascript" src="~/Main/js/waypoints.min.js"></script>
+        <script type="text/javascript" src="~/Main/js/modernizr.custom.js"></script>
+        <script type="text/javascript" src="~/Main/js/classie.js"></script>
+        <script type="text/javascript" src="~/Main/js/jquery.hammer.min.js"></script>
+        <script type="text/javascript" src="~/Main/js/toucheffects.js"></script>
+      
+        <script type="text/javascript" src="~/Main/js/base.js"></script>
+        <script type="text/javascript" src="~/Main/js/ct.account.js"></script>
+     
+        <script type="text/javascript" src="~/Main/js/jquery.validationEngine.js"></script>
+        <script type="text/javascript" src="~/Main/js/underscore.min.js"></script>
+        
+        <script type="text/javascript" src="~/Main/js/frontend.js"></script>
+        <script type="text/javascript" src="~/Main/js/wp-embed.min.js"></script>
+        <script type="text/javascript" src="~/Main/js/position.min.js"></script>
+        <script type="text/javascript" src="~/Main/js/menu.min.js"></script>
+        <script type="text/javascript" src="~/Main/js/wp-sanitize.min.js"></script>
+        <script type="text/javascript" src="~/Main/js/wp-a11y.min.js"></script>
+     
+
+ 
+</body>
+</html>
+
+

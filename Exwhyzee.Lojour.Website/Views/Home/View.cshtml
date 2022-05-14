@@ -1,0 +1,48 @@
+﻿@using Exwhyzee.Lojour.Website.Views.Shared.ViewComponents
+@model IEnumerable<Exwhyzee.Lojour.Application.EstateProperties.Dto.EstatePropertyDto>
+
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="container flashdeals-entry container-radius" data-limit="5" data-link="" data-spm="15001" data-widgetid="5547389" id="redesign-flash-deals" data-widget-cid="widget-19" data-spm-max-idx="6">
+    <div class="title-container">
+        <a class="hot-zone" data-role="hot-zone" href="" data-spm-anchor-id="">&nbsp;</a>
+
+        <div class="title-info">
+            <i class="iconfont icon-channel-flashdeals">&nbsp;</i>
+
+            <h3>Flash Deals</h3>
+        </div>
+        <span class="view-more">View more</span>
+    </div>
+
+    <div data-role="product-container">
+        <ul class="product-list  util-clearfix flex-horizontal flex-wrap">
+            @foreach (var item in Model)
+            {
+                <li class="product-item">
+                    <a href="#" data-spm-anchor-id="">
+                        <div class="item-box">
+                            <div class="img-wrapper flex justify-center align-items-center" data-spm-anchor-id="">
+                                @await Component.InvokeAsync("ImageFetcher", new { propertyId = item.Id })
+                            </div>
+                            <div class="pro-price">
+                                <p>@item.PropertyName</p>
+                            </div>
+                            <div class="pro-price">
+                                <span class="current-price util-left">@item.Amount</span>
+                                <span class="discount">@Html.DisplayFor(model => item.VerificationStatus)</span>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+            }
+
+
+        </ul>
+    </div>
+</div>
+
+

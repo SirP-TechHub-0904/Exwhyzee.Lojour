@@ -1,0 +1,65 @@
+﻿@page
+@model Exwhyzee.Lojour.Website.Areas.GeneralLocation.Pages.State.IndexModel
+@{
+    ViewData["Title"] = "State Management";
+
+    Layout = "~/Views/Shared/_APanelLayout.cshtml";
+}
+
+<!-- page content -->
+<div class="row">
+    <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="x_panel table-responsive">
+            <div class="x_title">
+                <h2>States </h2>
+
+
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content table-responsive">
+
+
+                <table class="table dataTable table-striped jambo_table bulk_action" border="1" id="table">
+                    <thead>
+                        <tr class="headings">
+                            <th class="column-title">S/N </th>
+                            <th class="column-title">Name </th>
+                            
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @{
+                            int sno = 0;
+                        }
+                       
+                                  
+                              
+                                @foreach (var item in Model.Data.Source)
+                                {
+                                <tr class="even pointer">
+                                    <td>
+                                        @{ sno++; }
+                                        @sno
+                                    </td>
+                                    <td>@item.Name</td>
+                                  
+
+                                   
+
+                                </tr>
+                            }
+
+                            </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- /page content -->
+@section scripts{
+    <script type="text/javascript">
+        $("table").DataTable();
+    </script>
+}

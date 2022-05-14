@@ -1,0 +1,41 @@
+﻿@model Exwhyzee.Lojour.Application.RequestProperties.Dto.RequestPropertyDto
+
+@{
+    ViewData["Title"] = "Submitted";
+}
+
+<section id="main-content">
+    <style type="text/css">
+        #single-header {
+            background: url(/img/big-image.jpg) no-repeat center center;
+            background-size: cover;
+        }
+    </style>
+    <!-- Single Header -->
+    <div id="single-header">
+        <div class="dark-overlay">
+            <div class="container">
+                <h1 class="marT0 marB0">Request Successful</h1>
+                <h2 class="marT0 marB0">The Top in the Country</h2>
+            </div>
+        </div>
+    </div>
+    <!-- //Single Header -->
+
+    <div class="container marT60 padB60">
+        <article class="listing col span_12 first marB60">
+
+          
+
+            <div class="must-be-logged-in">
+            <h4 class="center marB20">You request Id</h4>
+            <p class="center login-register-btn marB0"><a class="btn login-register" href="#">@Html.DisplayFor(model => model.RequestId)</a></p></div>
+
+
+            <div class="clear"></div>
+
+        </article>
+    </div>
+    </section>
+
+        

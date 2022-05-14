@@ -1,0 +1,63 @@
+﻿@model IEnumerable<Exwhyzee.Lojour.Application.EstateProperties.Dto.EstatePropertyDto>
+   
+    <div class="row">
+        <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
+           
+            <div class="tile-stats" style="background-color:#00cd9b;color:#fff;font-weight:400;">
+                <div class="icon">
+                    <i class="fa fa-home" style="color:#fff !important;"></i>
+                </div>
+                <div class="count"> @Model.Where(x => x.DescriptiveStatus == Exwhyzee.Enums.DescriptiveStatus.ForRent).Count() </div>
+
+                <h3 style="color:#fff !important;">For Rent</h3>
+                <p class="text-center">
+                    <a class="btn btn-success btn-xs"><i class="fa fa-history"></i> Property </a>
+
+                </p>
+            </div>
+        </div>
+        <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
+            <div class="tile-stats" style="background-color:#39478f;color:#fff;font-weight:400;">
+                <div class="icon">
+                    <i class="fa fa-home" style="color:#fff !important;"></i>
+                </div>
+                <div class="count"> @Model.Where(x => x.DescriptiveStatus == Exwhyzee.Enums.DescriptiveStatus.ForSale).Count() </div>
+
+                <h3 style="color:#fff !important;">For Sale</h3>
+                <p class="text-center">
+
+                    <a class="btn btn-success btn-xs"><i class="fa fa-history"></i> Property </a>
+
+                </p>
+            </div>
+        </div>
+        <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
+            <div class="tile-stats" style="background-color:#f66c81;color:#fff;font-weight:400;">
+                <div class="icon">
+                    <i class="fa fa-home" style="color:#fff !important;"></i>
+                </div>
+                <div class="count"> @Model.Where(x => x.DescriptiveStatus == Exwhyzee.Enums.DescriptiveStatus.ShortLet).Count() </div>
+
+                <h3 style="color:#fff !important;">For Lease</h3>
+                <p class="text-center">
+                    <a class="btn btn-success btn-xs">Property</a>
+
+                </p>
+            </div>
+        </div>
+        <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
+            <div class="tile-stats" style="background-color:#ffaf00;color:#fff;font-weight:400;">
+                <div class="icon">
+                    <i class="fa fa-home" style="color:#fff !important;"></i>
+                </div>
+                <div class="count">0</div>
+
+                <h3 style="color:#fff !important;">Sold</h3>
+                <p class="text-center">
+                    <a class="btn btn-success btn-xs"><i class="fa fa-home"></i> Property </a>
+
+                </p>
+            </div>
+        </div>
+
+    </div>

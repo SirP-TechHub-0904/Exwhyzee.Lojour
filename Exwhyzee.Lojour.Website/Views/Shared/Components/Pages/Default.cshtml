@@ -1,0 +1,32 @@
+﻿@model IEnumerable<Exwhyzee.Lojour.Core.Page.PageData>
+
+
+
+<aside id="ct_latest-2" class="widget col span_3 widget_ct_latest">
+    <h5>Navigation</h5>
+    <ul class="contact-info" style="margin:0;">
+        <li class=""><a href="@Url.Action("Contact", "Home")"> <i class="fa fa-arrow-right"></i> Contact Us </a></li>
+
+        @foreach (var i in Model.OrderByDescending(x => x.Id).Take(4))
+        {
+            <li class=""><a href="@Url.Action("WebPage", "Home", new { id = i.Id, title = i.Title })"> <i class="fa fa-arrow-right"></i> @i.Title </a></li>
+        }
+
+    </ul>
+</aside>
+<aside id="ct_latest-2" class="widget col span_3 widget_ct_latest">
+    <h5 style="color:#343d47 !important;">.</h5>
+    <ul class="contact-info" style="margin:0;">
+        <li class=""><a href="@Url.Action("FindAHome", "Property")"> <i class="fa fa-arrow-right"></i> Find A Home </a></li>
+
+        <li class=""><a href="@Url.Action("SiteMap", "Property")"> <i class="fa fa-arrow-right"></i> Site Map </a></li>
+
+        @foreach (var i in Model.OrderByDescending(x => x.Id).Skip(5).Take(3))
+        {
+            <li class=""> <a href="@Url.Action("WebPage", "Home", new { id = i.Id, title = i.Title })"> <i class="fa fa-arrow-right"></i> @i.Title </a></li>
+
+        }
+
+
+    </ul>
+</aside>

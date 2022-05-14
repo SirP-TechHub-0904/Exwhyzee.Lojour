@@ -1,0 +1,84 @@
+﻿@page
+@model Exwhyzee.Lojour.Web.Areas.GeneralLocation.Pages.Kindred.IndexModel
+@{
+    ViewData["Title"] = "Kindred Management";
+
+    Layout = "~/Views/Shared/_APanelLayout.cshtml";
+}
+
+<!-- page content -->
+<div class="row">
+    <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="x_panel table-responsive">
+            <div class="x_title">
+                <h2>Kindred </h2>
+                <a class="btn btn-sm btn-primary" asp-page="/Kindred/NewKindred"> Add a Kindred</a>
+
+
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content table-responsive">
+
+
+                <table class="table dataTable table-striped jambo_table bulk_action" border="1" id="table">
+                    <thead>
+                        <tr class="headings">
+                            <th class="column-title">S/N </th>
+                            <th class="column-title">Kindred </th>
+                            <th class="column-title">Community </th>
+                            <th class="column-title"></th>
+
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @{
+                            int sno = 0;
+                        }
+
+
+
+                        @foreach (var item in Model.Data.Source)
+                        {
+                        <tr class="even pointer">
+                            <td>
+                                @{ sno++; }
+                                @sno
+                            </td>
+                            <td>@item.Name</td>
+                            <td>@item.Community</td>
+                            
+                            <td>
+
+                                <div class="dropdown">
+                                    <button class="btn btn-primary btn-xs dropdown-toggle" type="button" data-toggle="dropdown">
+                                        Action
+                                        <span class="caret"></span>
+                                    </button>
+                                    <ul class="dropdown-menu" style="max-width:none !important;">
+
+                                        <li>
+                                            <a asp-page="./Delete" style="padding:3px 5px !important;" asp-route-id="@item.Id">Delete</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </td>
+
+
+
+                        </tr>
+                        }
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- /page content -->
+@section scripts{
+    <script type="text/javascript">
+        $("table").DataTable();
+    </script>
+}

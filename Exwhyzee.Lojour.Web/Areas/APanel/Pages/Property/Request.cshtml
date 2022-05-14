@@ -1,0 +1,91 @@
+﻿@page
+@model Exwhyzee.Lojour.Web.Areas.APanel.Pages.Property.RequestModel
+@{
+    ViewData["Title"] = "Property Request";
+
+    Layout = "/Views/Shared/_ClientLayout.cshtml";
+}
+
+
+<!-- page content -->
+<div class="row">
+    <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="x_panel table-responsive">
+            <div class="x_title">
+                <h2>Property Request  </h2>
+               
+                  
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content table-responsive">
+
+
+                <table class="table dataTable table-striped jambo_table bulk_action" border="1" id="table">
+                    <thead>
+                        <tr class="headings">
+                            <th class="column-title">S/N </th>
+
+                            <th class="column-title">Date Added </th>
+                            <th class="column-title">Property Name </th>
+                            <th class="column-title">Email </th>
+                            <th class="column-title">Property Type </th>
+                            <th class="column-title">Category </th>
+                            <th class="column-title">Amount </th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @{
+                            int sno = 0;
+                        }
+                        @foreach (var item in Model.Property.Source)
+                        {
+                        <tr class="even pointer">
+
+                            <td>
+                                @{ sno++; }
+                                @sno
+                            </td>
+                            <td>@item.DateCreated.ToString("ddd dd MMM, yyyy")</td>
+                            <td>@item.PropertyName </td>
+                            <td>@item.Email </td>
+                            <td>@item.ListType</td>
+                            <td>@item.Category</td>
+                            <td>@item.AmountRange</td>
+                           
+                            <td>
+
+                                <div class="dropdown">
+                                    <button class="btn btn-primary btn-xs dropdown-toggle" type="button" data-toggle="dropdown">
+                                        Action
+                                        <span class="caret"></span>
+                                    </button>
+                                    <ul class="dropdown-menu" style="max-width:none !important;">
+
+                                        <li>
+                                            <a asp-page="./DetailsRequest" style="padding:3px 5px !important;" asp-route-id="@item.Id">Details</a>
+                                        </li>
+                                        <li>
+                                            <a asp-page="./EditRequest" style="padding:3px 5px !important;" asp-route-id="@item.Id">Edit</a>
+                                        </li>
+                                      
+                                       
+                                    </ul>
+                                </div>
+                            </td>
+                        </tr>
+                        }
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- /page content -->
+@section scripts{
+    <script type="text/javascript">
+        $("table").DataTable();
+    </script>
+}

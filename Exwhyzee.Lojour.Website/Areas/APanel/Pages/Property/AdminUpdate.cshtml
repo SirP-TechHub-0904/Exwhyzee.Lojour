@@ -1,0 +1,248 @@
+﻿@page "{id:int?}"
+@model Exwhyzee.Lojour.Website.Areas.APanel.Pages.Property.AdminUpdateModel
+@{
+
+    ViewData["Title"] = "Edit Property";
+
+    Layout = "/Views/Shared/_ClientLayout.cshtml";
+
+}
+
+@if (TempData["error"] != null)
+{
+    <div class="alert alert-danger alert-dismissible" role="alert">
+        <p>@TempData["error"]</p>
+    </div>
+}
+<!-- page content -->
+<div class="row">
+    <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="x_panel">
+            <div class="x_title">
+                <h2>Admin Edit Property <small></small></h2>
+
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+                <form class="form-horizontal form-label-left" method="post" novalidate>
+                    <div class="row">
+                        <!--Raffle Properties-->
+                        <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
+                            <div class="item form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">
+                                    Name <span class="required">*</span>
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <input id="name" class="form-control col-md-7 col-xs-12" asp-for="Data.PropertyName" name="Data.PropertyName" placeholder="Enter name of property" autofocus required="required" type="text">
+                                </div>
+                            </div>
+
+                            <div class="item form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="textarea">
+                                    Description <span class="required">*</span>
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <textarea rows="5" id="description" placeholder="Provide a description about this property" asp-for="Data.Description" required="required" name="Data.Description" class="form-control col-md-7 col-xs-12"></textarea>
+                                </div>
+                            </div>
+
+                            <div class="item form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">
+                                    Longitude
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <input id="name" class="form-control col-md-7 col-xs-12" asp-for="Data.Longitude" name="Data.Longitude" placeholder="Enter Longitude of the property" autofocus type="text">
+                                </div>
+                            </div>
+                            <div class="item form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">
+                                    Latitude
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <input id="name" class="form-control col-md-7 col-xs-12" asp-for="Data.Latitude" name="Data.Latitude" placeholder="Enter Latitude of the property" autofocus type="text">
+                                </div>
+                            </div>
+                            <div class="item form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="pricePerTicket">
+                                    Price <span class="required">*</span>
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <input id="" asp-for="Data.Amount" name="Data.Amount" placeholder="Enter Price" class="optional form-control col-md-7 col-xs-12">
+                                </div>
+                            </div>
+                            <div class="item form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="textarea">
+                                    Property Document <span class="required">*</span>
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <textarea rows="5" id="description" placeholder="Provide the profile of this property" asp-for="Data.PropertyProfile" required="required" name="Data.PropertyProfile" class="form-control col-md-7 col-xs-12"></textarea>
+                                </div>
+                            </div>
+                            <div class="item form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">
+                                    Type of Property <span class="required"> (@Model.Data.PropertyType)</span>
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <select class="form-control col-md-7 col-xs-12" asp-for="Data.PropertyType" name="Data.PropertyType" placeholder="Enter the type property">
+
+                                        <option value="Commercial Property">Commercial Property</option>
+                                        <option value="Service Apartment">Service Apartment</option>
+                                        <option value="Flats & Apartments">Flats & Apartments</option>
+                                        <option value="Land">Land</option>
+                                        <option value="Offices">Offices</option>
+                                        <option value="Warehouses">Warehouses</option>
+                                        <option value="Shops">Shops</option>
+                                        <option value="Hotels">Hotels</option>
+                                        <option value="Houses">Houses</option>
+                                        <option value="Block Of Flats">Block Of Flats</option>
+                                        <option value="Duplexes">Duplexes</option>
+                                        <option value="Townhouses">Townhouses</option>
+                                        <option value="Bungalows">Bungalows</option>
+                                        <option value="Terraces">Terraces</option>
+                                        <option value="Rooms & Boys Quarters">Rooms & Boys Quarters</option>
+
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="item form-group">
+                                <label for="sortOrder" class="control-label col-md-3">Sort Order</label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <input id="sortOrder" type="number" asp-for="Data.SortOrder" name="Data.SortOrder" placeholder="sort order" class="form-control col-md-7 col-xs-12" required="required">
+                                </div>
+                            </div>
+                            <div class="item form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="telephone">
+                                    Property Status <span class="required">*</span>
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    @Html.DropDownListFor(model => model.Data.PropertyStatus, new SelectList(Enum.GetValues(typeof(Exwhyzee.Enums.PropertyStatus))), new { @class = "form-control col-md-7 col-xs-12" })
+                                </div>
+                            </div>
+                            <div class="item form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="telephone">
+                                    Position in Home <span class="required">*</span>
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    @Html.DropDownListFor(model => model.Data.HomeLocation, new SelectList(Enum.GetValues(typeof(Exwhyzee.Enums.HomeLocation))), new { @class = "form-control col-md-7 col-xs-12" })
+                                </div>
+                            </div>
+                            <div class="item form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="telephone">
+                                    Verification Status <span class="required">*</span>
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    @Html.DropDownListFor(model => model.Data.VerificationStatus, new SelectList(Enum.GetValues(typeof(Exwhyzee.Enums.VerificationStatus))), new { @class = "form-control col-md-7 col-xs-12" })
+                                </div>
+                            </div>
+                            <div class="item form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="telephone">
+                                    Verification Status <span class="required">*</span>
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    @Html.DropDownListFor(model => model.Data.DescriptiveStatus, new SelectList(Enum.GetValues(typeof(Exwhyzee.Enums.DescriptiveStatus))), new { @class = "form-control col-md-7 col-xs-12" })
+                                </div>
+                            </div>
+
+                            <div class="item form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">
+                                    Address
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <input id="name" class="form-control col-md-7 col-xs-12" asp-for="Data.PropertyAddress" name="Data.PropertyAddress" placeholder="Address" autofocus type="text">
+                                </div>
+                            </div>
+                            <div class="item form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="category">
+                                    Change State <span class="required">(old) @Model.Data.State</span>
+                                </label>
+
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <select class="form-control selectpicker" id="State" asp-for="Data.State" name="Data.State" data-live-search="true" asp-items="@(new SelectList(Model.State, "Name", "Name"))">
+                                        <option value="" disabled selected>Select the State</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="item form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">
+                                    Change LGA <span class="required">(old) @Model.Data.LGA</span>
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <select name="Data.LGA" id="LGA" class="form-control col-md-7 col-xs-12" required="" placeholder="L.G.A in which property is located"></select>
+                                </div>
+                            </div>
+                            <div class="item form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">
+                                    Community
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <input id="name" class="form-control col-md-7 col-xs-12" asp-for="Data.Community" name="Data.Community" placeholder="community in which property is located" autofocus type="text">
+                                </div>
+                            </div>
+                            <div class="item form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">
+                                    Kinderd
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <input id="name" class="form-control col-md-7 col-xs-12" asp-for="Data.Kindred" name="Data.Kindred" placeholder="Kindred in which property is located" autofocus type="text">
+                                </div>
+                            </div>
+
+                        </div>
+
+
+                    </div>
+                    <div class="ln_solid"></div>
+                    <div class="form-group">
+                        <div class="col-md-6 col-md-offset-3">
+                           
+                            <button type="button" class="btn btn-primary" asp-route="/Property/Index">Cancel</button>
+                            <button id="submit" type="submit" class="btn btn-success">Submit</button>
+                        </div>
+                    </div>
+                </form>
+
+
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- /page content -->
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+    <script type="text/jscript">
+        $(function () {
+            $('#State').change(function () {
+
+                var fruits = ["apple", "orange", "cherry"];
+                fruits.forEach(myFunction);
+                var res = "";
+                function myFunction(item, index) {
+                    res += index + ":" + item + "<br>";
+                }
+                console.log(res);
+                $.getJSON('/Home/LGAList/', {
+                    name: $('#State').val()
+                }, function (data) {
+
+                    var items = '<option>Choose LGA in the State</option>';
+                    $.each(jQuery.map(data, function (i, local) {
+                        items += "<option value='" + i.value + "'>" + i.text + "</option>";
+
+                    }));
+                    items += '<option value="None">Not Listed</option>';
+
+                    console.log(data);
+                    console.log("jd");
+                    console.log(data.data);
+
+                    console.log(items);
+                    $('#LGA').html(items);
+                });
+            });
+        });
+    </script>
+}

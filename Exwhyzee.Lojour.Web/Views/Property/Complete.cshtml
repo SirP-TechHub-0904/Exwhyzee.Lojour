@@ -1,0 +1,46 @@
+﻿@model Exwhyzee.Lojour.Core.Tour.TourModel
+
+@{
+    ViewData["Title"] = "Complete";
+}
+
+<section id="main-content">
+    <style type="text/css">
+        #single-header {
+            background: url(/img/big-image.jpg) no-repeat center center;
+            background-size: cover;
+        }
+    </style>
+    <!-- Single Header -->
+    <div id="single-header">
+        <div class="dark-overlay">
+            <div class="container">
+                <h1 class="marT0 marB0">Complete Request Tour</h1>
+                <h2 class="marT0 marB0">The Top in the Country</h2>
+            </div>
+        </div>
+    </div>
+    <!-- //Single Header -->
+
+    <div class="container marT60 padB60">
+
+
+        <aside id="ct_contactinfo-1" class="widget widget_ct_contactinfo">
+            <h5>Completion Detail <span style="font-weight:900;">ID: @Html.DisplayFor(model => model.TourId)</span></h5><div class="widget-inner">
+    <p class="marB15">Make Payment for Tour Expenses</p>
+    <ul class="contact-info">
+        <li class="company-address">
+            <i class="fa fa-money"></i> Amount: &#8358;5,000<br>
+
+
+        </li>
+        <li class="company-phone"><i class="fa fa-bank"></i> Account Number: 9900990009</li>
+        <li class="company-phone"><i class="fa fa-bank"></i> Bank Name: Access Bank</li>
+        <li class="company-phone"><i class="fa fa-bank"></i> Account Name: Lojour Company</li>
+    </ul>
+
+    <span style="font-weight:900;">Note: </span> Text your Id, Full Name, Email to 07060530000 after making payment
+</div>
+        </aside>
+    </div>
+</section>

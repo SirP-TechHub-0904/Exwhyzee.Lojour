@@ -1,0 +1,304 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <Name>Exwhyzee.Lojour.Database</Name>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectVersion>4.1</ProjectVersion>
+    <ProjectGuid>{7493dc23-2bf6-4db2-8764-a73338e9ff82}</ProjectGuid>
+    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql120DatabaseSchemaProvider</DSP>
+    <OutputType>Database</OutputType>
+    <RootPath>
+    </RootPath>
+    <RootNamespace>Exwhyzee.Lojour.Database</RootNamespace>
+    <AssemblyName>Exwhyzee.Lojour.Database</AssemblyName>
+    <ModelCollation>1033,CI</ModelCollation>
+    <DefaultFileStructure>BySchemaAndSchemaType</DefaultFileStructure>
+    <DeployToDatabase>True</DeployToDatabase>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <TargetLanguage>CS</TargetLanguage>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <SqlServerVerification>False</SqlServerVerification>
+    <IncludeCompositeObjects>True</IncludeCompositeObjects>
+    <TargetDatabaseSet>True</TargetDatabaseSet>
+    <DefaultCollation>SQL_Latin1_General_CP1_CI_AS</DefaultCollation>
+    <DefaultFilegroup>PRIMARY</DefaultFilegroup>
+    <CompatibilityMode>110</CompatibilityMode>
+    <RecursiveTriggersEnabled>True</RecursiveTriggersEnabled>
+    <AutoUpdateStatisticsAsynchronously>True</AutoUpdateStatisticsAsynchronously>
+    <IncludeSchemaNameInFileName>False</IncludeSchemaNameInFileName>
+    <GenerateCreateScript>True</GenerateCreateScript>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">11.0</VisualStudioVersion>
+    <!-- Default to the v11.0 targets path if the targets file for the current VS version is not found -->
+    <SSDTExists Condition="Exists('$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets')">True</SSDTExists>
+    <VisualStudioVersion Condition="'$(SSDTExists)' == ''">11.0</VisualStudioVersion>
+  </PropertyGroup>
+  <Import Condition="'$(SQLDBExtensionsRefPath)' != ''" Project="$(SQLDBExtensionsRefPath)\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <Import Condition="'$(SQLDBExtensionsRefPath)' == ''" Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <ItemGroup>
+    <Folder Include="Properties" />
+    <Folder Include="dbo" />
+    <Folder Include="dbo\Stored Procedures" />
+    <Folder Include="dbo\Stored Procedures\Community" />
+    <Folder Include="dbo\Stored Procedures\HelpfulReview" />
+    <Folder Include="dbo\Stored Procedures\Kindred" />
+    <Folder Include="dbo\Stored Procedures\LGA" />
+    <Folder Include="dbo\Stored Procedures\Property" />
+    <Folder Include="dbo\Stored Procedures\PropertyFeatures" />
+    <Folder Include="dbo\Stored Procedures\PropertyImage" />
+    <Folder Include="dbo\Stored Procedures\PropertyLandMark" />
+    <Folder Include="dbo\Stored Procedures\PropertyRating" />
+    <Folder Include="dbo\Stored Procedures\SliderImage" />
+    <Folder Include="dbo\Stored Procedures\State" />
+    <Folder Include="dbo\Stored Procedures\User" />
+    <Folder Include="dbo\Tables" />
+    <Folder Include="dbo\Stored Procedures\BarnerImage" />
+    <Folder Include="dbo\Stored Procedures\Pages" />
+    <Folder Include="dbo\Stored Procedures\RequestProperty" />
+    <Folder Include="dbo\Stored Procedures\Tour" />
+    <Folder Include="dbo\Stored Procedures\UserProfile" />
+    <Folder Include="dbo\Stored Procedures\Experience" />
+    <Folder Include="dbo\Stored Procedures\EducationHistory" />
+    <Folder Include="dbo\Stored Procedures\RenderedService" />
+    <Folder Include="dbo\Stored Procedures\WorkHistory" />
+    <Folder Include="dbo\Stored Procedures\WorkImage" />
+    <Folder Include="dbo\Stored Procedures\MeritCertificate" />
+    <Folder Include="dbo\Stored Procedures\MeritCertificateFeature" />
+    <Folder Include="dbo\Stored Procedures\InterpersonalSkill" />
+    <Folder Include="dbo\Stored Procedures\Skill" />
+    <Folder Include="dbo\Stored Procedures\LanguageSpoken" />
+    <Folder Include="dbo\Stored Procedures\TrainingAndWorkShop" />
+    <Folder Include="dbo\Stored Procedures\DegreeObtained" />
+    <Folder Include="dbo\Stored Procedures\MembershipOfLearneredSociety" />
+    <Folder Include="dbo\Stored Procedures\Referee" />
+    <Folder Include="dbo\Stored Procedures\JobAnalysis" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="dbo\Stored Procedures\Community\spDeleteCommunity.sql" />
+    <Build Include="dbo\Stored Procedures\Community\spGetByIdCommunity.sql" />
+    <Build Include="dbo\Stored Procedures\Community\spInsertCommunity.sql" />
+    <Build Include="dbo\Stored Procedures\Community\spListAllCommunity.sql" />
+    <Build Include="dbo\Stored Procedures\Community\spListByLga.sql" />
+    <Build Include="dbo\Stored Procedures\HelpfulReview\spDeleteHelpfulReview.sql" />
+    <Build Include="dbo\Stored Procedures\HelpfulReview\spGetByIdHelpfulReview.sql" />
+    <Build Include="dbo\Stored Procedures\HelpfulReview\spInsertHelpfulReview.sql" />
+    <Build Include="dbo\Stored Procedures\HelpfulReview\spListAllHelpfulReview.sql" />
+    <Build Include="dbo\Stored Procedures\Kindred\spDeleteKindred.sql" />
+    <Build Include="dbo\Stored Procedures\Kindred\spGetByIdKindred.sql" />
+    <Build Include="dbo\Stored Procedures\Kindred\spInsertKindred.sql" />
+    <Build Include="dbo\Stored Procedures\Kindred\spListAllKindred.sql" />
+    <Build Include="dbo\Stored Procedures\Kindred\spListByCommunity.sql" />
+    <Build Include="dbo\Stored Procedures\LGA\spDeleteLGA.sql" />
+    <Build Include="dbo\Stored Procedures\LGA\spGetByIdLGA.sql" />
+    <Build Include="dbo\Stored Procedures\LGA\spInsertLGA.sql" />
+    <Build Include="dbo\Stored Procedures\LGA\spListAllLGA.sql" />
+    <Build Include="dbo\Stored Procedures\LGA\spListByState.sql" />
+    <Build Include="dbo\Stored Procedures\Property\spGetByIdProperty.sql" />
+    <Build Include="dbo\Stored Procedures\Property\spInsertProperty.sql" />
+    <Build Include="dbo\Stored Procedures\Property\spListAllProperties.sql" />
+    <Build Include="dbo\Stored Procedures\Property\spListAllPropertiesWithRatingAndBidding.sql" />
+    <Build Include="dbo\Stored Procedures\Property\spUpdateProperty.sql" />
+    <Build Include="dbo\Stored Procedures\PropertyFeatures\spDeletePropertyFeatures.sql" />
+    <Build Include="dbo\Stored Procedures\PropertyFeatures\spGetByIdPropertyFeatures.sql" />
+    <Build Include="dbo\Stored Procedures\PropertyFeatures\spInsertPropertyFeatures.sql" />
+    <Build Include="dbo\Stored Procedures\PropertyFeatures\spListAllPropertyFeatures.sql" />
+    <Build Include="dbo\Stored Procedures\PropertyImage\spDeletePropertyImage.sql" />
+    <Build Include="dbo\Stored Procedures\PropertyImage\spGetByIdPropertyImage.sql" />
+    <Build Include="dbo\Stored Procedures\PropertyImage\spInsertPropertyImage.sql" />
+    <Build Include="dbo\Stored Procedures\PropertyImage\spListAllPropertyImage.sql" />
+    <Build Include="dbo\Stored Procedures\PropertyImage\spUpdatePropertyImage.sql" />
+    <Build Include="dbo\Stored Procedures\PropertyLandMark\spDeletePropertyLandMark.sql" />
+    <Build Include="dbo\Stored Procedures\PropertyLandMark\spGetByIdPropertyLandMark.sql" />
+    <Build Include="dbo\Stored Procedures\PropertyLandMark\spInsertPropertyLandMark.sql" />
+    <Build Include="dbo\Stored Procedures\PropertyLandMark\spListAllPropertyLandMark.sql" />
+    <Build Include="dbo\Stored Procedures\PropertyRating\spDeletePropertyRating.sql" />
+    <Build Include="dbo\Stored Procedures\PropertyRating\spGetByIdPropertyRating.sql" />
+    <Build Include="dbo\Stored Procedures\PropertyRating\spInsertPropertyRating.sql" />
+    <Build Include="dbo\Stored Procedures\PropertyRating\spListAllPropertyRating.sql" />
+    <Build Include="dbo\Stored Procedures\SliderImage\spDeleteSliderImage.sql" />
+    <Build Include="dbo\Stored Procedures\SliderImage\spGetByIdSliderImage.sql" />
+    <Build Include="dbo\Stored Procedures\SliderImage\spInsertSliderImage.sql" />
+    <Build Include="dbo\Stored Procedures\SliderImage\spSliderImageListAll.sql" />
+    <Build Include="dbo\Stored Procedures\State\spDeleteState.sql" />
+    <Build Include="dbo\Stored Procedures\State\spGetByIdState.sql" />
+    <Build Include="dbo\Stored Procedures\State\spInsertState.sql" />
+    <Build Include="dbo\Stored Procedures\State\spListAllState.sql" />
+    <Build Include="dbo\Stored Procedures\User\spUserWithRoles.sql" />
+    <Build Include="dbo\Tables\AgentPropertyReview.sql" />
+    <Build Include="dbo\Tables\AgentRating.sql" />
+    <Build Include="dbo\Tables\Community.sql" />
+    <Build Include="dbo\Tables\HelpfulReview.sql" />
+    <Build Include="dbo\Tables\Kindred.sql" />
+    <Build Include="dbo\Tables\LGA.sql" />
+    <Build Include="dbo\Tables\ProfileOfPropertyImage.sql" />
+    <Build Include="dbo\Tables\Property.sql" />
+    <Build Include="dbo\Tables\PropertyConfirmation.sql" />
+    <Build Include="dbo\Tables\PropertyFeature.sql" />
+    <Build Include="dbo\Tables\PropertyImage.sql" />
+    <Build Include="dbo\Tables\PropertyLandMark.sql" />
+    <Build Include="dbo\Tables\PropertyRating.sql" />
+    <Build Include="dbo\Tables\PropertyReview.sql" />
+    <Build Include="dbo\Tables\SliderImage.sql" />
+    <Build Include="dbo\Tables\State.sql" />
+    <Build Include="dbo\Tables\UserImage.sql" />
+    <Build Include="dbo\Stored Procedures\Property\spListAllPropertiesByUserId.sql" />
+    <Build Include="dbo\Tables\AspNetRoleClaims.sql" />
+    <Build Include="dbo\Tables\AspNetRoles.sql" />
+    <Build Include="dbo\Tables\AspNetUserClaims.sql" />
+    <Build Include="dbo\Tables\AspNetUserLogins.sql" />
+    <Build Include="dbo\Tables\AspNetUserRoles.sql" />
+    <Build Include="dbo\Tables\AspNetUsers.sql" />
+    <Build Include="dbo\Tables\AspNetUserTokens.sql" />
+    <Build Include="dbo\Tables\BarnerImage.sql" />
+    <Build Include="dbo\Tables\Page.sql" />
+    <Build Include="dbo\Stored Procedures\BarnerImage\spBarnerImageFileDelete.sql" />
+    <Build Include="dbo\Stored Procedures\BarnerImage\spBarnerImageFileGetAll.sql" />
+    <Build Include="dbo\Stored Procedures\BarnerImage\spBarnerImageFileGetById.sql" />
+    <Build Include="dbo\Stored Procedures\BarnerImage\spBarnerImageFileInsert.sql" />
+    <Build Include="dbo\Stored Procedures\Pages\spDeletePage.sql" />
+    <Build Include="dbo\Stored Procedures\Pages\spGetByIdPage.sql" />
+    <Build Include="dbo\Stored Procedures\Pages\spInsertPage.sql" />
+    <Build Include="dbo\Stored Procedures\Pages\spListAllPage.sql" />
+    <Build Include="dbo\Stored Procedures\Pages\spUpdatePage.sql" />
+    <Build Include="dbo\Tables\RequestProperty.sql" />
+    <Build Include="dbo\Stored Procedures\RequestProperty\spGetByIdRequestProperty.sql" />
+    <Build Include="dbo\Stored Procedures\RequestProperty\spInsertRequestProperty.sql" />
+    <Build Include="dbo\Stored Procedures\RequestProperty\spListAllRequestProperty.sql" />
+    <Build Include="dbo\Stored Procedures\RequestProperty\spUpdateRequestProperty.sql" />
+    <Build Include="dbo\Tables\Tour.sql" />
+    <Build Include="dbo\Stored Procedures\Tour\spGetByIdTour.sql" />
+    <Build Include="dbo\Stored Procedures\Tour\spInsertTour.sql" />
+    <Build Include="dbo\Stored Procedures\Tour\spListAllTour.sql" />
+    <Build Include="dbo\Stored Procedures\Tour\spUpdateTour.sql" />
+    <Build Include="dbo\Tables\UserProfile.sql" />
+    <Build Include="dbo\Tables\Experience.sql" />
+    <Build Include="dbo\Tables\EducationHistory.sql" />
+    <Build Include="dbo\Tables\RenderedService.sql" />
+    <Build Include="dbo\Tables\WorkHistory.sql" />
+    <Build Include="dbo\Tables\WorkImage.sql" />
+    <Build Include="dbo\Tables\MeritCertificate.sql" />
+    <Build Include="dbo\Tables\MeritCertificateFeatures.sql" />
+    <Build Include="dbo\Tables\LanguageSpoken.sql" />
+    <Build Include="dbo\Tables\Skill.sql" />
+    <Build Include="dbo\Tables\InterpersonalSkill.sql" />
+    <Build Include="dbo\Stored Procedures\Experience\spUpdateExperience.sql" />
+    <Build Include="dbo\Stored Procedures\Experience\spDeleteExperience.sql" />
+    <Build Include="dbo\Stored Procedures\Experience\spGetByIdExperience.sql" />
+    <Build Include="dbo\Stored Procedures\Experience\spInsertExperience.sql" />
+    <Build Include="dbo\Stored Procedures\Experience\spListAllExperience.sql" />
+    <Build Include="dbo\Stored Procedures\EducationHistory\spDeleteEducationHistory.sql" />
+    <Build Include="dbo\Stored Procedures\EducationHistory\spGetByIdEducationHistory.sql" />
+    <Build Include="dbo\Stored Procedures\EducationHistory\spInsertEducationHistory.sql" />
+    <Build Include="dbo\Stored Procedures\EducationHistory\spListAllEducationHistory.sql" />
+    <Build Include="dbo\Stored Procedures\EducationHistory\spUpdateEducationHistory.sql" />
+    <Build Include="dbo\Stored Procedures\MeritCertificate\spDeleteMeritCertificate.sql" />
+    <Build Include="dbo\Stored Procedures\MeritCertificate\spGetByIdMeritCertificate.sql" />
+    <Build Include="dbo\Stored Procedures\MeritCertificate\spInsertMeritCertificate.sql" />
+    <Build Include="dbo\Stored Procedures\MeritCertificate\spListAllMeritCertificate.sql" />
+    <Build Include="dbo\Stored Procedures\MeritCertificate\spUpdateMeritCertificate.sql" />
+    <Build Include="dbo\Stored Procedures\MeritCertificateFeature\spUpdateMeritCertificateFeatures.sql" />
+    <Build Include="dbo\Stored Procedures\MeritCertificateFeature\spDeleteMeritCertificateFeatures.sql" />
+    <Build Include="dbo\Stored Procedures\MeritCertificateFeature\spGetByIdMeritCertificateFeatures.sql" />
+    <Build Include="dbo\Stored Procedures\MeritCertificateFeature\spInsertMeritCertificateFeatures.sql" />
+    <Build Include="dbo\Stored Procedures\MeritCertificateFeature\spListAllMeritCertificateFeatures.sql" />
+    <Build Include="dbo\Stored Procedures\InterpersonalSkill\spDeleteInterpersonalSkill.sql" />
+    <Build Include="dbo\Stored Procedures\InterpersonalSkill\spGetByIdInterpersonalSkill.sql" />
+    <Build Include="dbo\Stored Procedures\InterpersonalSkill\spInsertInterpersonalSkill.sql" />
+    <Build Include="dbo\Stored Procedures\InterpersonalSkill\spListAllInterpersonalSkill.sql" />
+    <Build Include="dbo\Stored Procedures\InterpersonalSkill\spUpdateInterpersonalSkill.sql" />
+    <Build Include="dbo\Stored Procedures\LanguageSpoken\spDeleteLanguageSpoken.sql" />
+    <Build Include="dbo\Stored Procedures\Skill\spUpdateSkill.sql" />
+    <Build Include="dbo\Stored Procedures\Skill\spDeleteSkill.sql" />
+    <Build Include="dbo\Stored Procedures\Skill\spGetByIdSkill.sql" />
+    <Build Include="dbo\Stored Procedures\Skill\spInsertSkill.sql" />
+    <Build Include="dbo\Stored Procedures\Skill\spListAllSkill.sql" />
+    <Build Include="dbo\Stored Procedures\WorkImage\spUpdateWorkImage.sql" />
+    <Build Include="dbo\Stored Procedures\WorkImage\spDeleteWorkImage.sql" />
+    <Build Include="dbo\Stored Procedures\WorkImage\spGetByIdWorkImage.sql" />
+    <Build Include="dbo\Stored Procedures\WorkImage\spInsertWorkImage.sql" />
+    <Build Include="dbo\Stored Procedures\WorkImage\spListAllWorkImage.sql" />
+    <Build Include="dbo\Stored Procedures\WorkHistory\spUpdateWorkHistory.sql" />
+    <Build Include="dbo\Stored Procedures\WorkHistory\spDeleteWorkHistory.sql" />
+    <Build Include="dbo\Stored Procedures\WorkHistory\spGetByIdWorkHistory.sql" />
+    <Build Include="dbo\Stored Procedures\WorkHistory\spInsertWorkHistory.sql" />
+    <Build Include="dbo\Stored Procedures\WorkHistory\spListAllWorkHistory.sql" />
+    <Build Include="dbo\Stored Procedures\RenderedService\spUpdateRenderedService.sql" />
+    <Build Include="dbo\Stored Procedures\RenderedService\spDeleteRenderedService.sql" />
+    <Build Include="dbo\Stored Procedures\RenderedService\spGetByIdRenderedService.sql" />
+    <Build Include="dbo\Stored Procedures\RenderedService\spInsertRenderedService.sql" />
+    <Build Include="dbo\Stored Procedures\RenderedService\spListAllRenderedService.sql" />
+    <Build Include="dbo\Stored Procedures\UserProfile\spUpdateUserProfile.sql" />
+    <Build Include="dbo\Stored Procedures\UserProfile\spDeleteUserProfile.sql" />
+    <Build Include="dbo\Stored Procedures\UserProfile\spGetByIdUserProfile.sql" />
+    <Build Include="dbo\Stored Procedures\UserProfile\spInsertUserProfile.sql" />
+    <Build Include="dbo\Stored Procedures\UserProfile\spListAllUserProfile.sql" />
+    <Build Include="dbo\Tables\TrainingAndWorkShop.sql" />
+    <Build Include="dbo\Tables\DegreeObtained.sql" />
+    <Build Include="dbo\Tables\MembershipOfLearneredSociety.sql" />
+    <Build Include="dbo\Tables\Referee.sql" />
+    <Build Include="dbo\Stored Procedures\TrainingAndWorkShop\spDeleteTrainingAndWorkShop.sql" />
+    <Build Include="dbo\Stored Procedures\TrainingAndWorkShop\spGetByIdTrainingAndWorkShop.sql" />
+    <Build Include="dbo\Stored Procedures\TrainingAndWorkShop\spInsertTrainingAndWorkShop.sql" />
+    <Build Include="dbo\Stored Procedures\TrainingAndWorkShop\spListAllTrainingAndWorkShop.sql" />
+    <Build Include="dbo\Stored Procedures\TrainingAndWorkShop\spUpdateTrainingAndWorkShop.sql" />
+    <Build Include="dbo\Stored Procedures\DegreeObtained\spDeleteDegreeObtained.sql" />
+    <Build Include="dbo\Stored Procedures\DegreeObtained\spGetByIdDegreeObtained.sql" />
+    <Build Include="dbo\Stored Procedures\DegreeObtained\spInsertDegreeObtained.sql" />
+    <Build Include="dbo\Stored Procedures\DegreeObtained\spListAllDegreeObtained.sql" />
+    <Build Include="dbo\Stored Procedures\DegreeObtained\spUpdateDegreeObtained.sql" />
+    <Build Include="dbo\Stored Procedures\MembershipOfLearneredSociety\spDeleteMembershipOfLearneredSociety.sql" />
+    <Build Include="dbo\Stored Procedures\MembershipOfLearneredSociety\spGetByIdMembershipOfLearneredSociety.sql" />
+    <Build Include="dbo\Stored Procedures\MembershipOfLearneredSociety\spInsertMembershipOfLearneredSociety.sql" />
+    <Build Include="dbo\Stored Procedures\MembershipOfLearneredSociety\spListAllMembershipOfLearneredSociety.sql" />
+    <Build Include="dbo\Stored Procedures\MembershipOfLearneredSociety\spUpdateMembershipOfLearneredSociety.sql" />
+    <Build Include="dbo\Stored Procedures\Referee\spDeleteReferee.sql" />
+    <Build Include="dbo\Stored Procedures\Referee\spGetByIdReferee.sql" />
+    <Build Include="dbo\Stored Procedures\Referee\spInsertReferee.sql" />
+    <Build Include="dbo\Stored Procedures\Referee\spListAllReferee.sql" />
+    <Build Include="dbo\Stored Procedures\Referee\spUpdateReferee.sql" />
+    <Build Include="dbo\Stored Procedures\LanguageSpoken\spGetByIdLangaugeSpoken.sql" />
+    <Build Include="dbo\Stored Procedures\LanguageSpoken\spInsertLangaugeSpoken.sql" />
+    <Build Include="dbo\Stored Procedures\LanguageSpoken\spListAllLangaugeSpoken.sql" />
+    <Build Include="dbo\Stored Procedures\LanguageSpoken\spUpdateLangaugeSpoken.sql" />
+    <Build Include="dbo\Stored Procedures\UserProfile\spGetByUserIdUserProfile.sql" />
+    <Build Include="dbo\Tables\JobAnalysis.sql" />
+    <Build Include="dbo\Stored Procedures\JobAnalysis\spDeleteJobAnalysis.sql" />
+    <Build Include="dbo\Stored Procedures\JobAnalysis\spGetByIdJobAnalysis.sql" />
+    <Build Include="dbo\Stored Procedures\JobAnalysis\spInsertJobAnalysis.sql" />
+    <Build Include="dbo\Stored Procedures\JobAnalysis\spListAllJobAnalysis.sql" />
+    <Build Include="dbo\Stored Procedures\JobAnalysis\spUpdateJobAnalysis.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="dbo\Stored Procedures\BarnerImage\imageFilePreview.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <RefactorLog Include="Exwhyzee.Lojour.Database.refactorlog" />
+  </ItemGroup>
+</Project>

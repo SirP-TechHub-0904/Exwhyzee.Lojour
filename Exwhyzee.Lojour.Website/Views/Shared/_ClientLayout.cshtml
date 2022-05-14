@@ -1,0 +1,504 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+    <title>Dashboard | Lojour: Real Estate, Apartments, Hostels &amp; Landed Properties</title>
+    <link rel="icon" href="~/img/icon.png" type="image/x-icon" />
+
+    <meta name="theme-color" content="#2e6da4">
+    <meta name="description" content="Find the latest property for sale or for rent across in Nigeria from trusted landlords and agents. Sell your property with us or find a new home easily and convenient from our wide range of flats, apartments, houses and more. Read our free expert advice on real estate and make an informed decision on your next home">
+    <meta name="robots" content="INDEX, FOLLOW">
+    <link rel="canonical" href="http://lojour.com/">
+    <link rel="alternate" href="http://lojour.com/" hreflang="en">
+    <meta property="og:title" content="Property in Nigeria">
+    <meta property="og:description" content="Find the latest property for sale or for rent across in Nigeria from trusted landlords and agents. Sell your property with us or find a new home easily from our wide range of flats, apartments, houses and more. ">
+    <meta property="og:type" content="Website">
+    <meta property="og:url" content="http://lojour.com/">
+    <meta property="og:site_name" content="Private Property Nigeria">
+    <meta property="og:image" content="http://lojour.com/img/lojour-logo-web.png">
+    <meta name="author" content="">
+    <link rel="icon" href="http://lojour.com/img/icon.png">
+    <link rel="manifest" href="">
+
+    <link rel="preconnect" href="http://lojour.com/">
+    <link rel="preconnect" href="http://lojour.com/web/index">
+    <link rel="preconnect" href="//www.google-analytics.com" crossorigin="anonymous">
+    <link rel="preconnect" href="//adservice.google.com" crossorigin="anonymous">
+    <link rel="preconnect" href="//www.gstatic.com" crossorigin="anonymous">
+    <link rel="preconnect" href="//www.googletagmanager.com" crossorigin="anonymous">
+    <link rel="canonical" href="http://lojour.com/">
+    <link rel="start" title="Lojour Home" href="/">
+    <meta name="description" content="The leading real estate marketplace. Search millions of for-sale and rental listings, compare lojour home values and connect with local professionals.">
+    <meta itemprop="name" content="Lojour Real Estate, Rentals, and Hostels">
+    <meta itemprop="description" content="The most trafficked website about home sales and rentals, with real estate values for almost every Nigeria. home. 1,000,000 listings.">
+    <meta itemprop="image" content="http://lojour.com/img/lojour-logo-web.png">
+    <meta property="og:url" content="http://lojour.com/">
+    <meta property="og:title" content="Lojour: Real Estate, Apartments, Hostels &amp; Home Values">
+    <meta property="og:description" content="The leading real estate marketplace. Search millions of for-sale and rental listings, compare lojour home values and connect with local professionals.">
+    <meta name="ROBOTS" content="ALL">
+    <meta name="msvalidate.01" content="">
+    <meta name="google-site-verification" content="">
+    <meta content="The leading real estate marketplace. Search millions of for-sale and rental listings, compare lojour home values and connect with local professionals." name="description">
+    <meta content="Home, Hostels, House, Rent, Buy, Nigeria, Property, Real, Estate" name="keywords">
+    <meta content="blue" name="author">
+    <meta content="English" name="language">
+    <link rel="canonical" href="http://lojour.com/">
+    <link rel="alternate" href="http://lojour.com/" hreflang="en-us">
+    <meta property="og:title" content="Lojour">
+    <meta property="og:description" content="Lojour: Real Estate, Apartments, Hostels &amp; Home Values">
+    <meta property="og:url" content="http://lojour.com/">
+    <meta property="og:site_name" content="Lojour: Real Estate, Apartments, Hostels &amp; Home Values">
+    <meta property="og:image" content="http://lojour.com/img/lojour-logo-web.png">
+    <meta property="og:locale" content="en_us">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="Summery">
+    <meta name="twitter:site" content="http://lojour.com/">
+
+    <meta name="language" content="en-us">
+    <meta name="owner" content="GreenData">
+    <meta name="distribution" content="GLOBAL">
+    <meta name="city" content="Abia">
+    <meta name="country" content="NG">
+    <meta name="geo.placename" content="Abia">
+    <meta name="rating" content="general">
+    <meta name="copyright" content="GreenData copyright © 2017">
+    <meta name="DC.Publisher" content="GreenData">
+    <!-- Bootstrap -->
+ 
+    <link href="~/Assest/ThemeBack/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="~/Assest/ThemeBack/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <!-- NProgress -->
+    <link href="~/Assest/ThemeBack/vendors/nprogress/nprogress.css" rel="stylesheet">
+    <!-- iCheck -->
+    <link href="~/Assest/ThemeBack/vendors/iCheck/skins/flat/green.css" rel="stylesheet">
+
+    <!-- bootstrap-progressbar -->
+    <link href="~/Assest/ThemeBack/vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet">
+    <!-- JQVMap -->
+    <link href="~/Assest/ThemeBack/vendors/jqvmap/dist/jqvmap.min.css" rel="stylesheet" />
+    <!-- bootstrap-daterangepicker -->
+    <link href="~/Assest/ThemeBack/vendors/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
+    @RenderSection("Styles", required: false)
+
+    <link href="~/Assest/ThemeBack/vendors/datatables.net-bs/css/dataTables.bootstrap.min.css" rel="stylesheet">
+    <link href="~/Assest/ThemeBack/vendors/datatables.net-buttons-bs/css/buttons.bootstrap.min.css" rel="stylesheet">
+    <link href="~/Assest/ThemeBack/vendors/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css" rel="stylesheet">
+    <link href="~/Assest/ThemeBack/vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css" rel="stylesheet">
+    <link href="~/Assest/ThemeBack/vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/css/bootstrap-select.min.css" rel="stylesheet" />
+
+    <!-- Custom Theme Style -->
+    <link href="~/Assest/ThemeBack/build/css/custom.min.css" rel="stylesheet">
+
+    <style>
+        .dashboard-main-disc {
+            padding: 0px 0px !important;
+        }
+
+        .x_title h2 {
+            width: 100% !important;
+        }
+
+        .tile-stats .icon1 i {
+            margin: 0;
+            font-size: 20px !important;
+            line-height: 0;
+            vertical-align: bottom;
+            padding: 0;
+        }
+
+        .tile-stats .count1 {
+            font-size: 20px !important;
+            font-weight: 700;
+        }
+
+        .bb {
+            font-size: 17px !important;
+        }
+
+        #tawkchat-minified-container {
+            border-radius: 4px 4px 4px 4px !important;
+            height: 30px !important;
+        }
+    </style>
+    <style>
+        .blog-post {
+            color: #162532;
+            position: relative;
+            overflow: hidden;
+            background: #fff;
+            margin-bottom: 30px;
+            box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.1);
+        }
+
+        .post-img {
+            overflow: hidden;
+        }
+
+        .blog-post a {
+            color: inherit;
+            text-decoration: none;
+            text-transform: capitalize;
+            font-weight: bolder;
+            text-align: center !important;
+        }
+
+        .post-img img {
+            width: 100%;
+            height: auto;
+            -moz-transition: all 2s;
+            -o-transition: all 2s;
+            -webkit-transition: all 2s;
+            transition: all 2s;
+        }
+
+        .post-info {
+            background-color: #FFF;
+            font-size: 11px;
+            padding: 5px 3px;
+            position: relative;
+            text-transform: capitalize;
+            width: 100%;
+            padding-bottom: 0;
+        }
+
+        .post-info {
+            background-color: #FFF;
+            font-size: 11px;
+            padding: 5px 3px;
+            position: relative;
+            text-transform: capitalize;
+            width: 100%;
+            padding-bottom: 0;
+        }
+
+        .play-info p {
+            letter-spacing: 0px;
+            line-height: 1.4;
+            font-size: 12px;
+            margin-bottom: 0;
+        }
+
+        .play-info p {
+            display: block;
+            float: left;
+            text-align: center;
+            width: 33.33333%;
+        }
+
+        .post-title {
+            font-size: 16px;
+            font-weight: 500;
+            margin-bottom: 10px;
+            margin-top: 10px;
+            padding: 0 10px;
+            text-transform: capitalize;
+            text-align: center;
+            transition: all 0.4s ease 0s;
+        }
+
+        .ad-bottom-area {
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+            background-color: #6bc242;
+        }
+
+        .ad-listing .ad-bottom-area .btn-default, .all-ads-list-box2 .ad-bottom-area .btn-default {
+            border: none;
+            color: #242424;
+            font-weight: 600;
+            padding: 0;
+            line-height: 0px;
+            background-color: transparent;
+            text-shadow: none;
+            color: #FFF;
+        }
+
+        .blog-post .btn-default {
+            color: #FFF !important;
+            text-shadow: none !important;
+        }
+
+        .blog-post .btn {
+            margin: 10px;
+            margin-right: 0;
+        }
+
+        .morris-hover.morris-default-style {
+            border-radius: 2px;
+        }
+
+        .morris-hover {
+            animation: fade 500ms ease-in;
+        }
+
+        @@keyframes fade {
+            0% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+    </style>
+    <link href="~/main/demo.css" rel="stylesheet" />
+
+</head>
+
+<body class="nav-md">
+   
+    <div class="container body">
+        <div class="main_container">
+            <div class="col-md-3 left_col">
+                <div class="left_col scroll-view">
+                    @*@await Component.InvokeAsync("HeaderUser")*@
+
+                    <div class="navbar nav_title" style="border: 0;background:#fff !important;">
+                        <a href="/" class="site_title">
+                           @* <i style="border-radius:0px !important;font-style:normal;font-weight:bold;">@Model.FullName.Substring(0, 1)</i><span> @Model.FullName</span>*@
+                            <img src="~/img/exwhyzee-icon.png" />
+                        </a>
+                    </div>
+
+                    <div class="clearfix"></div>
+
+                    <!-- menu profile quick info -->
+                    <partial name="./ThemeBackPartials/_AdminProfilePartial.cshtml" />
+                    <!-- /menu profile quick info -->
+
+                    <br />
+
+                    <!-- sidebar menu -->
+                    <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+                        <div class="menu_section">
+                            <h3>Navigation</h3>
+                            <ul class="nav side-menu">
+                                @if (User.IsInRole("Agent"))
+                                {
+
+                                    <li><a asp-area="APanel" asp-page="/Dashboard/Index"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+
+                                    <li>
+                                        <a><i class="fa fa-user"></i> Profile <span class="fa fa-chevron-down"></span></a>
+                                        <ul class="nav child_menu">
+                                            <li><a asp-area="Account" asp-page="/UpdateProfile">Update Profile</a></li>
+                                            <li><a asp-area="Account" asp-page="/UpdatePortfolio">Update PortFolio</a></li>
+                                        </ul>
+                                    </li>
+
+                                    @*<li><a asp-area="APanel" asp-page="/Property/Index"><i class="fa fa-institution"></i>My Listing</a></li>
+                                    <li><a><i class="fa fa-institution"></i>Listing Statistic</a></li>*@
+                                }
+                                else if (User.IsInRole("Admin") || User.IsInRole("SuperAdmin"))
+                                {
+                                    <li><a asp-area="APanel" asp-page="/Admin/Index"><i class="fa fa-dashboard"></i>DashBoard</a></li>
+                                    <li><a asp-area="APanel" asp-page="/Property/Index"><i class="fa fa-institution"></i>Properties</a></li>
+                                    <li><a asp-area="APanel" asp-page="/Property/Request"><i class="fa fa-institution"></i>Property Request</a></li>
+                                    <li><a asp-area="APanel" asp-page="/Property/Tour"><i class="fa fa-institution"></i>Property Tour</a></li>
+
+                                    <li>
+                                        <a><i class="fa fa-home"></i> User Management <span class="fa fa-chevron-down"></span></a>
+                                        <ul class="nav child_menu">
+                                            <li><a asp-area="UserManagement" asp-page="/Users/Index">Users</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a asp-area="APanel" asp-page="/WebPage/Index"><i class="fa fa-book"></i>Pages</a></li>
+                                    <li><a asp-area="APanel" asp-page="/Slider/Index"><i class="fa fa-image"></i>Slider</a></li>
+
+                                }
+                                <li><a asp-area="Account" asp-page="/Webfolio"><i class="fa fa-file-pdf-o"></i> Portfolio</a></li>
+                                <li><a asp-area="Account" asp-page="/MyCv"><i class="fa fa-file-pdf-o"></i> CV</a></li>
+                                <li><a asp-area="Account" asp-page="/ComplementryCard"><i class="fa fa-file-pdf-o"></i> Complementry Card</a></li>
+                                <li><a asp-area="Account" asp-page="/Profile"><i class="fa fa-home"></i> Contact Us</a></li>
+
+                                <partial name="_LogoutPartial" />
+                            </ul>
+
+
+                        </div>
+
+
+                    </div>
+                    <!-- /sidebar menu -->
+                    <!-- /menu footer buttons -->
+                </div>
+            </div>
+
+            <!-- top navigation -->
+            <div class="top_nav">
+                <div class="nav_menu">
+                    <nav>
+                        <div class="nav toggle">
+                            <a id="menu_toggle"><i class="fa fa-bars"></i></a>
+                        </div>
+
+                      
+                    </nav>
+                </div>
+            </div>
+            <!-- /top navigation -->
+            <!-- page content -->
+            <div class="right_col" role="main">
+             
+                <!-- /top tiles -->
+
+                @RenderBody()
+            </div>
+
+            <!-- /page content -->
+            <!-- footer content -->
+            <footer>
+                <div class="pull-right">
+                    LOJOUR.com
+                </div>
+                <div class="clearfix"></div>
+            </footer>
+            <!-- /footer content -->
+        </div>
+    </div>
+
+    <!-- jQuery -->
+    <script src="~/Assest/ThemeBack/vendors/jquery/dist/jquery.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="~/Assest/ThemeBack/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- FastClick -->
+    <script src="~/Assest/ThemeBack/vendors/fastclick/lib/fastclick.js"></script>
+    <!-- NProgress -->
+    <script src="~/Assest/ThemeBack/vendors/nprogress/nprogress.js"></script>
+    <!-- Chart.js -->
+    <script src="~/Assest/ThemeBack/vendors/Chart.js/dist/Chart.min.js"></script>
+    <!-- gauge.js -->
+    <script src="~/Assest/ThemeBack/vendors/gauge.js/dist/gauge.min.js"></script>
+    <!-- bootstrap-progressbar -->
+    <script src="~/Assest/ThemeBack/vendors/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
+    <!-- iCheck -->
+    <script src="~/Assest/ThemeBack/vendors/iCheck/icheck.min.js"></script>
+    <!-- Skycons -->
+    <script src="~/Assest/ThemeBack/vendors/skycons/skycons.js"></script>
+    <!-- Flot -->
+    <script src="~/Assest/ThemeBack/vendors/Flot/jquery.flot.js"></script>
+    <script src="~/Assest/ThemeBack/vendors/Flot/jquery.flot.pie.js"></script>
+    <script src="~/Assest/ThemeBack/vendors/Flot/jquery.flot.time.js"></script>
+    <script src="~/Assest/ThemeBack/vendors/Flot/jquery.flot.stack.js"></script>
+    <script src="~/Assest/ThemeBack/vendors/Flot/jquery.flot.resize.js"></script>
+    <!-- Flot plugins -->
+    <script src="~/Assest/ThemeBack/vendors/flot.orderbars/js/jquery.flot.orderBars.js"></script>
+    <script src="~/Assest/ThemeBack/vendors/flot-spline/js/jquery.flot.spline.min.js"></script>
+    <script src="~/Assest/ThemeBack/vendors/flot.curvedlines/curvedLines.js"></script>
+    <!-- DateJS -->
+    <script src="~/Assest/ThemeBack/vendors/DateJS/build/date.js"></script>
+    <!-- JQVMap -->
+    <script src="~/Assest/ThemeBack/vendors/jqvmap/dist/jquery.vmap.js"></script>
+    <script src="~/Assest/ThemeBack/vendors/jqvmap/dist/maps/jquery.vmap.world.js"></script>
+    <script src="~/Assest/ThemeBack/vendors/jqvmap/examples/js/jquery.vmap.sampledata.js"></script>
+    <!-- bootstrap-daterangepicker -->
+    <script src="~/Assest/ThemeBack/vendors/moment/min/moment.min.js"></script>
+    <script src="~/Assest/ThemeBack/vendors/bootstrap-daterangepicker/daterangepicker.js"></script>
+
+    <script src="~/Assest/ThemeBack/vendors/datatables.net/js/jquery.dataTables.min.js"></script>
+    <script src="~/Assest/ThemeBack/vendors/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+    <script src="~/Assest/ThemeBack/vendors/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+    <script src="~/Assest/ThemeBack/vendors/datatables.net-buttons-bs/js/buttons.bootstrap.min.js"></script>
+    <script src="~/Assest/ThemeBack/vendors/datatables.net-buttons/js/buttons.flash.min.js"></script>
+    <script src="~/Assest/ThemeBack/vendors/datatables.net-buttons/js/buttons.html5.min.js"></script>
+    <script src="~/Assest/ThemeBack/vendors/datatables.net-buttons/js/buttons.print.min.js"></script>
+    <script src="~/Assest/ThemeBack/vendors/datatables.net-fixedheader/js/dataTables.fixedHeader.min.js"></script>
+    <script src="~/Assest/ThemeBack/vendors/datatables.net-keytable/js/dataTables.keyTable.min.js"></script>
+    <script src="~/Assest/ThemeBack/vendors/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="~/Assest/ThemeBack/vendors/datatables.net-responsive-bs/js/responsive.bootstrap.js"></script>
+    <script src="~/Assest/ThemeBack/vendors/datatables.net-scroller/js/dataTables.scroller.min.js"></script>
+    <script src="~/Assest/ThemeBack/vendors/jszip/dist/jszip.min.js"></script>
+    <script src="~/Assest/ThemeBack/vendors/pdfmake/build/pdfmake.min.js"></script>
+    <script src="~/Assest/ThemeBack/vendors/pdfmake/build/vfs_fonts.js"></script>
+
+
+    <!-- Custom Theme Scripts -->
+    <script src="~/Assest/ThemeBack/build/js/custom.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/js/bootstrap-select.min.js"></script>
+
+    @RenderSection("scripts", required: false)
+    <script>
+        $(function () {
+            $('.selectpicker').selectpicker();
+        });
+
+
+    </script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
+    <script src="~/Assest/ThemeBack/vendors/morris.js/morris.min.js"></script>
+    @* <script src="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js"></script>*@
+    <script>
+        Morris.Bar({
+            // ID of the element in which to draw the chart.
+            element: 'barchart',
+            // Chart data records -- each entry in this array corresponds to a point on
+            // the chart.
+            data: [
+                { year: '2008', value: 20 },
+                { year: '2009', value: 10 },
+                { year: '2010', value: 5 },
+                { year: '2011', value: 5 },
+                { year: '2012', value: 20 }
+            ],
+            resize: true,
+            // The name of the data record attribute that contains x-values.
+            xkey: 'year',
+            // A list of names of data record attributes that contain y-values.
+            ykeys: ['value'],
+            // Labels for the ykeys -- will be displayed when you hover over the
+            // chart.
+            labels: ['Value']
+        });
+
+    </script>
+    <script>
+        /* CHART - MORRIS  */
+
+        function init_morris_charts() {
+
+            if (typeof (Morris) === 'undefined') { return; }
+            console.log('init_morris_charts');
+
+            if ($('#graph_bar').length) {
+
+                Morris.Bar({
+                    element: 'graph_bar',
+                    data: [
+                        { device: 'iPhone 4', geekbench: 380 },
+                        { device: 'iPhone 4S', geekbench: 655 },
+                        { device: 'iPhone 3GS', geekbench: 275 },
+                        { device: 'iPhone 5', geekbench: 1571 },
+                        { device: 'iPhone 5S', geekbench: 655 },
+                        { device: 'iPhone 6', geekbench: 2154 },
+                        { device: 'iPhone 6 Plus', geekbench: 1144 },
+                        { device: 'iPhone 6S', geekbench: 2371 },
+                        { device: 'iPhone 6S Plus', geekbench: 1471 },
+                        { device: 'Other', geekbench: 1371 }
+                    ],
+                    xkey: 'device',
+                    ykeys: ['geekbench'],
+                    labels: ['Geekbench'],
+                    barRatio: 0.4,
+                    barColors: ['#26B99A', '#34495E', '#ACADAC', '#3498DB'],
+                    xLabelAngle: 35,
+                    hideHover: 'auto',
+                    resize: true
+                });
+
+            }
+
+
+        };
+
+
+    </script>
+</body>
+</html>

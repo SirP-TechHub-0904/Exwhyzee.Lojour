@@ -1,0 +1,10 @@
+﻿@model IEnumerable<Exwhyzee.Lojour.Core.PropertyImage.PropertyImage>
+
+@foreach (var i in Model)
+{
+    <li data-thumb="@i.Url" class="flex-active-slide" style="width: 100%; float: left; margin-right: -100%; position: relative; opacity: 1; display: block; z-index: 2;">
+        <a href="@i.Url" class="gallery-item">
+            <img src="@i.Url" class="attachment-listings-slider-image size-listings-slider-image" alt="" draggable="false">
+        </a>
+    </li>
+}

@@ -1,0 +1,247 @@
+﻿@model Exwhyzee.Lojour.Application.RequestProperties.Dto.RequestPropertyDto
+
+@{
+    ViewData["Title"] = "Request";
+    Layout = "/Views/Shared/_AccountLayout.cshtml";
+}
+
+<style>
+    .form-group {
+        width: 100%;
+    }
+
+    input[type="text"], input[type="tel"], input[type="password"], input[type="email"], input[type="number"], input[type="date"], textarea, select {
+        border: 1px solid #ccc;
+        border-radius: 0px;
+    }
+
+    .form-control {
+        margin: 0 0 16px 0;
+        padding: 11px 16px;
+        height: 42px;
+        border-radius: 0px;
+        border: 1px solid #ccc;
+    }
+
+    .announcement {
+        background-color: rgba(255,229,229,.7);
+        border-color: rgba(255,229,229,.7);
+        color: #2f3d46;
+    }
+
+    .voffset-20 {
+        margin-top: 20px !important;
+    }
+
+    .panel-body {
+        padding: 15px;
+    }
+
+    .text-center {
+        text-align: center;
+    }
+
+    .form-group {
+        margin-bottom: 0px;
+    }
+
+    .row {
+        margin-bottom: 0px;
+    }
+
+    a.btn, .btn, button, #reply-title small a, .comment-reply-link, .grid figcaption a, input[type="submit"], input[type="reset"], input[type="button"], input[type="btn"], .featured-listings .owl-prev, .featured-listings .owl-next {
+        display: inline-block;
+        position: relative;
+        border-radius: 0px;
+        border: none;
+        -webkit-appearance: none;
+        -webkit-transition: all 0.2s linear;
+        moz-transition: all 0.2s linear;
+        -o-transition: all 0.2s linear;
+        -ms-transition: all 0.2s linear;
+        transition: all 0.2s linear;
+        font-size: .75em;
+        line-height: 42px;
+        height: 42px;
+        padding: 0 2em;
+        text-align: center;
+        text-transform: uppercase;
+        color: #fff;
+        background: #29333d;
+        text-shadow: none !important;
+        font-weight: normal !important;
+    }
+
+    .btn-default:hover {
+        color: #ccc;
+        background-color: #ff0000;
+        border-color: #ff0000;
+    }
+</style>
+<section id="main-content">
+    <style type="text/css">
+        #single-header {
+            background: url(/img/big-image.jpg) no-repeat center center;
+            background-size: cover;
+        }
+    </style>
+    <!-- Single Header -->
+    <div id="single-header">
+        <div class="dark-overlay">
+            <div class="container">
+                <h1 class="marT0 marB0">Request a Property</h1>
+                <h2 class="marT0 marB0">The Top in the Country</h2>
+            </div>
+        </div>
+    </div>
+    <!-- //Single Header -->
+</section>
+
+<div style="display: block;" class="container">
+    <div class="row">
+        <div class="col-md-12">
+
+            <div id="ct_account_errors">
+            </div>
+            <form asp-action="Request">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label asp-for="Email" class="control-label"></label>
+                            <input asp-for="Email" class="form-control" />
+                            <span asp-validation-for="Email" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label asp-for="PhoneNumber" class="control-label"></label>
+                            <input asp-for="PhoneNumber" class="form-control" />
+                            <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="PropertyName" class="control-label"></label>
+                    <input asp-for="PropertyName" class="form-control" />
+                    <span asp-validation-for="PropertyName" class="text-danger"></span>
+                </div>
+
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label asp-for="ListType" class="control-label"></label>
+                            <select class="form-control" asp-for="ListType" name="ListType" placeholder="">
+
+                                <option value="For Rent">For Rent </option>
+                                <option value="For Sale">For Sale</option>
+                                <option value="Short Let">Short Let</option>
+
+                            </select>
+                            <span asp-validation-for="ListType" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label asp-for="Category" class="control-label"></label>
+
+
+                            <select class="form-control" asp-for="Category" name="Category" placeholder="">
+
+                                <option value="Commercial Property">Commercial Property</option>
+                                <option value="Service Apartment">Service Apartment</option>
+                                <option value="Flats & Apartments">Flats & Apartments</option>
+                                <option value="Land">Land</option>
+                                <option value="Offices">Offices</option>
+                                <option value="Warehouses">Warehouses</option>
+                                <option value="Shops">Shops</option>
+                                <option value="Hotels">Hotels</option>
+                                <option value="Houses">Houses</option>
+                                <option value="Block Of Flats">Block Of Flats</option>
+                                <option value="Duplexes">Duplexes</option>
+                                <option value="Townhouses">Townhouses</option>
+                                <option value="Bungalows">Bungalows</option>
+                                <option value="Terraces">Terraces</option>
+                                <option value="Rooms & Boys Quarters">Rooms & Boys Quarters</option>
+
+                            </select>
+
+
+                            <span asp-validation-for="Category" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <div class="item form-group">
+                    <label asp-for="Location" class="control-label"></label>
+                    <textarea rows="3" id="description" placeholder="Enter Property Location" asp-for="Location" required="required" name="Location" class="form-control"></textarea>
+
+                </div>
+
+                <div class="item form-group">
+                    <label asp-for="LandMark" class="control-label"></label>
+
+
+                    <textarea rows="3" id="description" placeholder="Enter Property LandMark" asp-for="LandMark" required="required" name="LandMark" class="form-control"></textarea>
+
+                </div>
+                <div class="item form-group">
+                    <label asp-for="Features" class="control-label"></label>
+
+                    <textarea rows="5" id="description" placeholder="Enter Property Features" asp-for="Features" required="required" name="Features" class="form-control"></textarea>
+
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="AmountRange" class="control-label"></label>
+                    <input asp-for="AmountRange" class="form-control" />
+                    <span asp-validation-for="AmountRange" class="text-danger"></span>
+                </div>
+                <div class="item form-group">
+                    <label asp-for="AlertType" class="control-label"></label>
+                    <select class="form-control" asp-for="AlertType" name="AlertType">
+
+                        <option value="All">All</option>
+                        <option value="Text Only">Text Only</option>
+                        <option value="Call Only">Call Only</option>
+                        <option value="Email Only">Email Only</option>
+                        <option value="Text & Call">Text & Call</option>
+                        <option value="Email & Call">Email & Call</option>
+
+
+                    </select>
+
+                </div>
+
+                <div class="item form-group">
+                    <label asp-for="AlertDuration" class="control-label"></label>
+                    <select class="form-control" asp-for="AlertDuration" name="AlertDuration">
+
+                        <option value="Any time">Any time</option>
+                        <option value="Hourly Interval">Hourly Interval</option>
+                        <option value="Dialy">Dialy</option>
+                        <option value="Monthly">Monthly</option>
+                        <option value="Quaterly">Quaterly</option>
+                        <option value="Yearly">Yearly</option>
+
+
+                    </select>
+
+                </div>
+
+
+                <div class="form-group">
+                    <input type="submit" value="Request" class="btn btn-default" />
+                </div>
+            </form>
+        </div>
+
+
+    </div>
+</div>
+
+

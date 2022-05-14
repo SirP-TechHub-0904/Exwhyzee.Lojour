@@ -1,0 +1,494 @@
+﻿@using Exwhyzee.Lojour.Web.Views.Shared.ViewComponents
+@model IEnumerable<Exwhyzee.Lojour.Application.EstateProperties.Dto.EstatePropertyDto>
+@using Exwhyzee.Lojour.Web.Helpers
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/View.cshtml";
+}
+<style>
+    input[type="text"], input[type="tel"], input[type="password"], input[type="email"], input[type="number"], input[type="date"], textarea, select {
+        -webkit-appearance: none;
+        border: none;
+        outline: none;
+        color: #444;
+        display: inline-block;
+        width: 100%;
+        margin: 0 0 16px 0;
+        padding: 5px 16px;
+        height: 42px;
+        background: #fff;
+        border: 1px solid #d5d9dd;
+        border-radius: 3px;
+    }
+
+    input, button, select, textarea {
+        font-family: inherit;
+        font-size: 12px;
+        line-height: inherit;
+    }
+
+    .span_2:after {
+        border-bottom: 2px solid #999;
+        border-right: 2px solid #999;
+        content: '';
+        display: block;
+        height: 5px;
+        margin-top: -4px;
+        pointer-events: none;
+        position: absolute;
+        right: 12px;
+        top: 50%;
+        -webkit-transform-origin: 66% 66%;
+        -ms-transform-origin: 66% 66%;
+        transform-origin: 66% 66%;
+        -webkit-transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+        transform: rotate(45deg);
+        -webkit-transition: all 0.15s ease-in-out;
+        transition: all 0.15s ease-in-out;
+        width: 5px;
+    }
+
+    @@media (min-width: 320px) {
+        .listingMain:nth-child(2) {
+            margin-left: 2%;
+        }
+    }
+
+    .minimalMain:nth-child(4) {
+        margin-left: 0%;
+    }
+
+    .minimalMain:nth-child(5) {
+        margin-left: 2%;
+    }
+
+    .minimalMain:nth-child(6) {
+        margin-left: 2%;
+    }
+
+    .minimalMain:nth-child(7) {
+        margin-left: 2%;
+    }
+
+    h6.snipe span {
+        border-radius: 0px !important;
+    }
+</style>
+
+
+
+
+<div id="header-search-wrap">
+    <div class="container">
+
+
+        <form id="advanced_search" class="col span_12 first header-search" method="get" action="@Url.Action("Search", "Property")">
+
+
+            <div id="suggested-search" class="col span_6">
+                <div id="keyword-wrap">
+                    <i class="fa fa-search"></i>
+                    <input type="text" id="ct_keyword" class="number header_keyword_search" name="searchString" size="8" placeholder="Property Name, Street, City, State, keyword and Press Enter">
+                </div>
+
+            </div>
+
+
+
+
+            <div class="col span_3">
+                <input id="submit" class="btn left" type="submit" value="Search" style="width:100% !important;">
+
+            </div>
+            <div class="col span_3">
+                <a class="btn left" style="width:100% !important;" id="background" asp-area="Account" asp-page="/MyCv">
+                    Build your CV
+                </a>
+            </div>
+
+        </form>
+        <div class="clear"></div>
+    </div>
+</div>
+
+
+<link rel="stylesheet" href="~/Assest/nivo-slider/themes/default/default.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="~/Assest/nivo-slider/themes/light/light.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="~/Assest/nivo-slider/themes/dark/dark.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="~/Assest/nivo-slider/themes/bar/bar.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="~/Assest/nivo-slider/nivo-slider.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="~/Assest/nivo-slider/demo/style.css" type="text/css" media="screen" />
+
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+
+<section class="slider-container">
+    <div class="slider-wrapper theme-default">
+
+        <div id="slider" class="nivoSlider">
+
+            @await Component.InvokeAsync("Slider")
+        </div>
+    </div>
+</section>
+
+<section class="page-builder 2069">
+    <div class="container">
+        <div class="vc_row wpb_row vc_row-fluid marT60">
+            <ul class="col span_12 row first">
+                @foreach (var item in Model)
+                {
+
+                <li class="listing listingMain col span_6 minimal">
+
+                    <figure>
+                        @*<h6 class="snipe featured">
+                                <span>
+                                    @if (item.VerificationStatus == Exwhyzee.Enums.VerificationStatus.NotVerified)
+                                    {
+                                        <Span>Not Verified</Span>
+                                    }
+                                    else if (item.VerificationStatus == Exwhyzee.Enums.VerificationStatus.Verified)
+                                    {
+                                        <Span>Verified</Span>
+                                    }
+
+
+
+                                </span>
+                            </h6>*@
+
+                        <h6 class="snipe status for-rent">
+                            <span>
+                                @if (item.DescriptiveStatus == Exwhyzee.Enums.DescriptiveStatus.ForRent)
+                                    {
+                                <Span>For Rent</Span>
+                                    }
+                                    else if (item.DescriptiveStatus == Exwhyzee.Enums.DescriptiveStatus.ForSale)
+                                    {
+                                <Span>For Sale</Span>
+                                    }
+                                    else if (item.DescriptiveStatus == Exwhyzee.Enums.DescriptiveStatus.ShortLet)
+                                    {
+                                <Span>Short Let</Span>
+                                    }
+                            </span>
+                        </h6>
+                        <span class="prop-type-icon"><i class="fa fa-home"></i></span>
+                        <ul class="listing-actions">
+                            <li>
+                                <span class="listing-views" data-tooltip="More Photos"><a href="@Url.Action("Details", "Home", new { id = item.Id, name = item.PropertyName, location = item.PropertyAddress })" style="color:#fff !important;"><i class="fa fa-image"></i></a></span>
+
+                            </li>
+                            <li>
+                                @{
+                                        string ass = Url.Action("Details", "Home", new { id = item.Id, name = item.PropertyName, location = item.PropertyAddress });
+
+                                        ass = ass.Replace("%20", "_");
+
+                                        ass = ass.Replace("&", "?");
+
+                                }
+
+
+                                <a href="https://twitter.com/intent/tweet?text=https://lojour.com/@ass" style="border:1px solid #fff;padding:2px 5px;"><i class="fa fa-twitter" style="color:#fff;"></i></a>
+
+                                <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://lojour.com/@ass" class="fb-xfbml-parse-ignore" style="border:1px solid #fff;padding:2px 5px;"><i style="color:#fff;" class="fa fa-facebook"></i></a>
+
+                                <a href="whatsapp://send?text=https://lojour.com/@ass" data-action="share/whatsapp/share" style="border:1px solid #fff;padding:2px 5px;"><i style="color:#fff;" class="fa fa-whatsapp"></i></a>
+                            </li>
+
+                        </ul>
+                        <a class="listing-featured-image" href="@Url.Action("Details", "Home", new { id = item.Id, name = item.PropertyName, location = item.PropertyAddress })">
+                            @await Component.InvokeAsync("ImageFetcher", new { propertyId = item.Id })
+                        </a>
+                    </figure>
+                    <div class="grid-listing-info">
+                        <header>
+                            <h5 class="marB0"><a href="@Url.Action("Details", "Home", new { id = item.Id, name = item.PropertyName, location = item.PropertyAddress })">@item.PropertyName</a></h5>
+                            <p class="location muted marB0">@item.PropertyAddress </p>
+                        </header>
+                        <p class="price marB0"><span class="listing-price">&#x20A6;@String.Format("{0:n0}", item.Amount)</span></p>
+
+                    </div>
+
+                </li>
+                }
+
+                <div class="clear"></div>
+                @foreach (var item in ViewBag.output)
+                {
+                <li class="listing col span_3 minimal minimalMain">
+
+                    <figure>
+
+                        <h6 class="snipe status for-rent">
+                            <span style="border-radius:0px !important;">
+                                @if (item.DescriptiveStatus == Exwhyzee.Enums.DescriptiveStatus.ForRent)
+                                    {
+                                <Span>For Rent</Span>
+                                    }
+                                    else if (item.DescriptiveStatus == Exwhyzee.Enums.DescriptiveStatus.ForSale)
+                                    {
+                                <Span>For Sale</Span>
+                                    }
+                                    else if (item.DescriptiveStatus == Exwhyzee.Enums.DescriptiveStatus.ShortLet)
+                                    {
+                                <Span>Short Let</Span>
+                                    }
+                            </span>
+                        </h6>
+                        <ul class="listing-actions">
+
+
+                            <li>
+                                @{
+                                        string ass = Url.Action("Details", "Home", new { id = item.Id, name = item.PropertyName, location = item.PropertyAddress });
+
+                                        ass = ass.Replace("%20", "_");
+
+                                        ass = ass.Replace("&", "?");
+                                }
+
+
+                                <a href="https://twitter.com/intent/tweet?text=https://lojour.com/@ass" style="border:1px solid #fff;padding:2px 5px;"><i class="fa fa-twitter" style="color:#fff;"></i></a>
+
+                                <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://lojour.com/@ass" class="fb-xfbml-parse-ignore" style="border:1px solid #fff;padding:2px 5px;"><i style="color:#fff;" class="fa fa-facebook"></i></a>
+
+                                <a href="whatsapp://send?text=https://lojour.com/@ass" data-action="share/whatsapp/share" style="border:1px solid #fff;padding:2px 5px;"><i style="color:#fff;" class="fa fa-whatsapp"></i></a>
+                            </li>
+
+                        </ul>
+                        <a class="listing-featured-image" href="@Url.Action("Details", "Home", new { id = item.Id, name = item.PropertyName, location = item.PropertyAddress })">
+                            @await Component.InvokeAsync("ImageFetcher", new { propertyId = item.Id })
+                        </a>
+                    </figure>
+                    <div class="grid-listing-info" style="position:relative;min-height:120px;">
+                        <header>
+                            <h5 class="marB0" style="color:#000000 !important;font-size:13px !important;"><a href="@Url.Action("Details", "Web", new { id = item.Id, name = item.PropertyName, location = item.PropertyAddress })" style="color:#000000 !important;">@item.PropertyName</a></h5>
+                            <p class="location muted marB0" style="color:#000000 !important;">@item.PropertyAddress </p>
+                        </header>
+                        <p class="price marB0" style="color:#000000 !important;bottom:0 !important;position: absolute;margin-bottom:15px !important;padding:0 !important;background:none !important;font-weight:900 !important;"><span class="listing-price">&#x20A6;@String.Format("{0:n0}", item.Amount)</span></p>
+
+                    </div>
+                </li>
+
+                }
+
+                <div class="clear"></div>
+            </ul><div class="clear">
+            </div>
+            <div class="wpb_column vc_column_container vc_col-sm-12">
+                <div class="vc_column-inner">
+                    <div class="wpb_wrapper"></div>
+                </div>
+            </div>
+        </div>
+    </div><div class="clear"></div>
+</section>
+
+<style type="text/css">
+    .cta {
+        background: url(../../wwwroot/img/114387_california-5380moonlightlane-02-1.jpg) no-repeat center center;
+        background-size: cover;
+    }
+</style>
+<section class="cta center" style="background: url(/img/big-image.jpg) no-repeat center center; background-size: cover;">
+    <div class="dark-overlay">
+        <div class="container">
+            <h3 class="marT0 marB10">Welcome to Lojour</h3>
+            <p class="lead">
+                We help you Sale or Buy Property for you.
+            </p>
+        </div>
+    </div>
+</section>
+
+<section class="featured-listings">
+    <div class="container">
+        <header class="masthead">
+            <h4 class="left marT0 marB0">Featured Listings</h4>
+
+            <div class="right">
+                <a class="view-all right" href="@Url.Action("AllProperty", "Property")">View All<i class="fa fa-angle-right"></i></a>
+            </div>
+
+
+            <div class="clear"></div>
+        </header>
+        <ul id="owl-featured-carousel" class="owl-carousel owl-loaded owl-drag">
+
+            <div class="owl-stage-outer">
+                <div class="owl-stage" style="transform: translate3d(0px, 0px, 0px); transition: all 0s ease 0s; width: 1260px;">
+                    @foreach (var item in ViewBag.list)
+                    {
+                    <div class="owl-item active" style="width: 375px; margin-right: 20px;">
+
+
+
+                        <li class="listing col span_12 item modern ">
+
+                            <figure>
+                                @*<h6 class="snipe featured">
+                                        <span>
+                                            @if (item.VerificationStatus == Exwhyzee.Enums.VerificationStatus.NotVerified)
+                                            {
+                                                <Span>Not Verified</Span>
+                                            }
+                                            else if (item.VerificationStatus == Exwhyzee.Enums.VerificationStatus.Verified)
+                                            {
+                                                <Span>Verified</Span>
+                                            }
+                                        </span>
+                                    </h6>*@
+                                <h6 class="snipe status for-rent  ">
+                                    <span>
+                                        @if (item.DescriptiveStatus == Exwhyzee.Enums.DescriptiveStatus.ForRent)
+                                            {
+                                        <Span>For Rent</Span>
+                                            }
+                                            else if (item.DescriptiveStatus == Exwhyzee.Enums.DescriptiveStatus.ForSale)
+                                            {
+                                        <Span>For Sale</Span>
+                                            }
+                                            else if (item.DescriptiveStatus == Exwhyzee.Enums.DescriptiveStatus.ShortLet)
+                                            {
+                                        <Span>Short Let</Span>
+                                            }
+                                    </span>
+                                </h6>
+
+                                <ul class="listing-actions">
+
+                                    <li>
+                                        <span class="listing-views" data-tooltip="More Photos">
+                                            <a href="@Url.Action("Details", "Home", new { id = item.Id, name = item.PropertyName, location = item.PropertyAddress })" style="color:#fff !important;">
+                                                <i class="fa fa-image"></i>
+                                            </a>
+                                        </span>
+                                    </li>
+
+                                    <li>
+                                        @{
+                                                string ass = Url.Action("Details", "Home", new { id = item.Id, name = item.PropertyName, location = item.PropertyAddress });
+
+                                                ass = ass.Replace("%20", "_");
+
+                                                ass = ass.Replace("&", "?");
+                                        }
+
+
+                                        <a href="https://twitter.com/intent/tweet?text=https://lojour.com/@ass" style="border:1px solid #fff;padding:2px 5px;"><i class="fa fa-twitter" style="color:#245fc8;"></i></a>
+
+                                        <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://lojour.com/@ass" class="fb-xfbml-parse-ignore" style="border:1px solid #fff;padding:2px 5px;"><i style="color:#245fc8;" class="fa fa-facebook"></i></a>
+
+                                        <a href="whatsapp://send?text=https://lojour.com/@ass" data-action="share/whatsapp/share" style="border:1px solid #fff;padding:2px 5px;"><i style="color:#245fc8;" class="fa fa-whatsapp"></i></a>
+                                    </li>
+                                </ul>
+                                <a class="listing-featured-image" href="">
+
+                                    @await Component.InvokeAsync("ImageFetcher", new { propertyId = item.Id })
+                                </a>
+                            </figure>
+
+                            <div class="grid-listing-info" style="min-height:120px;">
+                                <header>
+
+                                    <h5 class="marB0" style="font-size:13px;font-weight:900;">
+                                        <a href="@Url.Action("Details", "Home", new { id = item.Id, name = item.PropertyName, location = item.PropertyAddress })">
+                                            @item.PropertyName
+                                        </a>
+                                    </h5>
+                                    <p class="location muted marB0">@item.PropertyAddress </p>
+                                </header>
+                                <p class="price marB0"><span class="listing-price">&#x20A6;@String.Format("{0:n0}", item.Amount)</span></p>
+
+                            </div>
+
+                        </li>
+
+
+                    </div>
+                    }
+                </div>
+            </div>
+            <div class="owl-dots disabled"></div>
+        </ul>
+        <div class="clear"></div>
+    </div>
+</section>
+<!-- //Featured Listings -->
+<div class="clear"></div>
+@*<section class="testimonials">
+        <div class="container">
+            <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                <!-- Indicators -->
+                <ol class="carousel-indicators">
+                    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                    <li data-target="#myCarousel" data-slide-to="1"></li>
+                    <li data-target="#myCarousel" data-slide-to="2"></li>
+                </ol>
+
+                <!-- Wrapper for slides -->
+                <div class="carousel-inner">
+                    <div class="item active text-center">
+                        kjdfnfksndjn
+                    </div>
+
+                    <div class="item">
+                        jxckj
+                    </div>
+
+                    <div class="item">
+                        hdfkjxkv
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </section>*@
+
+<section class="featured-listings">
+    <div class="container">
+        <header class="masthead">
+            <h4 class="left marT0 marB0">Partners</h4>
+
+            <div class="clear"></div>
+        </header>
+    </div>
+</section>
+
+<section class="partners">
+    <div class="container">
+
+        <br />
+        <ul class="logos">
+            <li class="col span_2 first">
+                <a href="#">
+                    <img src="~/img/exwhyzee.png" style="position: relative;top: 50%;transform: translateY(-50%);display: block !important;align-self: center !important;margin:0 auto;vertical-align:central !important;position: center;" />
+                </a>
+            </li>
+            <li class="col span_2">
+                <a href="#">
+                    <img src="~/img/14451mainlogo.png" style="position: relative;top: 50%;transform: translateY(-50%);display: block !important;align-self: center !important;margin:0 auto;vertical-align:central !important;position: center;" />
+                </a>
+            </li>
+            <li class="col span_2">
+                <img src="~/img/I biz main.png" style="position: relative;top: 50%;transform: translateY(-50%);display: block !important;align-self: center !important;margin:0 auto;vertical-align:central !important;position: center;" />
+            </li>
+            <li class="col span_2">
+                <img src="~/img/logo EDI.png" style="position: relative;top: 50%;transform: translateY(-50%);display: block !important;align-self: center !important;margin:0 auto;vertical-align:central !important;position: center;" />
+            </li>
+            <li class="col span_2">
+                <img src="~/img/wimbig web logo.png" style="position: relative;top: 50%;transform: translateY(-50%);display: block !important;align-self: center !important;margin:0 auto;vertical-align:central !important;position: center;" />
+            </li>
+            <li class="col span_2">
+                <a href="#">
+                    <img src="~/img/logo1.png" style="position: relative;top: 50%;transform: translateY(-50%);display: block !important;align-self: center !important;margin:0 auto;vertical-align:central !important;position: center;" />
+                </a>
+            </li>
+        </ul>
+    </div>
+</section>

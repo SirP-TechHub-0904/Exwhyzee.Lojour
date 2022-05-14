@@ -1,0 +1,197 @@
+/* ====================
+Color styles
+--------------------------------------------------------------*/
+
+::selection {
+	background: #29a75f;
+}
+::-moz-selection {
+	background:#29a75f;
+}
+#jprePercentage, h3.animtext, .margin , .link-holder ul li a:hover, .num , #resume  a.button , 
+.resume-date h4 ,.resume-info h4 , .icon-holder i , .services-box-info h5 , #order a.button , .client-name , 
+.contact-details ul li i , .contact-details ul li span , .submit_btn:hover , .social-list ul li a , .folio-overlay h5 , 
+.desktop-screen-navigation ul li.current a , 
+.desktop-screen-navigation ul li:hover a,
+.search-submit i , .bs .to-top i,
+.wpcf7-submit:hover{
+    color: #29a75f;
+}
+#jpreBar, .nav-holder , .desktop-screen-navigation ul li , .button , .show-skills  span , .background-color, #options ul , 
+.box  a, .box  a div.folio-name , .white-popup-block a.lanch-button , .separator , .price ,#order div.content, 
+.testimonials-shadow , #contact_form textarea:focus, #contact_form input:focus , .submit_btn , #footer .content , 
+.folio-button , .nav-top span, .tagcloud a, .pagination a.current-page, .pagination a:hover , .post-body a.read-more , .button,
+.wpcf7-submit, .awe-button {
+    background:#29a75f;
+}
+.start-decor:after {
+	border-top-color:#29a75f;
+}
+.start-decor:before {
+	border-bottom-color:#29a75f;
+}
+.show-skills:after {
+	border-top-color:#29a75f;
+	border-width: 28px;
+	margin-left: -18px;
+}
+.show-skills:before {
+	border-bottom-color:#29a75f;
+	border-width:28px;
+	margin-left:-18px;
+}
+.conter-decor:after {
+	border-top-color: #29a75f;
+}
+.conter-decor:before {
+	border-bottom-color: #29a75f;
+}
+.contact-details h3 {
+	border-bottom:2px solid #29a75f;
+}
+.user-photo{
+	border-left:8px solid #29a75f;
+}
+#services-carusel .owl-next , #project-slider .owl-next , #testimonials .owl-next,.single-slider .owl-next{background:#29a75f url(../images/sr.png) no-repeat center;}
+#services-carusel .owl-prev ,#project-slider .owl-prev , #testimonials .owl-prev,.single-slider .owl-prev{background:#29a75f url(../images/sl.png) no-repeat center;}
+.post-body p > a {
+    color: #29a75f;
+}
+.form-submit input {
+    background: #29a75f;
+}
+.link-holder {
+    background: #29a75f;
+}
+
+
+
+/* =====================
+    WP Contact Form 7
+-------------*/
+.contact-desc
+{
+    color: #fff;
+    margin-bottom: 30px;
+}
+.wpcf7
+{
+    width: 100%;
+    color: #666666;
+    margin:50px auto;
+}
+.wpcf7 p
+{
+    text-align: left;
+    color: #fff;
+
+}
+.wpcf7-text,.wpcf7-email{
+    border:2px solid #fff;
+    border-bottom:4px solid #ccc;
+    outline: none;
+    padding: 10px;
+    width:100%;
+    height: 45px;
+    background: none;
+    -webkit-appearance: none;
+    font-size: 1.2em;
+    font-weight:300;
+    margin-top:10px;
+    margin-bottom:20px;
+    border-radius:8px;
+    color:#fff;
+    -webkit-font-smoothing: antialiased;
+}
+.wpcf7-textarea{
+    background: none;
+    border:2px solid #fff;
+    border-bottom:4px solid #ccc;
+    color: #fff;
+    height:200px;
+    width: 100%;
+    resize: vertical;
+    outline:none;
+    margin-top:8px;
+    padding:10px;
+    border-radius:8px;
+    -webkit-appearance: none;
+    font-family: 'Open Sans', sans-serif;
+}
+.wpcf7-textarea:focus,.wpcf7-text:focus,.wpcf7-email:focus
+{
+    background:#29a75f;
+}
+.wpcf7-textarea:focus, .wpcf7-text:focus,.wpcf7-email:focus{
+    color:#fff;
+    text-transform: none;
+    -webkit-transition: background 0.33s linear;
+    -moz-transition: background 0.33s linear;
+    -o-transition: background 0.33s linear;
+    transition: background 0.33s linear;
+}
+.wpcf7-submit{
+    border: none;
+    margin-top:20px;
+    padding: 10px 25px 10px 25px;
+    color: #fff;
+    background: none repeat scroll 0 0 #29a75f;
+    width:150px;
+    float:left;
+    cursor:pointer;
+    border-radius:8px;
+    border-bottom:6px solid #ccc;
+}
+
+.wpcf7-submit:hover{
+    color: #29a75f;
+    background:#fff;
+}
+
+
+.wpcf7-form-control-wrap  {
+    display: block !important;
+    /*margin-top: 20px;*/
+    text-align: left;
+}
+div.wpcf7-validation-errors {
+    border: 0 !important;
+}
+div.wpcf7-response-output {
+    color: #F00;
+    font-size: 15px;
+    font-family: "Open Sans";
+    margin: 50px 0 0 0;
+    padding: 0;
+    text-align: left;
+    clear: left;
+    border: none;
+}
+#recaptcha_widget_div {margin-top: 20px;}
+span.wpcf7-not-valid-tip {
+    font-size: 15px !important;
+}
+
+/* Input Capcha */
+.wpcf7-awecaptcha {
+    background: none repeat scroll 0 0 rgba(0, 0, 0, 0);
+    border-color: #FFFFFF #FFFFFF #CCCCCC;
+    border-image: none;
+    border-radius: 8px;
+    border-style: solid;
+    border-width: 2px 2px 4px;
+    color: #FFFFFF;
+    font-size: 1.2em;
+    font-weight: 300;
+    height: 45px;
+    margin-bottom: 20px;
+    margin-top: 10px;
+    outline: medium none;
+    padding: 10px;
+}
+.row-capcha {
+    margin-top: 20px;
+}
+.conter-decor  {
+    background-color: rgba(84, 186, 187, 0.3);
+}

@@ -1,0 +1,233 @@
+﻿@page
+@model Exwhyzee.Lojour.Web.Areas.Account.Pages.UpdatePortfolioModel
+@{
+    Layout = "/Views/Shared/_ClientLayout.cshtml";
+
+}
+
+<style>
+    .checkbox label, .radio label {
+        padding-left: 0px !important;
+    }
+</style>
+<div class="">
+    <div class="page-title">
+        <div class="title_left">
+            <h3>Update Portfolio</h3>
+        </div>
+
+    </div>
+    <div class="clearfix"></div>
+    <div class="row">
+   <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+                <div class="x_title">
+
+
+                    <h2>
+                        Update Portfolio Images
+                        <a class="collapse-link pull-right"><i class="fa fa-chevron-up">min/max</i></a>
+                    </h2>
+
+                    <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+                    @foreach (var item in Model.ListWorkImageModel)
+                    {
+                        <form id="ListLanguageSpokenModelForm" asp-page-handler="WorkImageDelete" enctype="multipart/form-data" method="post">
+                            <input type="hidden" name="workImageModelId" value="@item.Id" />
+
+                        </form>
+                        <div class="alert left_col alert-dismissible fade in" role="alert" style="padding:5px;margin-bottom:10px;border-radius:0px;padding-right:20px;">
+
+                            <form asp-page-handler="WorkImageDelete" asp-route-id="@item.Id" method="post">
+                                <button class="pull-right" style="font-weight:900;">X</button>
+                            </form>
+
+                            <a href="@item.Url" target="_blank"><img src="@item.Url" class="img-responsive" style="max-height:100px;float:left;margin:7px;" /></a>
+
+                        </div>
+
+
+                    }
+                    <br /><br />
+                    <div class="row">
+                        <div class="col-md-12">
+                            <form class="form-horizontal form-label-left" asp-page-handler="WorkImage" enctype="multipart/form-data" method="post">
+                                <input type="hidden" asp-for="userProfileModel.Id" name="userProfileModel.Id" />
+                                <h4>New Job Photos</h4>
+                                <div class="form-group">
+                                    <label class="control-label">
+                                        Title
+                                    </label>
+                                    <div class="">
+                                        <input type="text" name="Title" required="required" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label">
+                                        Address
+                                    </label>
+                                    <div class="">
+                                        <input type="text" name="Address" required="required" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="item form-group">
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="file">
+                                        Upload one or more images, Note! Not more than 5 images <span class="required"></span>
+                                    </label>
+                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                        <input class="form-control" type="file" name="files" id="gallery-photo-add" multiple />
+                                        <div class="gallery"></div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="">
+
+                                        <button id="submit" type="submit" class="btn btn-success">Add</button>
+                                    </div>
+                                </div>
+
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+     
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+                <div class="x_title">
+
+
+                    <h2>
+                        Update Job Analysis
+                        <a class="collapse-link pull-right"><i class="fa fa-chevron-up">min/max</i></a>
+                    </h2>
+
+                    <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+                    @foreach (var item in Model.ListJobAnalysisModel)
+                    {
+                        <form id="ListLanguageSpokenModelForm" asp-page-handler="JobAnalysisDelete" enctype="multipart/form-data" method="post">
+                            <input type="hidden" name="jobAnalysisModelId" value="@item.Id" />
+
+                        </form>
+                        <div class="alert left_col alert-dismissible fade in" role="alert" style="padding:5px;margin-bottom:10px;border-radius:0px;padding-right:20px;">
+
+                            <form asp-page-handler="JobAnalysisDelete" asp-route-id="@item.Id" method="post">
+                                <button class="pull-right" style="font-weight:900;">X</button>
+                            </form>
+
+                            <p>@item.Title</p>
+                            <p>@item.Count</p>
+
+                        </div>
+
+
+                    }
+
+                    <hr />
+                <form class="form-horizontal form-label-left" asp-page-handler="JobAnalysis" enctype="multipart/form-data" method="post">
+                    <input type="hidden" asp-for="userProfileModel.Id" name="userProfileModel.Id" />
+
+                    <div class="form-group">
+                        <label class="control-label">
+                            Title
+                        </label>
+                        <div class="">
+                            <input type="text" name="Title" required="required" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">
+                            Count
+                        </label>
+                        <div class="">
+                            <input type="text" name="Count" required="required" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="">
+
+                            <button id="submit" type="submit" class="btn btn-success">Add</button>
+                        </div>
+                    </div>
+
+
+                </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- /page content -->
+@section scripts{
+    <!---->
+    <script type="text/javascript">
+        $(function () {
+            // multiple images prevuiew in browser
+            var imagesPreview = function (input, placeToInsertImagePreview) {
+                if (input.files) {
+                    var regex = /^([a-zA-Z0-9\s_\\.\-:])+(.jpg|.jpeg|.gif|.png|.bmp)$/;
+                    var filesAmount = input.files.length;
+                    if (filesAmount <= 5) {
+                        for (i = 0; i < filesAmount; i++) {
+                            var reader = new FileReader();
+                            reader.onload = function (event) {
+                                $($.parseHTML('<img>')).attr('src', event.target.result).attr('width', '100px').attr('height', '100px').attr('margin', '10px').attr('padding', '10px').appendTo(placeToInsertImagePreview);
+                            }
+                            reader.readAsDataURL(input.files[i]);
+                        }
+                    } else {
+                        window.alert("You cant upload more than 5 images");
+                    }
+                }
+            };
+            $('#gallery-photo-add').on('change', function () {
+                imagesPreview(this, 'div.gallery');
+            });
+        });
+
+
+    </script>
+    <script type="text/jscript">
+        $(function () {
+            $('#State').change(function () {
+
+                var fruits = ["apple", "orange", "cherry"];
+                fruits.forEach(myFunction);
+                var res = "";
+                function myFunction(item, index) {
+                    res += index + ":" + item + "<br>";
+                }
+                console.log(res);
+                $.getJSON('/Home/LGAList/', {
+                    name: $('#State').val()
+                }, function (data) {
+
+                    var items = '<option>Choose LGA in the State</option>';
+                    $.each(jQuery.map(data, function (i, local) {
+                        items += "<option value='" + i.value + "'>" + i.text + "</option>";
+
+                    }));
+                    items += '<option value="None">Not Listed</option>';
+
+                    console.log(data);
+                    console.log("jd");
+                    console.log(data.data);
+
+                    console.log(items);
+                    $('#LGA').html(items);
+                });
+            });
+        });
+    </script>
+
+}

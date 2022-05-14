@@ -1,0 +1,35 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using Exwhyzee.Lojour.Core.Authorization.Users
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+  @if (User.Identity.IsAuthenticated)
+  {
+
+  }
+  
+@if (SignInManager.IsSignedIn(User))
+{
+
+    @if (User.IsInRole("Admin"))
+    {
+        <li class="login-register"><a asp-area="APanel" asp-page="/Admin/Index"> <i class="fa fa-dashboard"></i> DashBoard</a></li>
+    }
+    else if (User.IsInRole("SuperAdmin"))
+    {
+        <li class="login-register"><a asp-area="APanel" asp-page="/Admin/Index"> <i class="fa fa-dashboard"></i> DashBoard</a></li>
+    }
+    else if (User.IsInRole("Agent"))
+    {
+        <li class="login-register"><a asp-area="Account" asp-page="/UpdateProfile"> <i class="fa fa-dashboard"></i> DashBoard</a></li>
+    }
+
+}
+else
+{
+
+    <li class="login-register"><a asp-area="Identity" asp-page="/Account/Register">Register</a></li>
+    <li class="login-register"><a asp-area="Identity" asp-page="/Account/Login">Login</a></li>
+
+}
+
+

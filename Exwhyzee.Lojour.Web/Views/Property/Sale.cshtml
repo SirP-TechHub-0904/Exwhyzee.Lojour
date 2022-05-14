@@ -1,0 +1,134 @@
+﻿@using Exwhyzee.Lojour.Web.Views.Shared.ViewComponents
+@*@model IEnumerable<Exwhyzee.Lojour.Application.EstateProperties.Dto.EstatePropertyDto>*@
+@using Exwhyzee.Lojour.Web.Helpers
+
+@using X.PagedList.Mvc.Core;
+@using X.PagedList;
+
+@{
+    ViewData["Title"] = "Sale";
+}
+
+<link href="~/css/PagedList.css" rel="stylesheet" />
+
+<section id="main-content">
+    <style type="text/css">
+        #single-header {
+            background: url(/img/big-image.jpg) no-repeat center center;
+            background-size: cover;
+        }
+    </style>
+    <!-- Single Header -->
+    <div id="single-header">
+        <div class="dark-overlay">
+            <div class="container">
+                <h1 class="marT0 marB0">For Sale</h1>
+                <h2 class="marT0 marB0">The Top in the Country</h2>
+            </div>
+        </div>
+    </div>
+    <!-- //Single Header -->
+
+    <div class="container marT60 padB60">
+
+        <article class="col span_12">
+
+            <div id="header-search-wrap">
+                <div class="container">
+
+
+                    <form id="advanced_search" class="col span_12 first header-search" method="get" action="@Url.Action("Sale", "Property")">
+
+
+                        <div id="suggested-search" class="col span_9">
+                            <div id="keyword-wrap">
+                                <i class="fa fa-search"></i>
+                                <input type="text" id="ct_keyword" class="number header_keyword_search" name="searchString" size="8" placeholder="Property Name, Street, City, State, keyword and Press Enter">
+                            </div>
+
+                        </div>
+
+
+
+
+                        <div class="col span_3">
+                            <input id="submit" class="btn left" type="submit" value="Search" style="width:100% !important;">
+
+                        </div>
+
+                    </form>
+                    <div class="clear"></div>
+                </div>
+            </div>
+            @if (ViewBag.item != null)
+            {
+                <div class="alert alert-info">
+                    <strong>Result</strong> for @ViewBag.item (@ViewBag.count)
+                </div>
+            }
+
+
+            <ul id="brokerage-list">
+                @foreach (var item in ViewBag.Properties)
+                {
+                    <li class="brokerage brokerage-wrap brokerage-wide" style="padding:0px !important;">
+                        <figure class="col span_3 first">
+                            <a href="@Url.Action("Details", "Home", new { id = item.Id, name = item.PropertyName, location = item.PropertyAddress })" title="Lojour Homes">
+                                @await Component.InvokeAsync("PageImage", new { propertyId = item.Id })
+                            </a>
+                        </figure>
+                        <div class="agent-info col span_9">
+                            <h3 style="padding:0px !important;font-size:21px !important;"><a href="@Url.Action("Details", "Home", new { id = item.Id, name = item.PropertyName, location = item.PropertyAddress })" title="@item.PropertyName" style="font-weight:800 !important;">@item.PropertyName</a></h3>
+                            <h5 class="muted brokerage-address">           @item.PropertyAddress  </h5>
+
+                            <div class="agent-bio col span_8 first">
+                                <div class="brokerage-content">
+                                    <p style="line-height:1.5em;text-align:justify !important;">
+                                        @if (item.Description.Length > 300)
+                                        {
+                                            <text>  @item.Description.Substring(0, 300) ...</text>
+                                        }
+                                        else
+                                        {
+                                            @item.Description
+                                        }
+                                    </p>
+                                </div>
+
+                            </div>
+
+                            @{
+                                string txt = "'https://web.whatsapp.com/send?phone=2347060530000&text=Hi, Am interestd in your propert with id: " + item.IdentificationNumber + ", Name: " + item.PropertyName + ", Amount: N" + item.Amount + "'";
+                            }
+                            <ul class="col span_4">
+                                <li class="row"><span class="muted left"><i class="fa fa-phone"></i></span> <span class="right"><a onclick="window.open('tel:2347060530000')" style="cursor: pointer;">(234) 706-053-0000</a></span></li>
+                                <li class="row"><span class="muted left"><i class="fa fa-whatsapp"></i></span> <span class="right"><a onclick="window.open(@txt)" style="cursor: pointer;">(234) 706-053-0000</a></span></li>
+                            </ul>
+                            <div class="clear"></div>
+
+
+                            <div class="view-listings">
+                                <a class="btn" href="@Url.Action("Details", "Home", new { id = item.Id, name = item.PropertyName, location = item.PropertyAddress })">
+                                    For Sale
+                                </a>
+                            </div>
+                        </div>
+                        <div class="clear"></div>
+                    </li>
+                }    <!-- //Brokerage -->
+
+
+            </ul>
+            <!-- output a paging control that lets the user navigation to the previous page, next page, etc -->
+            @Html.PagedListPager((IPagedList)ViewBag.Properties, page => Url.Action("Sale", new { page }))
+            <div class="clear"></div>
+
+        </article>
+
+        <div class="clear"></div>
+
+    </div>
+
+    <div class="clear"></div>
+
+</section>

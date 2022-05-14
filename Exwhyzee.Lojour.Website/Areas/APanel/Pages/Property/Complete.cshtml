@@ -1,0 +1,266 @@
+﻿@page "{id:int?}"
+@model Exwhyzee.Lojour.Website.Areas.APanel.Pages.Property.CompleteModel
+@{
+
+    ViewData["Title"] = "Edit Property";
+    Layout = "/Views/Shared/_ClientLayout.cshtml";
+
+
+}
+
+@if (TempData["error"] != null)
+{
+    <div class="alert alert-danger alert-dismissible" role="alert">
+        <p>@TempData["error"]</p>
+    </div>
+}
+<!-- page content -->
+<div class="row">
+    <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="x_panel">
+            <div class="x_title">
+                <h2>Property <small></small></h2>
+
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+                <div id="wizard" class="form_wizard wizard_horizontal">
+                    <ul class="wizard_steps anchor">
+                        <li>
+                            <a href="#step-1" class="done" isdone="1" rel="1">
+                                <span class="step_no">1</span>
+                                <span class="step_descr">
+                                    Step 1<br>
+                                    <small>Property description</small>
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#step-2" class="done" isdone="0" rel="2">
+                                <span class="step_no">2</span>
+                                <span class="step_descr">
+                                    Step 2<br>
+                                    <small>Detailed information</small>
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#step-3" class="selected" isdone="0" rel="3">
+                                <span class="step_no">3</span>
+                                <span class="step_descr">
+                                    Step 3<br>
+                                    <small>Features and landmark</small>
+                                </span>
+                            </a>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+               
+                <div class="row">
+
+                    <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12">
+                        <span class="section">Property Features</span>
+                        List::::<br />
+                                <ul>
+                                    @foreach (var item in Model.ListFeatures.Source)
+                                    {
+                                        <form id="FeatureForm" asp-page-handler="FeatureDelete" enctype="multipart/form-data" method="post">
+                                            <input type="hidden" name="FeatureId" value="@item.Id" />
+                                            @*<input type="submit" value="Remove" />*@
+                                        </form>
+                                        <li style="border-bottom:1px solid #26b99a;">
+                                            @item.Name
+
+
+                                            <a href="javascript:document.getElementById('FeatureForm').submit()" class="btn btn-danger btn-sm pull-right" style="padding:1px 4px;border-radius:0;font-size:9px;">X</a>
+                                        </li>
+
+                                    }
+                                </ul>
+
+                        <hr style="border:2px solid #26b99a" />
+                        <form class="form-horizontal form-label-left" asp-page-handler="Features" enctype="multipart/form-data" method="post">
+                            <div class="item form-group">
+                                <label class="control-label" for="name">
+                                    Choose Feature <span class="required">*</span>
+                                </label>
+                                <div class="">
+
+                                    <select class="form-control" asp-for="Feature.Name" required="required">
+                                        <option value="">None</option>
+                                        <option value="3d wall finishing">3d wall finishing</option>
+                                        <option value="A separate tub and shower">A separate tub and shower</option>
+                                        <option value="An upstairs laundry room">An upstairs laundry room</option>
+                                        <option value="Built-in water purification systems">Built-in water purification systems</option>
+                                        <option value="Built-in wiring and conduits for flat screen TVs">Built-in wiring and conduits for flat screen TVs</option>
+                                        <option value="Car parks">CSar parks</option>
+                                        <option value="Flexible floor plans">Flexible floor plans</option>
+                                        <option value="Glazed doors and windows">Glazed doors and windows</option>
+                                        <option value="Garage">Garage</option>
+                                        <option value="Glazed tile flooring">Glazed tile flooring</option>
+                                        <option value="Green/environmentally sensitive features">Green/environmentally sensitive features</option>
+                                        <option value="High-efficiency furnaces and water heaters">High-efficiency furnaces and water heaters</option>
+                                        <option value="High-quality">High-quality</option>
+                                        <option value="High-performance appliances">High-performance appliances</option>
+                                        <option value="Home entertainment centers">Home entertainment centers</option>
+                                        <option value="Low-voltage lighting">Low-voltage lighting</option>
+                                        <option value="Large">Large</option>
+                                        <option value="Large master baths">Large master baths</option>
+                                        <option value="Open kitchens">Open kitchens</option>
+                                        <option value="Swimming pool">Swimming pool</option>
+                                        <option value="Stairs">Stairs</option>
+                                        <option value="Pedestrian friendly communities">Pedestrian friendly communities</option>
+
+                                        <option value="Private outdoor space">Private outdoor space</option>
+
+                                        <option value="Quality closet">Quality closet</option>
+
+
+                                        <option value="Smoke detectors">Smoke detectors</option>
+
+                                        <option value="Wider balconies and decks">Wider balconies and decks</option>
+
+
+                                        <option value=""></option>
+
+
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="">
+
+                                    <button id="submit" type="submit" class="btn btn-success">Add</button>
+                                </div>
+                            </div>
+
+
+                        </form>
+
+                    </div>
+
+
+
+                    <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12" style="border-left:2px solid #26b99a;">
+                        <span class="section">Property LandMark</span>
+                        List::::
+                        <br />
+                        <ul style="list-style-type:none !important;">
+                            @foreach (var item in Model.ListLandMarks.Source)
+                            {
+                                <form id="MarkForm" asp-page-handler="LandMarkDelete" enctype="multipart/form-data" method="post">
+                                    <input type="hidden" name="LandMarkId" value="@item.Id" />
+                                    
+                                </form>
+                                <li style="border-bottom:1px solid #26b99a;">
+                                    <a href="javascript:document.getElementById('MarkForm').submit()" class="btn btn-danger btn-sm pull-right" style="padding:1px 4px;border-radius:0;font-size:9px;">X</a>
+
+                                    <span class="h5"><span style="font-weight:900;">Landmark:</span> @item.LandMarkType</span><br />
+                                    <span class="h6"><span style="font-weight:900;">Name:</span> @item.Name</span><br />
+                                    <span><span style="font-weight:900;">Distance:</span> @item.Distance</span><br />
+
+
+
+
+                                </li>
+
+                            }
+
+                        </ul>
+                        <hr style="border:2px solid #26b99a" />
+                        <form class="form-horizontal form-label-left" asp-page-handler="LandMark" enctype="multipart/form-data" method="post">
+                            <div class="item form-group">
+                                <label class="control-label" for="name">
+                                    Choose Type <span class="required">*</span>
+                                </label>
+                                <div class="">
+                                    <select class="form-control" id="" placeholder="" asp-for="LandMark.LandMarkType" name="LandMark.LandMarkType" required="required">
+
+                                        <option value="">None</option>
+                                        <option value="Amusement Parks">Amusement Parks</option>
+                                        <option value="Airport">Airport</option>
+                                        <option value="Banks">Banks</option>
+                                        <option value="Beaches">Beaches</option>
+                                        <option value="Church">Church</option>
+                                        <option value="Filling Station">Filling Station</option>
+                                        <option value="Fastfood Restaurant">Fastfood Restaurant</option>
+                                        <option value="Police Post">Police Post</option>
+
+                                        <option value="Hotel">Hotel</option>
+
+                                        <option value="Malls">Malls</option>
+                                        <option value="School">School</option>
+
+                                        <option value="Hospital">Hospital</option>
+
+
+
+
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="item form-group">
+                                <label class="control-label" for="name">
+                                    Enter name of place
+                                </label>
+                                <div class="">
+                                    <input id="name" class="form-control" asp-for="LandMark.Name" name="LandMark.Name" placeholder="e.g St John Hospital Amakohia" autofocus required="required" type="text">
+                                </div>
+                            </div>
+                            <div class="item form-group">
+                                <label class="control-label" for="name">
+                                    Distance in minute
+                                </label>
+                                <div class="">
+                                    <input id="name" class="form-control" asp-for="LandMark.Distance" name="LandMark.Distance" placeholder="e.g 10minute walk or 10minute drive" autofocus required="required" type="text">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="">
+
+                                    <button id="submit" type="submit" class="btn btn-success">Add</button>
+                                </div>
+                            </div>
+
+
+                        </form>
+                    </div>
+
+                </div>
+                <hr style="border:4px solid #26b99a" />
+                <a class="btn btn-primary text-center" asp-page="/Property/Index"> Finish</a>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- /page content -->
+@section scripts{
+    <!---->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script>
+    <script src="~/css/dist/js/ajax-bootstrap-select.min.js"></script>
+    <script>
+        object.onload = function () {
+            var options = $('select.whatever option');
+            var arr = options.map(function (_, o) {
+                return {
+                    t: $(o).text(),
+                    v: o.value
+                };
+            }).get();
+            arr.sort(function (o1, o2) {
+                return o1.t > o2.t ? 1 : o1.t < o2.t ? -1 : 0;
+            });
+            options.each(function (i, o) {
+                console.log(i);
+                o.value = arr[i].v;
+                $(o).text(arr[i].t);
+            });
+        });
+                };
+    </script>
+}

@@ -1,0 +1,19 @@
+﻿@model Exwhyzee.Lojour.Core.Authorization.Users.ApplicationUser
+
+
+        @if (Model.Email != null)
+        {
+            <div class="navbar nav_title" style="border: 0;">
+                <a href="/" class="site_title"> <i style="border-radius:0px !important;font-style:normal;font-weight:bold;"></i><span> @*@Model.FullName*@</span>
+                
+                </a>
+            </div>
+        }
+        else
+        {
+            <div class="navbar nav_title" style="border: 0;">
+                <a href="/" class="site_title"><i style="border-radius:0px !important;font-style:normal;font-weight:bold;">L</i> <span>Lojour</span></a>
+            </div>
+
+        }
+   

@@ -1,0 +1,181 @@
+﻿@page "{id:int?}"
+@model Exwhyzee.Lojour.Web.Areas.APanel.Pages.Property.ListImagesModel
+@{
+    ViewData["Title"] = "Property Images";
+
+    Layout = "/Views/Shared/_ClientLayout.cshtml";
+}
+
+<!-- page content -->
+<div class="row">
+    <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="x_panel table-responsive">
+            <div class="x_title">
+                <h2>Property Images </h2>
+
+
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content table-responsive">
+
+                <dl class="dl-horizontal">
+                    <dt>
+                        Name
+                    </dt>
+
+                    <dd>
+                        @Model.Data.PropertyName
+                    </dd>
+                    <dt>
+                        Price
+                    </dt>
+
+                    <dd>
+                        @Model.Data.Amount
+
+                    </dd>
+                    <dt>
+                        Location
+                    </dt>
+
+                    <dd>
+                        @Model.Data.PropertyAddress
+                    </dd>
+
+                </dl>
+
+                <table class="table dataTable table-striped jambo_table bulk_action" border="1" id="table">
+                    <thead>
+                        <tr class="headings">
+                            <th class="column-title">S/N </th>
+                            <th class="column-title">Is Default </th>
+
+                            <th class="column-title">Image </th>
+                            <th class="column-title"> </th>
+
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @{
+                            int sno = 0;
+                        }
+
+
+
+
+
+
+                        @foreach (var item in Model.PropertyImage.Source)
+                        {
+                            <tr class="even pointer">
+                                <td>
+                                    @{ sno++; }
+                                    @sno
+                                </td>
+
+                                <td>@item.IsDefault</td>
+                                <td>
+                                    <a href="@item.Url">
+                                        <img src="@item.Url" style="max-height:300px;" class="img-responsive" />
+                                    </a>
+                                </td>
+
+
+                                <td>
+
+                                    <div class="dropdown">
+                                        <button class="btn btn-primary btn-xs dropdown-toggle" type="button" data-toggle="dropdown">
+                                            Action
+                                            <span class="caret"></span>
+                                        </button>
+                                        <ul class="dropdown-menu" style="max-width:none !important;">
+
+                                            <li>
+                                                <a asp-page="./DeleteImage" style="padding:3px 5px !important;" asp-route-id="@item.Id">Delete</a>
+                                            </li>
+                                            <li>
+                                                <a asp-page="./MakeDefaultImage" style="padding:3px 5px !important;" asp-route-id="@item.Id">Make Default Image</a>
+                                            </li>
+
+                                        </ul>
+                                    </div>
+                                </td>
+                            </tr>
+                        }
+
+                    </tbody>
+                </table>
+
+                <form class="form-horizontal form-label-left" enctype="multipart/form-data" method="post">
+                    <input asp-for="Propertyid" value="@Model.Propertyid" type="hidden" id="HostedBy" name="Propertyid">
+
+
+                    <span class="section">Property Info</span>
+
+                    <div class="row">
+                        <!--Raffle Properties-->
+                        <div class="col-md-7 col-lg-7 col-sm-12 col-xs-12">
+
+
+                            <!--Images of Raffle-->
+                            <div class="item form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="file">
+                                    Upload one or more images, Note! Not more than 5 images <span class="required"></span>
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <input class="form-control" type="file" name="files" id="gallery-photo-add" multiple />
+                                    <div class="gallery"></div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                    <div class="ln_solid"></div>
+                    <div class="form-group">
+                        <div class="col-md-6 col-md-offset-3">
+                            <button type="button" class="btn btn-primary" asp-route="/RaffleManagement/Index">Cancel</button>
+                            <button id="submit" type="submit" class="btn btn-success">Submit</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- /page content -->
+@section scripts{
+    <script type="text/javascript">
+        $("table").DataTable();
+    </script>
+
+    <script type="text/javascript">
+        $(function () {
+            // multiple images prevuiew in browser
+            var imagesPreview = function (input, placeToInsertImagePreview) {
+                if (input.files) {
+                    var regex = /^([a-zA-Z0-9\s_\\.\-:])+(.jpg|.jpeg|.gif|.png|.bmp)$/;
+                    var filesAmount = input.files.length;
+                    if (filesAmount <= 5) {
+                        for (i = 0; i < filesAmount; i++) {
+                            var reader = new FileReader();
+                            reader.onload = function (event) {
+                                $($.parseHTML('<img>')).attr('src', event.target.result).attr('width', '100px').attr('height', '100px').attr('margin', '10px').attr('padding', '10px').appendTo(placeToInsertImagePreview);
+                            }
+                            reader.readAsDataURL(input.files[i]);
+                        }
+                    } else {
+                        window.alert("You cant upload more than 5 images");
+                    }
+                }
+            };
+            $('#gallery-photo-add').on('change', function () {
+                imagesPreview(this, 'div.gallery');
+            });
+        });
+
+
+    </script>
+}

@@ -1,0 +1,524 @@
+﻿
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <style type="text/css">
+        .gm-style .gm-style-mtc label, .gm-style .gm-style-mtc div {
+            font-weight: 400
+        }
+    </style>
+    <style type="text/css">
+        .gm-control-active > img {
+            box-sizing: content-box;
+            display: none;
+            left: 50%;
+            pointer-events: none;
+            position: absolute;
+            top: 50%;
+            transform: translate(-50%,-50%)
+        }
+
+            .gm-control-active > img:nth-child(1) {
+                display: block
+            }
+
+        .gm-control-active:hover > img:nth-child(1), .gm-control-active:active > img:nth-child(1) {
+            display: none
+        }
+
+        .gm-control-active:hover > img:nth-child(2), .gm-control-active:active > img:nth-child(3) {
+            display: block
+        }
+    </style>
+    <link type="text/css" rel="stylesheet" href="~/Main/cssfile/css.css">
+    <style type="text/css">
+        .gm-ui-hover-effect {
+            opacity: .6
+        }
+
+            .gm-ui-hover-effect:hover {
+                opacity: 1
+            }
+    </style>
+    <style type="text/css">
+        .gm-style .gm-style-cc span, .gm-style .gm-style-cc a, .gm-style .gm-style-mtc div {
+            font-size: 10px;
+            box-sizing: border-box
+        }
+    </style>
+    <style type="text/css">
+        @@media print {
+            .gm-style .gmnoprint, .gmnoprint {
+                display: none
+            }
+        }
+
+        @@media screen {
+            .gm-style .gmnoscreen, .gmnoscreen {
+                display: none
+            }
+        }
+    </style>
+    <style type="text/css">
+        .gm-style-pbc {
+            transition: opacity ease-in-out;
+            background-color: rgba(0,0,0,0.45);
+            text-align: center
+        }
+
+        .gm-style-pbt {
+            font-size: 22px;
+            color: white;
+            font-family: Roboto,Arial,sans-serif;
+            position: relative;
+            margin: 0;
+            top: 50%;
+            -webkit-transform: translateY(-50%);
+            -ms-transform: translateY(-50%);
+            transform: translateY(-50%)
+        }
+    </style>
+    <link href="~/Main/js/revolution-slider/fonts/font-awesome/css/font-awesome.css" rel="stylesheet" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+    <meta name="description" content="@ViewBag.MetaTitle">
+    <meta name="description" content="@ViewBag.MetaKeyword">
+    <meta name="description" content="@ViewBag.MetaDescription">
+
+    <title>Account | Lojour: Real Estate, Apartments, Hostels &amp; Home Values</title>
+    <link rel="icon" href="~/img/icon.png" type="image/x-icon" />
+
+    <meta name="theme-color" content="#2e6da4">
+    <meta name="description" content="Find the latest property for sale or for rent across in Nigeria from trusted landlords and agents. Sell your property with us or find a new home easily and convenient from our wide range of flats, apartments, houses and more. Read our free expert advice on real estate and make an informed decision on your next home">
+    <meta name="robots" content="INDEX, FOLLOW">
+    <link rel="canonical" href="http://lojour.com/">
+    <link rel="alternate" href="http://lojour.com/" hreflang="en">
+    <meta property="og:title" content="Property in Nigeria">
+    <meta property="og:description" content="Find the latest property for sale or for rent across in Nigeria from trusted landlords and agents. Sell your property with us or find a new home easily from our wide range of flats, apartments, houses and more. ">
+    <meta property="og:type" content="Website">
+    <meta property="og:url" content="http://lojour.com/">
+    <meta property="og:site_name" content="Private Property Nigeria">
+    <meta property="og:image" content="http://lojour.com/img/lojour-logo-web.png">
+    <meta name="author" content="">
+    <link rel="icon" href="http://lojour.com/img/icon.png">
+    <link rel="manifest" href="">
+
+    <link rel="preconnect" href="http://lojour.com/">
+    <link rel="preconnect" href="http://lojour.com/web/index">
+    <link rel="preconnect" href="//www.google-analytics.com" crossorigin="anonymous">
+    <link rel="preconnect" href="//adservice.google.com" crossorigin="anonymous">
+    <link rel="preconnect" href="//www.gstatic.com" crossorigin="anonymous">
+    <link rel="preconnect" href="//www.googletagmanager.com" crossorigin="anonymous">
+    <link rel="canonical" href="http://lojour.com/">
+    <link rel="start" title="Lojour Home" href="/">
+    <meta name="description" content="The leading real estate marketplace. Search millions of for-sale and rental listings, compare lojour home values and connect with local professionals.">
+    <meta itemprop="name" content="Lojour Real Estate, Rentals, and Hostels">
+    <meta itemprop="description" content="The most trafficked website about home sales and rentals, with real estate values for almost every Nigeria. home. 1,000,000 listings.">
+    <meta itemprop="image" content="http://lojour.com/img/lojour-logo-web.png">
+    <meta property="og:url" content="http://lojour.com/">
+    <meta property="og:title" content="Lojour: Real Estate, Apartments, Hostels &amp; Home Values">
+    <meta property="og:description" content="The leading real estate marketplace. Search millions of for-sale and rental listings, compare lojour home values and connect with local professionals.">
+    <meta name="ROBOTS" content="ALL">
+    <meta name="msvalidate.01" content="">
+    <meta name="google-site-verification" content="">
+    <meta content="The leading real estate marketplace. Search millions of for-sale and rental listings, compare lojour home values and connect with local professionals." name="description">
+    <meta content="Home, Hostels, House, Rent, Buy, Nigeria, Property, Real, Estate" name="keywords">
+    <meta content="blue" name="author">
+    <meta content="English" name="language">
+    <link rel="canonical" href="http://lojour.com/">
+    <link rel="alternate" href="http://lojour.com/" hreflang="en-us">
+    <meta property="og:title" content="Lojour">
+    <meta property="og:description" content="Lojour: Real Estate, Apartments, Hostels &amp; Home Values">
+    <meta property="og:url" content="http://lojour.com/">
+    <meta property="og:site_name" content="Lojour: Real Estate, Apartments, Hostels &amp; Home Values">
+    <meta property="og:image" content="http://lojour.com/img/lojour-logo-web.png">
+    <meta property="og:locale" content="en_us">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="Summery">
+    <meta name="twitter:site" content="http://lojour.com/">
+
+    <meta name="language" content="en-us">
+    <meta name="owner" content="GreenData">
+    <meta name="distribution" content="GLOBAL">
+    <meta name="city" content="Abia">
+    <meta name="country" content="NG">
+    <meta name="geo.placename" content="Abia">
+    <meta name="rating" content="general">
+    <meta name="copyright" content="GreenData copyright © 2017">
+    <meta name="DC.Publisher" content="GreenData">
+
+    <script type="text/javascript">
+        window._wpemojiSettings = { "baseUrl": "https:\/\/s.w.org\/images\/core\/emoji\/12.0.0-1\/72x72\/", "ext": ".png", "svgUrl": "https:\/\/s.w.org\/images\/core\/emoji\/12.0.0-1\/svg\/", "svgExt": ".svg", "source": { "concatemoji": "https:\/\/contempothemes.com\/wp-real-estate-7\/multi-three-demo\/wp-includes\/js\/wp-emoji-release.min.js?ver=5.2.3" } };
+        !function (a, b, c) { function d(a, b) { var c = String.fromCharCode; l.clearRect(0, 0, k.width, k.height), l.fillText(c.apply(this, a), 0, 0); var d = k.toDataURL(); l.clearRect(0, 0, k.width, k.height), l.fillText(c.apply(this, b), 0, 0); var e = k.toDataURL(); return d === e } function e(a) { var b; if (!l || !l.fillText) return !1; switch (l.textBaseline = "top", l.font = "600 32px Arial", a) { case "flag": return !(b = d([55356, 56826, 55356, 56819], [55356, 56826, 8203, 55356, 56819])) && (b = d([55356, 57332, 56128, 56423, 56128, 56418, 56128, 56421, 56128, 56430, 56128, 56423, 56128, 56447], [55356, 57332, 8203, 56128, 56423, 8203, 56128, 56418, 8203, 56128, 56421, 8203, 56128, 56430, 8203, 56128, 56423, 8203, 56128, 56447]), !b); case "emoji": return b = d([55357, 56424, 55356, 57342, 8205, 55358, 56605, 8205, 55357, 56424, 55356, 57340], [55357, 56424, 55356, 57342, 8203, 55358, 56605, 8203, 55357, 56424, 55356, 57340]), !b }return !1 } function f(a) { var c = b.createElement("script"); c.src = a, c.defer = c.type = "text/javascript", b.getElementsByTagName("head")[0].appendChild(c) } var g, h, i, j, k = b.createElement("canvas"), l = k.getContext && k.getContext("2d"); for (j = Array("flag", "emoji"), c.supports = { everything: !0, everythingExceptFlag: !0 }, i = 0; i < j.length; i++)c.supports[j[i]] = e(j[i]), c.supports.everything = c.supports.everything && c.supports[j[i]], "flag" !== j[i] && (c.supports.everythingExceptFlag = c.supports.everythingExceptFlag && c.supports[j[i]]); c.supports.everythingExceptFlag = c.supports.everythingExceptFlag && !c.supports.flag, c.DOMReady = !1, c.readyCallback = function () { c.DOMReady = !0 }, c.supports.everything || (h = function () { c.readyCallback() }, b.addEventListener ? (b.addEventListener("DOMContentLoaded", h, !1), a.addEventListener("load", h, !1)) : (a.attachEvent("onload", h), b.attachEvent("onreadystatechange", function () { "complete" === b.readyState && c.readyCallback() })), g = c.source || {}, g.concatemoji ? f(g.concatemoji) : g.wpemoji && g.twemoji && (f(g.twemoji), f(g.wpemoji))) }(window, document, window._wpemojiSettings);
+    </script>
+    <script src="~/Main/js/wp-emoji-release.min.js" type="text/javascript" defer=""></script>
+    <style type="text/css">
+        img.wp-smiley,
+        img.emoji {
+            display: inline !important;
+            border: none !important;
+            box-shadow: none !important;
+            height: 1em !important;
+            width: 1em !important;
+            margin: 0 .07em !important;
+            vertical-align: -0.1em !important;
+            background: none !important;
+            padding: 0 !important;
+        }
+    </style>
+    <link href="~/css/bootstrap.css" rel="stylesheet" />
+    <link rel="stylesheet" id="wpfp-css" href="~/Main/cssfile/wpfp.css" type="text/css">
+    <link rel="stylesheet" id="aq-switcher-view-css-css" href="~/Main/cssfile/aq-style-switcher.css" type="text/css" media="all">
+    <link rel="stylesheet" id="wp-block-library-css" href="~/Main/cssfile/style.min.css" type="text/css" media="all">
+    <link rel="stylesheet" id="contact-form-7-css" href="~/Main/cssfile/styles.css" type="text/css" media="all">
+    <link rel="stylesheet" id="ct_listing_analytics-css" href="~/Main/cssfile/ct-listing-analytics.min.css" type="text/css" media="all">
+    <link rel="stylesheet" id="ct_la_chart_style-css" href="~/Main/cssfile/Chart.min.css" type="text/css" media="all">
+    <link rel="stylesheet" id="ct_la_daterangepicker_style-css" href="~/Main/cssfile/lightpick.css" type="text/css" media="all">
+    <link rel="stylesheet" id="packages-css" href="~/Main/cssfile/packages.css" type="text/css" media="all">
+    <link rel="stylesheet" id="rs-plugin-settings-css" href="~/Main/cssfile/settings.css" type="text/css" media="all">
+    <style id="rs-plugin-settings-inline-css" type="text/css">
+        .tp-caption a {
+            color: #ff7302;
+            text-shadow: none;
+            -webkit-transition: all 0.2s ease-out;
+            -moz-transition: all 0.2s ease-out;
+            -o-transition: all 0.2s ease-out;
+            -ms-transition: all 0.2s ease-out
+        }
+
+            .tp-caption a:hover {
+                color: #ffa902
+            }
+
+        .tp-caption.Newspaper-Button, .Newspaper-Button {
+            color: rgba(255,255,255,1.00);
+            font-size: 13px;
+            line-height: 17px;
+            font-weight: 700;
+            font-style: normal;
+            font-family: Roboto;
+            text-decoration: none;
+            background-color: rgba(255,255,255,0);
+            border-color: rgba(255,255,255,0.25);
+            border-style: solid;
+            border-width: 1px;
+            border-radius: 0px 0px 0px 0px;
+            letter-spacing: 2px
+        }
+
+            .tp-caption.Newspaper-Button:hover, .Newspaper-Button:hover {
+                color: rgba(0,0,0,1.00);
+                text-decoration: none;
+                background-color: rgba(255,255,255,1.00);
+                border-color: rgba(255,255,255,1.00);
+                border-style: solid;
+                border-width: 1px;
+                border-radius: 0px 0px 0px 0px;
+                cursor: pointer
+            }
+
+        .tp-caption.Newspaper-Subtitle, .Newspaper-Subtitle {
+            color: rgba(168,216,238,1.00);
+            font-size: 15px;
+            line-height: 20px;
+            font-weight: 900;
+            font-style: normal;
+            font-family: Roboto;
+            text-decoration: none;
+            background-color: transparent;
+            border-color: transparent;
+            border-style: none;
+            border-width: 0px;
+            border-radius: 0 0 0 0px
+        }
+
+        .tp-caption.Newspaper-Title, .Newspaper-Title {
+            color: rgba(255,255,255,1.00);
+            font-size: 50px;
+            line-height: 55px;
+            font-weight: 400;
+            font-style: normal;
+            font-family: "Roboto Slab";
+            text-decoration: none;
+            background-color: transparent;
+            border-color: transparent;
+            border-style: none;
+            border-width: 0px;
+            border-radius: 0 0 0 0px
+        }
+
+        .erinyen .tp-tab-title {
+            color: rgb(168, 216, 238);
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-family: "Roboto Slab";
+            margin-bottom: 5px;
+            line-height: 15px;
+        }
+
+        .erinyen .tp-tab-desc {
+            font-size: 18px;
+            font-weight: 400;
+            color: rgb(255, 255, 255);
+            line-height: 25px;
+            font-family: "Roboto Slab";
+        }
+    </style>
+    <link rel="stylesheet" id="wsl-widget-css" href="~/Main/cssfile/style.css" type="text/css" media="all">
+    <link rel="stylesheet" id="base-css" href="~/Main/cssfile/base.css" type="text/css" media="screen, projection">
+    <link rel="stylesheet" id="headingFont-css" href="~/Main/cssfile/css(1).css" type="text/css" media="all">
+    <link rel="stylesheet" id="bodyFont-css" href="~/Main/cssfile/css(2).css" type="text/css" media="all">
+    <link rel="stylesheet" id="framework-css" href="~/Main/cssfile/responsive-gs-12col.css" type="text/css" media="screen, projection">
+
+    <link rel="stylesheet" id="layout-css" href="~/Main/cssfile/layout.css" type="text/css" media="screen, projection">
+    <link rel="stylesheet" id="ctFlexslider-css" href="~/Main/cssfile/flexslider.css" type="text/css" media="screen, projection">
+    <link rel="stylesheet" id="ctFlexsliderNav-css" href="~/Main/cssfile/flexslider-direction-nav.css" type="text/css" media="screen, projection">
+    <link rel="stylesheet" id="fontawesome-css" href="~/Main/cssfile/font-awesome.min.css" type="text/css" media="screen, projection">
+    <link rel="stylesheet" id="animate-css" href="~/Main/cssfile/animate.min.css" type="text/css" media="screen, projection">
+    <link rel="stylesheet" id="ctModal-css" href="~/Main/cssfile/ct-modal-overlay.css" type="text/css" media="screen, projection">
+    <link rel="stylesheet" id="ctSlidePush-css" href="~/Main/cssfile/ct-sp-menu.css" type="text/css" media="screen, projection">
+    <link rel="stylesheet" id="owlCarousel-css" href="~/Main/cssfile/owl-carousel.css" type="text/css" media="screen, projection">
+    <link rel="stylesheet" id="comments-css" href="~/Main/cssfile/comments.css" type="text/css" media="screen, projection">
+    <link rel="stylesheet" id="validationEngine-css" href="~/Main/cssfile/validationEngine.jquery.css" type="text/css" media="screen, projection">
+    <link rel="stylesheet" id="dropdowns-css" href="~/Main/cssfile/ct-dropdowns.css" type="text/css" media="screen, projection">
+    <link rel="stylesheet" id="ctNiceSelect-css" href="~/Main/cssfile/nice-select.css" type="text/css" media="screen, projection">
+    <link rel="stylesheet" id="ct-theme-style-css" href="~/Main/cssfile/style(1).css" type="text/css" media="screen, projection">
+    <link rel="stylesheet" id="ct_social_css-css" href="~/Main/cssfile/style(2).css" type="text/css" media="all">
+    <link rel="stylesheet" id="ionicons-style-css" href="~/Main/cssfile/ionicons.css" type="text/css" media="all">
+    <link rel="stylesheet" id="ra-style-css" href="~/Main/cssfile/style(3).css" type="text/css" media="all">
+
+    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+    @*<script type="text/javascript" src="~/Main/js/jquery.js"></script>*@
+    <script type="text/javascript" src="~/Main/js/jquery-migrate.min.js"></script>
+
+    <script type="text/javascript" src="~/Main/js/frontend.min.js"></script>
+    <script type="text/javascript" src="~/Main/js/Chart.min.js"></script>
+    <script type="text/javascript" src="~/Main/js/moment.min.js"></script>
+    <script type="text/javascript" src="~/Main/js/lightpick.js"></script>
+    <script src="~/Main/js/revolution-slider/js/jquery.themepunch.tools.min.js"></script>
+    <script src="~/Main/js/revolution-slider/js/jquery.themepunch.revolution.min.js"></script>
+    <script type="text/javascript">
+        /* <![CDATA[ */
+        var searchLabel = { "all_cities": "All Cities", "all_states": "All States", "all_zip_post": "All Zipcodes" };
+        /* ]]> */
+    </script>
+    <script type="text/javascript" src="~/Main/js/ct.advanced.search.js"></script>
+    <script type="text/javascript" src="~/Main/js/owl.carousel.min.js"></script>
+
+    <style type="text/css">
+        h1, h2, h3, h4, h5, h6 {
+            font-family: "Montserrat";
+        }
+
+        body, .slider-wrap, input[type="submit"].btn {
+            font-family: "Lato";
+        }
+
+        .fa-close:before {
+            content: "\f00d";
+        }
+
+        .hero-search {
+            background: url() no-repeat center center;
+            background-size: cover;
+            padding-top: 15%;
+            padding-bottom: 15%;
+        }
+
+        .search-listings #map-wrap {
+            margin-bottom: 0;
+            background-color: #fff;
+        }
+
+        span.map-toggle, span.search-toggle {
+            border-bottom-right-radius: 3px;
+        }
+
+        span.searching {
+            border-bottom-left-radius: 3px;
+        }
+
+        .form-group {
+            width: 49.0%;
+        }
+    </style>
+    <style type="text/css">
+        .home #map-wrap,
+        .home .testimonials {
+            margin: 0;
+        }
+
+        li.listing.minimal .location {
+            color: #f1f1f1 !important;
+        }
+
+        .page-template-template-demo-home-listings-slider #header-wrap {
+            z-index: 999999;
+            background: none;
+        }
+
+        .page-template-template-demo-home-listings-slider #topbar-wrap,
+        .page-template-template-demo-home-listings-slider #header-search-wrap {
+            display: none;
+        }
+
+        .page-template-template-demo-home-listings-slider-content #main-content {
+            position: relative;
+            top: -149px;
+        }
+
+        .page-id-2611 #main-content {
+            margin-bottom: -48px !important;
+            background: #000;
+        }
+
+        .hero-search h1, .hero-search h2 {
+            text-shadow: 0px 0px 20px #777;
+        }
+
+
+
+        .page-builder-three h3 {
+            margin-bottom: 0;
+            text-transform: uppercase;
+            color: #fff;
+            font-weight: 800;
+        }
+
+        .page-builder-three p.lead {
+            margin-bottom: 3%;
+        }
+
+        .page-id-1211 .wpb_button, .wpb_content_element, ul.wpb_thumbnails-fluid > li {
+            margin-bottom: 0;
+        }
+
+        .page-id-1211 h4 {
+            color: #fff;
+        }
+
+        #compare-list aside {
+            border-top-right-radius: 0;
+            border-bottom-right-radius: 0;
+        }
+
+        [data-tooltip]:before {
+            position: absolute;
+            bottom: 120%;
+            left: 115%;
+            margin-bottom: 5px;
+            margin-left: -60px;
+            padding: 7px;
+            width: 60px;
+            -webkit-border-radius: 3px;
+            -moz-border-radius: 3px;
+            border-radius: 3px;
+            background-color: #000;
+            background-color: hsla(0, 0%, 0%, 0.9);
+            color: #fff;
+            content: attr(data-tooltip);
+            text-align: center;
+            font-size: 10px;
+            text-transform: uppercase;
+            line-height: 1.2;
+        }
+
+        [data-tooltip]:after {
+            position: absolute;
+            bottom: 120%;
+            left: 50%;
+            margin-left: -5px;
+            width: 0;
+            border-top: 5px solid #000;
+            border-top: 5px solid hsla(0, 0%, 0%, 0.9);
+            border-right: 5px solid transparent;
+            border-left: 5px solid transparent;
+            content: " ";
+            font-size: 0;
+            line-height: 0;
+        }
+
+        h2.wpb_video_heading {
+            font-size: 1.35em;
+            text-align: center;
+            border: 1px solid #d5d9dd;
+            border-top-right-radius: 3px;
+            border-top-left-radius: 3px;
+            background: #efefef;
+            margin: 0;
+            padding: 32px 0;
+        }
+
+        .wpb_video_widget .wpb_video_wrapper {
+            background: #ccc;
+        }
+
+        #page .vc_cta3-style-classic {
+            margin-top: 10%;
+        }
+
+        ul.propfeatures.col.span_6 {
+            list-style: none;
+        }
+
+        ul.attachments.col.span_4 {
+            list-style: none;
+        }
+
+        @@media only screen and (max-width: 479px) {
+            #advanced_search.header-search select {
+                width: 100% !important;
+            }
+        }
+    </style>
+
+    <script type="text/javascript">
+
+    </script>
+    <script type="text/javascript">
+
+    </script>
+    <noscript>
+        <style type="text/css">
+            .wpb_animate_when_almost_visible {
+                opacity: 1;
+            }
+        </style>
+    </noscript>
+    <style>
+        #footer-widgets h5 {
+            color: #fff;
+            border: none;
+            padding: 0;
+            margin: 30px 0 5px 0;
+            text-transform: uppercase;
+        }
+
+        .widget_ct_latest li {
+            padding: 0 0;
+        }
+    </style>
+</head>
+<body id="home" class="home page-template page-template-template-home page-template-template-home-php page page-id-585 cbp-spmenu-push wpb-js-composer js-comp-ver-5.7 vc_responsive">
+
+    <div id="masthead-anchor"></div>
+
+    <partial name="_Menu" />
+
+    @RenderBody()
+
+    <partial name="_Footer" />
+    <script type="text/javascript" src="~/Assest/nivo-slider/jquery.nivo.slider.js"></script>
+    <script src="~/Scripts/bootstrap.js"></script>
+    @RenderSection("Scripts", required: false)
+
+</body>
+</html>
+
+
+

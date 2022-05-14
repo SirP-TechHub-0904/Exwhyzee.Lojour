@@ -1,0 +1,9 @@
+﻿CREATE TABLE [dbo].[Referee]
+(
+	[Id] BIGINT NOT NULL PRIMARY KEY IDENTITY(1,1),
+    [Office] NVARCHAR(MAX) NOT NULL,
+    [Name] NVARCHAR(MAX) NOT NULL,
+    [EmailAndPhone] NVARCHAR(MAX) NOT NULL,
+    [UserProfileId] BIGINT NOT NULL, 
+   
+)

@@ -1,0 +1,412 @@
+﻿@model Exwhyzee.Lojour.Application.EstateProperties.Dto.EstatePropertyDto
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_LayoutDetails.cshtml";
+
+    ViewBag.url ="https://lojour.com"+ Url.Action("Details", "Home", new { id = Model.Id, name = Model.PropertyName, location = Model.PropertyAddress });
+    ViewBag.title = Model.PropertyName;
+    ViewBag.description = Model.Description;
+    ViewBag.image = "https://lojour.com"+Model.PropertyImagesList.FirstOrDefault(x => x.IsDefault == true).Url;
+   
+
+
+}
+@using Exwhyzee.Lojour.Website.Views.Shared.ViewComponents
+
+<section id="main-content">
+    <header id="title-header"><div class="container"><div class="left"><h5 class="marT0 marB0">Listings</h5></div>
+        <div class="breadcrumb breadcrumbs ct-breadcrumbs right muted">
+        <a id="bread-home" href="/" title="" rel="home" class="trail-begin">Home</a><span class="sep"><i class="fa fa-angle-right"></i></span><span class="trail-end">Escada Apartments</span></div><div class="clear"></div></div></header>
+    <!-- Listing Tools --><div id="tools">
+
+    </div><!-- //Listing Tools -->
+
+
+
+    <div class="container">
+        <article class="col span_9 marB60">
+
+            <!-- Location -->
+            <header class="listing-location" style="padding-bottom:5px;">
+                <div class="snipe-wrap">
+                    @*<h6 class="snipe featured">
+                            <span>@Html.DisplayFor(modelItem => Model.VerificationStatus)</span>
+                        </h6>*@
+                    <h6 class="snipe status for-rent ">
+                        <span>@Html.DisplayFor(modelItem => Model.DescriptiveStatus) </span>
+                    </h6>
+                    <div class="clear"></div>
+                </div>
+                <h1 id="listing-title" class="marT24 marB0">@Model.PropertyName</h1>
+                <p class="location marB0">@Model.PropertyAddress</p>
+                <p class="location marB0" style="padding-top:10px;">
+
+                    @{
+                        string txt = "'https://web.whatsapp.com/send?phone=2347060530000&text=Hi, Am interestd in your propert with id: " + Model.IdentificationNumber + ", Name: " + Model.PropertyName + ", Amount: N" + Model.Amount + "'";
+                    }
+                    <div class="btn-group pull-right">
+                        <button type="button" class="btn btn-default" onclick="window.open(@txt)" style="padding:0 10px;"><i class="fa fa-whatsapp" style="font-size:20px;"></i></button>
+                        <button type="button" class="btn btn-default" onclick="window.open('tel:2347060530000'); style=" padding:0 10px;""><i class="fa fa-phone" style="font-size:20px;"></i></button>
+                   
+                    </div>
+                    Contact us now
+
+
+                </p>
+            </header>
+            <!--//Location --><!-- Price -->
+            <h4 class="price marT0 marB0">
+                <span class="listing-price">&#x20A6;@String.Format("{0:n0}", Model.Amount)</span>
+
+            </h4><!-- Listing Info -->
+            <!-- //Listing Info --><!-- FPO First Image -->
+            <figure id="first-image-for-print-only">
+                <img src="~/Main/image/lead-image-2.jpg" class="attachment-listings-featured-image size-listings-featured-image wp-post-image" alt="">
+
+                @*@await Component.InvokeAsync("ImageFetcher", new { propertyId = Model.Id })*@
+                <img src="@Model.PropertyImagesList.FirstOrDefault(x => x.IsDefault == true).Url" class="attachment-listings-featured-image size-listings-featured-image wp-post-image" alt="">
+            </figure>
+            <figure id="lead-media">
+                <div id="slider" class="flexslider" style="height: 593px;">
+                    <span class="prop-type-icon">
+                        <i class="fa fa-home"></i>
+                    </span>
+                    <ul class="listing-actions">
+                        <li>
+                            <span class="listing-views" data-tooltip="@Model.PropertyImagesList.Count()">
+                                <i class="fa fa-image"></i>
+                            </span>
+                        </li>
+                        <li>
+                            <span class="save-this" data-tooltip="Favorite">
+                                <span class="wpfp-span">
+                                    <img src="~/Main/image/loading.gif" alt="Loading" title="Loading" class="wpfp-hide wpfp-img" draggable="false"><a class="wpfp-link" href="/?wpfpaction=remove&amp;postid=1792" title="&lt;i class=&quot;fa fa-heart&quot;&gt;&lt;/i&gt;" rel="nofollow"><i class="fa fa-heart"></i></a>
+                                </span>
+                            </span>
+                        </li>
+                        <li>
+                            @{
+                                string ass = Url.Action("Details", "Home", new { id = Model.Id, name = Model.PropertyName, location = Model.PropertyAddress });
+
+                                ass = ass.Replace("%20", "_");
+
+                                ass = ass.Replace("&", "?");
+                            }
+
+
+                            <a href="https://twitter.com/intent/tweet?text=https://lojour.com/@ass"><i class="fa fa-twitter" style="color:#1a1818;"></i></a>
+
+                            <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://lojour.com/@ass" class="fb-xfbml-parse-ignore"><i style="color:#1a1818;" class="fa fa-facebook"></i></a>
+
+                            <a href="whatsapp://send?text=https://lojour.com/@ass" data-action="share/whatsapp/share"><i style="color:#1a1818;" class="fa fa-whatsapp"></i></a>
+                        </li>
+                    </ul>
+
+                    <ul class="slides">
+
+                        @*@await Component.InvokeAsync("OtherDetailImageFetcher", new { propertyId = Model.Id })*@
+                        @foreach (var i in Model.PropertyImagesList)
+                        {
+                            <li data-thumb="@i.Url" class="flex-active-slide" style="width: 100%; float: left; margin-right: -100%; position: relative; opacity: 1; display: block; z-index: 2;">
+                                <a href="@i.Url" class="gallery-item">
+                                    <img src="@i.Url" class="attachment-listings-slider-image size-listings-slider-image" alt="" draggable="false">
+                                </a>
+                            </li>
+                        }
+                    </ul>
+
+                    <ul class="flex-direction-nav"><li><a class="flex-prev flex-disabled" href="#" tabindex="-1">Previous</a></li><li><a class="flex-next" href="#">Next</a></li></ul>
+                </div><div id="carousel" class="flexslider">
+                    <div class="flex-viewport" style="overflow: hidden; position: relative;">
+                        <ul class="slides" style="width: 2000%; transition-duration: 0s; transform: translate3d(0px, 0px, 0px);">
+
+                            @*@await Component.InvokeAsync("OtherSmallFetcher", new { propertyId = Model.Id })*@
+                            @foreach (var i in Model.PropertyImagesList.OrderByDescending(x => x.Id))
+                            {
+
+                                <li data-thumb="@i.Url" class="flex-active-slide" style="width: 120px; float: left; display: block;">
+                                    <img src="@i.Url" class="attachment-listings-featured-image size-listings-featured-image" alt="" draggable="false">
+                                </li>
+                            }
+
+                        </ul>
+                    </div>
+                    <ul class="flex-direction-nav">
+                        <li><a class="flex-prev flex-disabled" href="#" tabindex="-1">Previous</a></li>
+                        <li>
+                            <a class="flex-next" href="#" tabindex="-1">Next</a>
+                        </li>
+                    </ul>
+                </div>
+            </figure><!-- //Lead Media -->
+
+            <ul id="listing-sections">
+                <li class="listing-nav-icon">
+                    <i class="fa fa-navicon"></i>
+                </li>
+                <li>
+                    <a href="#listing-plans">Description</a>
+                </li>
+                <li>
+                    <a href="#listing-features">Features</a>
+                </li>
+                <li>
+                    <a href="#listing-attachments">Video</a>
+                </li>
+                <li><a href="#listing-nearby">Nearby</a></li>
+                <li><a href="#location">Location</a></li>
+            </ul>
+            <div class="post-content">
+                <div id="listing-content">
+                    <p>
+                        @Model.Description
+                    </p>
+                </div>
+                <div id="listing-features">
+                    <h4 class="border-bottom marB20">Property Features</h4>
+                    <ul class="propfeatures col span_6">
+                        @foreach (var i in Model.PropertyFeaturesList.Take(6))
+                        {
+                            <li>
+                                <i class="fa fa-check">
+                                </i>&nbsp;@i.Name
+                            </li>
+                        }
+
+                    </ul>
+                    <ul class="propfeatures col span_6">
+                        @foreach (var i in Model.PropertyFeaturesList.Skip(6).Take(6))
+                        {
+                            <li>
+                                <i class="fa fa-check">
+                                </i>&nbsp;@i.Name
+                            </li>
+                        }
+                    </ul><ul class="propfeatures col span_6"></ul>
+                    <div class="clear"></div>
+                </div>
+                <div id="listing-attachments">
+                    <h4 class="border-bottom marB20">Property Video</h4>
+                    <style>
+                        .video-container {
+                            position: relative;
+                            padding-bottom: 56.25%;
+                            padding-top: 30px;
+                            height: 0;
+                            overflow: hidden;
+                        }
+
+                            .video-container iframe,
+                            .video-container object,
+                            .video-container embed {
+                                position: absolute;
+                                top: 0;
+                                left: 0;
+                                width: 100%;
+                                height: 100%;
+                            }
+                    </style>
+                    <div class="video-container">
+                        @*<iframe width="420" height="315" src="@Model.Video" frameborder="0" allowfullscreen></iframe>*@
+                        @Html.Raw(Model.Video)
+                        @*<iframe width="853" height="480" src="https://www.youtube.com/embed/LEtsCfQsuJI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>*@
+                    </div>
+
+                    <div class="clear"></div>
+                </div>
+                <!-- //Feature List --><!-- Listing Attachments -->
+                <div class="listing-nearby" id="listing-nearby">
+
+                    <h4 class="border-bottom marB20">What's Nearby?</h4>
+                    @foreach (var i in Model.PropertyLandMarksList.OrderByDescending(x => x.LandMarkType))
+                    {
+                        <h5>
+                            <span class="coffee">
+                                @if (i.LandMarkType.Contains("Amusement"))
+                                {
+                                    <i class="fa fa-play"></i>
+                                }
+                                else if (i.LandMarkType.Contains("Airport"))
+                                {
+                                    <i class="fa fa-plane"></i>
+                                }
+                                else if (i.LandMarkType.Contains("Banks"))
+                                {
+                                    <i class="fa fa-bank"></i>
+                                }
+                                else if (i.LandMarkType.Contains("Beaches"))
+                                {
+                                    <i class="fa fa-shopping-basket"></i>
+                                }
+                                else if (i.LandMarkType.Contains("Church"))
+                                {
+                                    <i class="fa fa-home"></i>
+                                }
+                                else if (i.LandMarkType.Contains("Filling"))
+                                {
+                                    <i class="fa fa-contao"></i>
+                                }
+
+                                else
+                                {
+                                    <i class="fa fa-black">LJ</i>
+                                }
+
+
+                            </span> @i.LandMarkType
+                        </h5>
+                        <ul class="marB20 yelp-nearby">
+                            <li>
+                                <div class="col span_9 first">
+                                    <a href="#">@i.Name</a> <span class="business-distance muted">(@i.Distance)</span>
+                                </div>
+
+                                <div class="clear"></div>
+                            </li>
+
+                        </ul>
+
+                    }
+
+                </div>
+                <div class="listing-nearby" id="location">
+
+                    <h4 class="border-bottom marB20">Location</h4>
+                    @*<iframe src="https://www.google.com/maps/embed?pb=!4v1571921612719!6m8!1m7!1sr2zvGLgEHpsvKh1yX05n8Q!2m2!1d-37.86705333738109!2d144.9805612832599!3f5.221622!4f0!5f0.7820865974627469" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen=""></iframe>*@
+                    @Html.Raw(Model.MapLink)
+
+                </div>
+            </div>
+
+
+            <div id="listing-brokerage">
+                <div class="brokerage">
+                    <p class="muted marB0"><small>Brokered by</small></p>
+                    <p class="marB0"><a href="">Contact Us Today</a></p>
+                </div>
+            </div><!-- //Brokerage -->
+            <div class="clear"></div>
+
+
+        </article>
+
+
+        <div id="sidebar" class="col span_3">
+            <div id="sidebar-inner">
+                <aside id="ct_scrolltolistingcontact-2" class="widget widget_ct_scrolltolistingcontact left">
+                    <div class="widget-inner">
+                        <a class="btn" data-toggle="modal" data-target="#myModal">Contact Agent</a>
+                        <a class="btn btn-secondary marT20" href="@Url.Action("Tour", "Property", new { id = Model.Id })">Request a Tour</a>
+                    </div>
+                </aside> 
+                @if (User.IsInRole("Admin") || User.IsInRole("SuperAdmin"))
+                {
+                <aside id="ct_scrolltolistingcontact-2" class="widget widget_ct_scrolltolistingcontact left">
+                    <div class="widget-inner">
+                        <a class="btn">Agent Contact</a>
+                        <a class="btn btn-secondary marT20">@Model.AgentDetails</a>
+                    </div>
+                </aside>
+                }
+                <aside id="ct_agentsotherlistings-1" class="widget widget_ct_agentsotherlistings left">
+                    <ul>
+                        @*<li class="listing modern">
+                    <figure>
+                        <h6 class="snipe status for-sale "><span>For Sale</span></h6>		            <span class="prop-type-icon"><i class="fa fa-home"></i></span>	                <ul class="listing-actions"><li><span class="listing-views" data-tooltip="1 Photo"><i class="fa fa-image"></i></span></li><li><span class="save-this" data-tooltip="Favorite"><span class="wpfp-span"><img src="~/Main/image/loading.gif" alt="Loading" title="Loading" class="wpfp-hide wpfp-img"><a class="wpfp-link" href="/?wpfpaction=add&amp;postid=3647" title="&lt;i class=&quot;fa fa-heart-o&quot;&gt;&lt;/i&gt;" rel="nofollow"><i class="fa fa-heart-o"></i></a></span></span></li><li><span class="compare-this" data-tooltip="Compare"><a href="#" class="alike-button alike-button-style" data-post-id="3647" data-post-title="1100 5th Ave" data-post-thumb="https://contempo-media.s3.amazonaws.com/multi-three-demo/uploads/2015/07/1100-5th-1.jpg" data-post-link="https://contempothemes.com/wp-real-estate-7/multi-three-demo/listings/1100-5th-ave-2/" title="Add To Compare"><i class="fa fa-plus-square-o"></i></a></span></li><li><span class="listing-views" data-tooltip="7406 Views"><i class="fa fa-bar-chart"></i></span></li></ul>		            				<a class="listing-featured-image" href="https://contempothemes.com/wp-real-estate-7/multi-three-demo/listings/1100-5th-ave-2/"><img src="~/Main/image/1100-5th-1.jpg" class="attachment-listings-featured-image size-listings-featured-image wp-post-image" alt=""></a>
+                    </figure>
+                    <div class="grid-listing-info">
+                        <header>
+                            <h5 class="marT0 marB0"><a href="https://contempothemes.com/wp-real-estate-7/multi-three-demo/listings/1100-5th-ave-2/">1100 5th Ave</a></h5>
+                            <p class="location marB0">San Diego, CA 92101 </p>
+                        </header>
+                        <p class="price marB0"><span class="listing-price">$1,295,000</span></p>
+                        <div class="propinfo">
+                            <ul class="marB0">
+                                <li class="row beds"><span class="muted left">Bed</span><span class="right">7</span></li>
+                                <li class="row baths"><span class="muted left">Baths</span><span class="right">6</span></li>
+                                <li class="row sqft"><span class="muted left"> Sq Ft</span><span class="right">4600</span></li>
+                                <div class="clear"></div>
+                            </ul>
+                        </div>
+                        <div class="creation-date"><span class="left muted"><i class="fa fa-calendar"></i></span><span class="right">2 years ago</span><div class="clear"></div></div>
+                        <div class="brokerage">
+                            <p class="muted marB0"><small>Brokered by</small></p>
+                            <p class="marB0"><a href="https://contempothemes.com/wp-real-estate-7/multi-three-demo/brokerage/the-agency/">The Agency</a></p>
+                        </div>
+                    </div>
+                </li>*@
+
+
+
+
+
+                    </ul>
+                </aside>
+                <div class="clear"></div>
+            </div>
+        </div>
+
+
+        <div class="clear"></div>
+
+    </div>
+
+    <div class="clear"></div>
+   
+</section>
+
+
+<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button>
+
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Lojour Agent</h4>
+            </div>
+            <div class="modal-body">
+                <div>
+                     Call&nbsp; &nbsp;&nbsp;&nbsp;<span class="btn btn-primary btn-sm pull-right"><i class="fa fa-phone"></i> &nbsp; 07060530000</span>
+                </div><br />
+                <div>
+                     Whatsapp &nbsp;&nbsp;&nbsp;&nbsp;<span class="btn btn-success pull-right"><i class="fa fa-whatsapp"></i>&nbsp;07060530000</span>
+                </div><br />
+                <div>
+                     Mail &nbsp;&nbsp;&nbsp;&nbsp;<span class="btn btn-primary pull-right"><i class="fa fa-envelope"></i> &nbsp;contact@lojour.com</span>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+<script>
+    function initialize() {
+        var myLatlng = new google.maps.LatLng(-34.397, 150.644);
+        var myOptions = {
+            zoom: 8,
+            center: myLatlng,
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        }
+        var map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+    }
+
+function loadScript() {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src = "http://maps.google.com/maps/api/js?sensor=false&callback=initialize";
+    document.body.appendChild(script);
+}
+
+window.onload = loadScript;
+
+
+</script>
+
+<!-- //Main Content -->

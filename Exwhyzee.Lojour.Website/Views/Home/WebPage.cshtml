@@ -1,0 +1,25 @@
+﻿
+@model Exwhyzee.Lojour.Application.Pages.Dto.PageDataDto
+@{
+    ViewData["Title"] = "Page";
+    Layout = "~/Views/Shared/_LayoutDetails.cshtml";
+}
+<!-- Single Header -->
+<div id="single-header" style="background: url(/img/big-image.jpg) no-repeat center center; background-size: cover;">
+    <div class="dark-overlay">
+        <div class="container">
+            <h1 class="marT0 marB0">@Html.DisplayFor(modelItem => Model.Title)
+            
+            </h1>
+        </div>
+    </div>
+</div>
+<!-- //Single Header -->
+<div class="container marT60 padB60">
+
+    <article class="col span_12" style="border:none !important;padding:20px !important;">
+
+
+        @Html.Raw(Model.Content)
+    </article>
+</div>

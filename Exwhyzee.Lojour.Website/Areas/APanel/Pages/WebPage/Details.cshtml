@@ -1,0 +1,132 @@
+﻿@page
+@model Exwhyzee.Lojour.Website.Areas.APanel.Pages.WebPage.DetailsModel
+@{
+    Layout = "/Views/Shared/_ClientLayout.cshtml";
+}
+
+
+
+@using Exwhyzee.Lojour.Website.Extensions.Enums
+
+<!-- page content -->
+<style>
+    .timeline .tags {
+        position: absolute;
+        top: 15px;
+        left: 0;
+        width: 150px;
+    }
+
+    .timeline .block {
+        margin: 0 0 0 195px;
+        border-left: 3px solid #e8e8e8;
+        overflow: visible;
+        padding: 10px 15px;
+    }
+
+    .rate {
+        float: left;
+        height: 46px;
+        padding: 0 10px;
+    }
+
+        .rate:not(:checked) > input {
+            position: absolute;
+            top: -9999px;
+        }
+
+        .rate:not(:checked) > label {
+            float: right;
+            width: 1em;
+            overflow: hidden;
+            white-space: nowrap;
+            cursor: pointer;
+            font-size: 30px;
+            color: #27ad5f;
+        }
+
+            .rate:not(:checked) > label:before {
+                content: '★ ';
+            }
+
+        .rate > input:checked ~ label {
+            color: #27ad5f;
+        }
+
+        .rate:not(:checked) > label:hover,
+        .rate:not(:checked) > label:hover ~ label {
+            color: #27ad5f;
+        }
+
+        .rate > input:checked + label:hover,
+        .rate > input:checked + label:hover ~ label,
+        .rate > input:checked ~ label:hover,
+        .rate > input:checked ~ label:hover ~ label,
+        .rate > label:hover ~ input:checked ~ label {
+            color: #27ad5f;
+        }
+
+    .form-group {
+        border-bottom: 1px solid #27ad5f;
+    }
+</style>
+<div class="row">
+    <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="x_panel">
+            <div class="x_title">
+                <h2>Details <small></small></h2>
+
+                <ul class="nav navbar-right panel_toolbox"></ul>
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+
+                <span class="section">Property Info</span>
+
+                <div class="row">
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <div class="x_panel">
+
+                            <div class="x_content">
+
+
+                                <div class="form-horizontal form-label-left">
+
+                                    <div class="row">
+                                        <!--Raffle Properties-->
+                                        <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
+                                            <div class="panel">
+                                                <div class="panel-heading">
+                                                    <span style="font-weight:900;"> @Html.DisplayNameFor(model => model.Data.Title):</span>  @Html.DisplayFor(model => model.Data.Title)
+                                                </div>
+                                                <div class="panel-heading">
+                                                    <span style="font-weight:900;">Status: </span> @Html.DisplayFor(model => model.Data.PageStatus)
+                                                </div>
+                                                <div class="panel-heading">
+                                                    <span style="font-weight:900;"> Position: </span> @Html.DisplayFor(model => model.Data.PagePosition)
+                                                </div>
+                                                <div class="panel-heading">
+                                                    <span style="font-weight:900;"> Content: </span>
+                                                </div>
+                                                <div class="panel-body">
+                                                    @Html.Raw(Model.Data.Content)
+
+                                                </div>
+                                            </div>
+                                           
+
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

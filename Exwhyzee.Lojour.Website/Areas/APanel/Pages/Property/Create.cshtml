@@ -1,0 +1,251 @@
+﻿@page
+@model Exwhyzee.Lojour.Website.Areas.APanel.Pages.Property.CreateModel
+@{
+    ViewData["Title"] = "New Property";
+    Layout = "/Views/Shared/_ClientLayout.cshtml";
+
+}
+
+
+
+@using Exwhyzee.Lojour.Website.Extensions.Enums
+
+<!-- page content -->
+<style>
+ 
+</style>
+
+<div class="row">
+    <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="x_panel">
+            <div class="x_title">
+                <h2>Property <small></small></h2>
+
+                <ul class="nav navbar-right panel_toolbox"></ul>
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+                <div id="wizard" class="form_wizard wizard_horizontal">
+                    <ul class="wizard_steps anchor">
+                        <li>
+                            <a href="#step-1" class="selected" isdone="1" rel="1">
+                                <span class="step_no">1</span>
+                                <span class="step_descr">
+                                    Step 1<br>
+                                    <small>Property description</small>
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#step-2" class="disabled" isdone="0" rel="2">
+                                <span class="step_no">2</span>
+                                <span class="step_descr">
+                                    Step 2<br>
+                                    <small>Detailed information</small>
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#step-3" class="disabled" isdone="0" rel="3">
+                                <span class="step_no">3</span>
+                                <span class="step_descr">
+                                    Step 3<br>
+                                    <small>Features and landmark</small>
+                                </span>
+                            </a>
+                        </li>
+                       
+                    </ul>
+
+                </div>
+
+                <form class="form-horizontal form-label-left" enctype="multipart/form-data" method="post">
+
+                    <span class="section">Add Property</span>
+                    <input asp-for="EstatePropertyDto.Username" value="@Model.LoggedInUser" type="hidden" id="HostedBy" name="EstatePropertyDto.Username">
+
+                    <div class="row">
+                        <!--Raffle Properties-->
+                        <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
+                            <div class="item form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="telephone">
+                                    Listing Type <span class="required">*</span>
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+
+                                    @Html.DropDownListFor(model => model.EstatePropertyDto.DescriptiveStatus, new SelectList(Enum.GetValues(typeof(Exwhyzee.Enums.DescriptiveStatus))), new { @class = "form-control col-md-7 col-xs-12" })
+                                </div>
+                            </div>
+                            <div class="item form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">
+                                    Type of Property
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <select class="form-control col-md-7 col-xs-12" asp-for="EstatePropertyDto.PropertyType" name="EstatePropertyDto.PropertyType" placeholder="Enter the type property">
+
+                                        <option value="Commercial Property">Commercial Property</option>
+                                        <option value="Service Apartment">Service Apartment</option>
+                                        <option value="Flats & Apartments">Flats & Apartments</option>
+                                        <option value="Land">Land</option>
+                                        <option value="Offices">Offices</option>
+                                        <option value="Warehouses">Warehouses</option>
+                                        <option value="Shops">Shops</option>
+                                        <option value="Hotels">Hotels</option>
+                                        <option value="Houses">Houses</option>
+                                        <option value="Block Of Flats">Block Of Flats</option>
+                                        <option value="Duplexes">Duplexes</option>
+                                        <option value="Townhouses">Townhouses</option>
+                                        <option value="Bungalows">Bungalows</option>
+                                        <option value="Terraces">Terraces</option>
+                                        <option value="Rooms & Boys Quarters">Rooms & Boys Quarters</option>
+
+                                    </select>
+
+                                </div>
+                            </div>
+
+
+
+
+                        </div>
+                    </div>
+                    <div class="ln_solid"></div>
+                    <div class="form-group">
+                        <div class="col-md-6 col-md-offset-3">
+                            <button type="button" class="btn btn-primary" asp-route="/RaffleManagement/Index">Cancel</button>
+                            <button id="submit" type="submit" class="btn btn-success">Next</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- /page content -->
+@section scripts{
+    <!---->
+    <script type="text/javascript">
+        $(function () {
+            // multiple images prevuiew in browser
+            var imagesPreview = function (input, placeToInsertImagePreview) {
+                if (input.files) {
+                    var regex = /^([a-zA-Z0-9\s_\\.\-:])+(.jpg|.jpeg|.gif|.png|.bmp)$/;
+                    var filesAmount = input.files.length;
+                    if (filesAmount <= 5) {
+                        for (i = 0; i < filesAmount; i++) {
+                            var reader = new FileReader();
+                            reader.onload = function (event) {
+                                $($.parseHTML('<img>')).attr('src', event.target.result).attr('width', '100px').attr('height', '100px').attr('margin', '10px').attr('padding', '10px').appendTo(placeToInsertImagePreview);
+                            }
+                            reader.readAsDataURL(input.files[i]);
+                        }
+                    } else {
+                        window.alert("You cant upload more than 5 images");
+                    }
+                }
+            };
+            $('#gallery-photo-add').on('change', function () {
+                imagesPreview(this, 'div.gallery');
+            });
+        });
+
+
+    </script>
+    <script type="text/jscript">
+        $(function () {
+            $('#State').change(function () {
+
+                var fruits = ["apple", "orange", "cherry"];
+                fruits.forEach(myFunction);
+                var res = "";
+                function myFunction(item, index) {
+                    res += index + ":" + item + "<br>";
+                }
+                console.log(res);
+                $.getJSON('/Web/LGAList/', {
+                    name: $('#State').val()
+                }, function (data) {
+
+                    var items = '<option>Choose LGA in the State</option>';
+                    $.each(jQuery.map(data, function (i, local) {
+                        items += "<option value='" + i.value + "'>" + i.text + "</option>";
+
+                    }));
+                    items += '<option value="None">Not Listed</option>';
+
+                    console.log(data);
+                    console.log("jd");
+                    console.log(data.data);
+
+                    console.log(items);
+                    $('#LGA').html(items);
+                });
+            });
+        });
+    </script>
+
+    <script type="text/jscript">
+        $(function () {
+            $('#LGA').change(function () {
+
+                var fruits = ["apple", "orange", "cherry"];
+                fruits.forEach(myFunction);
+                var res = "";
+                function myFunction(item, index) {
+                    res += index + ":" + item + "<br>";
+                }
+                console.log(res);
+                $.getJSON('/Web/CommunityList/' + $('#LGA').val(), function (data) {
+
+                    var items = '<option>Choose Community in the LGA</option>';
+                    $.each(jQuery.map(data, function (i, local) {
+                        items += "<option value='" + i.value + "'>" + i.text + "</option>";
+
+                    }));
+                    items += '<option value="None">Not Listed</option>';
+
+                    console.log(data);
+                    console.log("jd");
+                    console.log(data.data);
+
+                    console.log(items);
+                    $('#Community').html(items);
+                });
+            });
+        });
+    </script>
+
+    <script type="text/jscript">
+        $(function () {
+            $('#Community').change(function () {
+
+                var fruits = ["apple", "orange", "cherry"];
+                fruits.forEach(myFunction);
+                var res = "";
+                function myFunction(item, index) {
+                    res += index + ":" + item + "<br>";
+                }
+                console.log(res);
+                $.getJSON('/Web/KindredList/' + $('#Community').val(), function (data) {
+
+                    var items = '<option>Choose Kindred in the city</option>';
+                    $.each(jQuery.map(data, function (i, local) {
+                        items += "<option value='" + i.value + "'>" + i.text + "</option>";
+
+                    }));
+                    items += '<option value="None">Not Listed</option>';
+
+                    console.log(data);
+                    console.log("jd");
+                    console.log(data.data);
+
+                    console.log(items);
+                    $('#Kindred').html(items);
+                });
+            });
+        });
+    </script>
+
+
+}

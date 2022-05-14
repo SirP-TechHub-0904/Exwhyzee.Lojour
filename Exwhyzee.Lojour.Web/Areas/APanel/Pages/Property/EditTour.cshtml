@@ -1,0 +1,199 @@
+﻿@page "{id:int?}"
+@model Exwhyzee.Lojour.Web.Areas.APanel.Pages.Property.EditRequestModel
+@{
+
+    ViewData["Title"] = "Edit Request Property";
+
+    Layout = "/Views/Shared/_ClientLayout.cshtml";
+
+}
+
+@if (TempData["error"] != null)
+{
+    <div class="alert alert-danger alert-dismissible" role="alert">
+        <p>@TempData["error"]</p>
+    </div>
+}
+<!-- page content -->
+<div class="row">
+    <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="x_panel">
+            <div class="x_title">
+                <h2>Edit Request Property <small></small></h2>
+
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+                <form class="form-horizontal form-label-left" method="post" novalidate>
+                    <div class="row">
+                        <!--Raffle Properties-->
+                        <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
+
+                            <div class="item form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="telephone">
+                                    Listing Type <span class="required">(@Html.DisplayFor(model => model.Data.ListType))</span>
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <select class="form-control col-md-7 col-xs-12" asp-for="Data.ListType" name="Data.ListType" placeholder="">
+
+                                        <option value="For Rent">For Rent</option>
+                                        <option value="For Sale">For Sale</option>
+                                        <option value="Short Let">Short Let</option>
+
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="item form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">
+                                    Category
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <select class="form-control col-md-7 col-xs-12" asp-for="Data.Category" name="Data.Category" placeholder="">
+
+                                        <option value="Commercial Property">Commercial Property</option>
+                                        <option value="Service Apartment">Service Apartment</option>
+                                        <option value="Flats & Apartments">Flats & Apartments</option>
+                                        <option value="Land">Land</option>
+                                        <option value="Offices">Offices</option>
+                                        <option value="Warehouses">Warehouses</option>
+                                        <option value="Shops">Shops</option>
+                                        <option value="Hotels">Hotels</option>
+                                        <option value="Houses">Houses</option>
+                                        <option value="Block Of Flats">Block Of Flats</option>
+                                        <option value="Duplexes">Duplexes</option>
+                                        <option value="Townhouses">Townhouses</option>
+                                        <option value="Bungalows">Bungalows</option>
+                                        <option value="Terraces">Terraces</option>
+                                        <option value="Rooms & Boys Quarters">Rooms & Boys Quarters</option>
+
+                                    </select>
+
+                                </div>
+                            </div>
+                            <div class="item form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">
+                                    Property Name <span class="required">*</span>
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <input id="name" class="form-control col-md-7 col-xs-12" asp-for="Data.PropertyName" name="Data.PropertyName" placeholder="Enter Phone Number" autofocus required="required" type="text">
+                                </div>
+                            </div>
+                            <div class="item form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">
+                                    Phone Number <span class="required">*</span>
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <input id="name" class="form-control col-md-7 col-xs-12" asp-for="Data.PhoneNumber" name="Data.PhoneNumber" placeholder="Enter Phone Number" autofocus required="required" type="text">
+                                </div>
+                            </div>
+                            <div class="item form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">
+                                    Email <span class="required">*</span>
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <input id="name" class="form-control col-md-7 col-xs-12" asp-for="Data.Email" name="Data.Email" placeholder="Enter Phone Number" autofocus required="required" type="text">
+                                </div>
+                            </div>
+
+                            <div class="item form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="textarea">
+                                    Location <span class="required">*</span>
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <textarea rows="5" id="description" placeholder="Enter Property Location" asp-for="Data.Location" required="required" name="Data.Location" class="form-control col-md-7 col-xs-12"></textarea>
+                                </div>
+                            </div>
+
+                            <div class="item form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="textarea">
+                                    LandMark <span class="required">*</span>
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <textarea rows="5" id="description" placeholder="Enter Property LandMark" asp-for="Data.LandMark" required="required" name="Data.LandMark" class="form-control col-md-7 col-xs-12"></textarea>
+                                </div>
+                            </div>
+                            <div class="item form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="textarea">
+                                    Features <span class="required">*</span>
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <textarea rows="5" id="description" placeholder="Enter Property Features" asp-for="Data.Features" required="required" name="Data.Features" class="form-control col-md-7 col-xs-12"></textarea>
+                                </div>
+                            </div>
+
+
+                            <div class="item form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">
+                                    Amount Range
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <input id="name" class="form-control col-md-7 col-xs-12" asp-for="Data.AmountRange" name="Data.AmountRange" placeholder="e.g 10,0000,000 to 150,000,000" autofocus type="text">
+                                </div>
+                            </div>
+
+                            <div class="item form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">
+                                    Notification Type
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <select class="form-control col-md-7 col-xs-12" asp-for="Data.AlertType" name="Data.AlertType">
+
+                                        <option value="All">All</option>
+                                        <option value="Text Only">Text Only</option>
+                                        <option value="Call Only">Call Only</option>
+                                        <option value="Email Only">Email Only</option>
+                                        <option value="Text & Call">Text & Call</option>
+                                        <option value="Email & Call">Email & Call</option>
+
+
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="item form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">
+                                    Notification Duration
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <select class="form-control col-md-7 col-xs-12" asp-for="Data.AlertDuration" name="Data.AlertDuration">
+
+                                        <option value="Any time">Any time</option>
+                                        <option value="Hourly Interval">Hourly Interval</option>
+                                        <option value="Dialy">Dialy</option>
+                                        <option value="Monthly">Monthly</option>
+                                        <option value="Quaterly">Quaterly</option>
+                                        <option value="Yearly">Yearly</option>
+
+
+                                    </select>
+                                </div>
+                            </div>
+
+                           
+                        </div>
+
+
+                    </div>
+                    <div class="ln_solid"></div>
+                    <div class="form-group">
+                        <div class="col-md-6 col-md-offset-3">
+
+                            <button type="button" class="btn btn-primary" asp-route="/Property/Request">Cancel</button>
+                            <button id="submit" type="submit" class="btn btn-success">Submit</button>
+                        </div>
+                    </div>
+                </form>
+
+
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- /page content -->
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+    
+}

@@ -1,0 +1,30 @@
+.content {
+    max-width: 100%;
+    margin: auto;
+}
+
+.wrapper {
+    min-height: 300px;
+    padding: 16px 0;
+    position: relative;
+}
+
+
+.wrapper canvas {
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}
+
+
+@media (max-width: 660px) {
+}
+
+@media (max-width: 560px) {
+}
+
+@media (max-width: 420px) { 
+    .wrapper {
+        min-height: 250px;
+    }	
+}

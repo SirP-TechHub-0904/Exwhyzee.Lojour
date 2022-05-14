@@ -1,0 +1,391 @@
+﻿@model Exwhyzee.Lojour.Application.EstateProperties.Dto.EstatePropertyDto
+@using Exwhyzee.Lojour.Web.Views.Shared.ViewComponents
+
+@{
+    ViewData["Title"] = "Tour";
+    Layout = "~/Views/Shared/_LayoutDetails.cshtml";
+}
+
+<style>
+    .form-group {
+        width: 100%;
+    }
+
+    input[type="text"], input[type="tel"], input[type="password"], input[type="email"], input[type="number"], input[type="date"], textarea, select {
+        border: 1px solid #ccc;
+        border-radius: 0px;
+    }
+
+    .form-control {
+        margin: 0 0 16px 0;
+        padding: 11px 16px;
+        height: 42px;
+        border-radius: 0px;
+        border: 1px solid #ccc;
+    }
+
+    .announcement {
+        background-color: rgba(255,229,229,.7);
+        border-color: rgba(255,229,229,.7);
+        color: #2f3d46;
+    }
+
+    .voffset-20 {
+        margin-top: 20px !important;
+    }
+
+    .panel-body {
+        padding: 15px;
+    }
+
+    .text-center {
+        text-align: center;
+    }
+
+    .form-group {
+        margin-bottom: 0px;
+    }
+
+    .row {
+        margin-bottom: 0px;
+    }
+
+    a.btn, .btn, button, #reply-title small a, .comment-reply-link, .grid figcaption a, input[type="submit"], input[type="reset"], input[type="button"], input[type="btn"], .featured-listings .owl-prev, .featured-listings .owl-next {
+        display: inline-block;
+        position: relative;
+        border-radius: 0px;
+        border: none;
+        -webkit-appearance: none;
+        -webkit-transition: all 0.2s linear;
+        moz-transition: all 0.2s linear;
+        -o-transition: all 0.2s linear;
+        -ms-transition: all 0.2s linear;
+        transition: all 0.2s linear;
+        font-size: .75em;
+        line-height: 42px;
+        height: 42px;
+        padding: 0 2em;
+        text-align: center;
+        text-transform: uppercase;
+        color: #fff;
+        background: #29333d;
+        text-shadow: none !important;
+        font-weight: normal !important;
+    }
+
+    .btn-default:hover {
+        color: #ccc;
+        background-color: #ff0000;
+        border-color: #ff0000;
+    }
+</style>
+<section id="main-content">
+    <style type="text/css">
+        #single-header {
+            background: url(/img/big-image.jpg) no-repeat center center;
+            background-size: cover;
+        }
+    </style>
+    <!-- Single Header -->
+    <div id="single-header">
+        <div class="dark-overlay">
+            <div class="container">
+                <h1 class="marT0 marB0">Request a Tour</h1>
+                <h2 class="marT0 marB0">The Top in the Country</h2>
+            </div>
+        </div>
+    </div>
+    <!-- //Single Header -->
+</section>
+
+<div style="display: block;" class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <div style="text-align:center;padding:10px;background-color:#29333d;color:#ffffff;font-weight:900;">
+                Fill the Form we will contact you shortly
+            </div>
+            <div id="ct_account_errors">
+            </div>
+            <form asp-action="Tour">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="control-label">Email Address</label>
+                            <input name="email" class="form-control" />
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="control-label">Phone Number</label>
+                            <input name="phone" class="form-control" />
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Full Name</label>
+                    <input name="fullname" class="form-control" placeholder="" />
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Tour Date</label>
+                    <input name="date" class="form-control" placeholder="DD/MM/YYYY" />
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Time</label>
+                    <input name="time" class="form-control" placeholder="mm:hh" />
+                </div>
+
+
+               
+
+
+
+                <div class="form-group">
+                    <input type="submit" value="Submit" class="btn btn-default" />
+                </div>
+            </form>
+        </div>
+
+        <div class="col-md-6">
+            <div style="text-align:center;padding:10px;background-color:#29333d;color:#ffffff;font-weight:900;">
+                Property Information
+            </div>
+            <!-- Location -->
+            <header class="listing-location" style="padding-bottom:5px;">
+                <div class="snipe-wrap">
+                    @*<h6 class="snipe featured">
+                    <span>@Html.DisplayFor(modelItem => Model.VerificationStatus)</span>
+                </h6>*@
+                    <h6 class="snipe status for-rent ">
+                        <span>@Html.DisplayFor(modelItem => Model.DescriptiveStatus) </span>
+                    </h6>
+                    <div class="clear"></div>
+                </div>
+                <h1 id="listing-title" class="marT24 marB0">@Model.PropertyName</h1>
+                <p class="location marB0">@Model.PropertyAddress</p>
+                <p class="location marB0" style="padding-top:10px;">
+
+                    @{
+                        string txt = "'https://web.whatsapp.com/send?phone=2347060530000&text=Hi, Am interestd in your propert with id: " + Model.IdentificationNumber + ", Name: " + Model.PropertyName + ", Amount: N" + Model.Amount + "'";
+                    }
+                    <div class="btn-group pull-right">
+                        <button type="button" class="btn btn-default" onclick="window.open(@txt)" style="padding:0 10px;"><i class="fa fa-whatsapp" style="font-size:20px;"></i></button>
+                        <button type="button" class="btn btn-default" onclick="window.open('tel:2347060530000'); style=" padding:0 10px;""><i class="fa fa-phone" style="font-size:20px;"></i></button>
+                        @*<button type="button" class="btn btn-default">Sony</button>*@
+                    </div>
+                    Contact us now
+
+
+                </p>
+            </header>
+            <!--//Location --><!-- Price -->
+            <h4 class="price marT0 marB0">
+                <span class="listing-price">&#x20A6;@String.Format("{0:n0}", Model.Amount)</span>
+
+            </h4><!-- Listing Info -->
+            <!-- //Listing Info --><!-- FPO First Image -->
+            <figure id="first-image-for-print-only">
+                <img src="~/Main/image/lead-image-2.jpg" class="attachment-listings-featured-image size-listings-featured-image wp-post-image" alt="">
+
+                @*@await Component.InvokeAsync("ImageFetcher", new { propertyId = Model.Id })*@
+                <img src="@Model.PropertyImagesList.FirstOrDefault(x=>x.IsDefault == true).Url" class="attachment-listings-featured-image size-listings-featured-image wp-post-image" alt="">
+            </figure>
+            <figure id="lead-media">
+                <div id="slider" class="flexslider" style="height: 593px;">
+                    <span class="prop-type-icon">
+                        <i class="fa fa-home"></i>
+                    </span>
+                    <ul class="listing-actions">
+                        <li>
+                            <span class="listing-views" data-tooltip="@Model.PropertyImagesList.Count()">
+                                <i class="fa fa-image"></i>
+                            </span>
+                        </li>
+
+                    </ul>
+
+                    <ul class="slides">
+
+                        @*@await Component.InvokeAsync("OtherDetailImageFetcher", new { propertyId = Model.Id })*@
+                        @foreach (var i in Model.PropertyImagesList)
+                        {
+                        <li data-thumb="@i.Url" class="flex-active-slide" style="width: 100%; float: left; margin-right: -100%; position: relative; opacity: 1; display: block; z-index: 2;">
+                            <a href="@i.Url" class="gallery-item">
+                                <img src="@i.Url" class="attachment-listings-slider-image size-listings-slider-image" alt="" draggable="false">
+                            </a>
+                        </li>
+                        }
+                    </ul>
+
+                    <ul class="flex-direction-nav"><li><a class="flex-prev flex-disabled" href="#" tabindex="-1">Previous</a></li><li><a class="flex-next" href="#">Next</a></li></ul>
+                </div><div id="carousel" class="flexslider">
+                    <div class="flex-viewport" style="overflow: hidden; position: relative;">
+                        <ul class="slides" style="width: 2000%; transition-duration: 0s; transform: translate3d(0px, 0px, 0px);">
+
+                            @*@await Component.InvokeAsync("OtherSmallFetcher", new { propertyId = Model.Id })*@
+                            @foreach (var i in Model.PropertyImagesList.OrderByDescending(x => x.Id))
+                            {
+
+                            <li data-thumb="@i.Url" class="flex-active-slide" style="width: 120px; float: left; display: block;">
+                                <img src="@i.Url" class="attachment-listings-featured-image size-listings-featured-image" alt="" draggable="false">
+                            </li>
+                            }
+
+                        </ul>
+                    </div>
+                    <ul class="flex-direction-nav">
+                        <li><a class="flex-prev flex-disabled" href="#" tabindex="-1">Previous</a></li>
+                        <li>
+                            <a class="flex-next" href="#" tabindex="-1">Next</a>
+                        </li>
+                    </ul>
+                </div>
+            </figure><!-- //Lead Media -->
+
+            <ul id="listing-sections">
+                <li class="listing-nav-icon">
+                    <i class="fa fa-navicon"></i>
+                </li>
+                <li>
+                    <a href="#listing-plans">Description</a>
+                </li>
+                <li>
+                    <a href="#listing-features">Features</a>
+                </li>
+                <li>
+                    <a href="#listing-attachments">Video</a>
+                </li>
+                <li><a href="#listing-nearby">Nearby</a></li>
+                <li><a href="#location">Location</a></li>
+            </ul>
+            <div class="post-content">
+                <div id="listing-content">
+                    <p>
+                        @Model.Description
+                    </p>
+                </div>
+                <div id="listing-features">
+                    <h4 class="border-bottom marB20">Property Features</h4>
+                    <ul class="propfeatures col span_6">
+                        @foreach (var i in Model.PropertyFeaturesList.Take(6))
+                        {
+                        <li>
+                            <i class="fa fa-check">
+                            </i>&nbsp;@i.Name
+                        </li>
+                        }
+
+                    </ul>
+                    <ul class="propfeatures col span_6">
+                        @foreach (var i in Model.PropertyFeaturesList.Skip(6).Take(6))
+                        {
+                        <li>
+                            <i class="fa fa-check">
+                            </i>&nbsp;@i.Name
+                        </li>
+                        }
+                    </ul><ul class="propfeatures col span_6"></ul>
+                    <div class="clear"></div>
+                </div>
+                <div id="listing-attachments">
+                    <h4 class="border-bottom marB20">Property Video</h4>
+                    <style>
+                        .video-container {
+                            position: relative;
+                            padding-bottom: 56.25%;
+                            padding-top: 30px;
+                            height: 0;
+                            overflow: hidden;
+                        }
+
+                            .video-container iframe,
+                            .video-container object,
+                            .video-container embed {
+                                position: absolute;
+                                top: 0;
+                                left: 0;
+                                width: 100%;
+                                height: 100%;
+                            }
+                    </style>
+                    <div class="video-container">
+                        @*<iframe width="420" height="315" src="@Model.Video" frameborder="0" allowfullscreen></iframe>*@
+                        @Html.Raw(Model.Video)
+                        @*<iframe width="853" height="480" src="https://www.youtube.com/embed/LEtsCfQsuJI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>*@
+                    </div>
+
+                    <div class="clear"></div>
+                </div>
+                <!-- //Feature List --><!-- Listing Attachments -->
+                <div class="listing-nearby" id="listing-nearby">
+
+                    <h4 class="border-bottom marB20">What's Nearby?</h4>
+                    @foreach (var i in Model.PropertyLandMarksList.OrderByDescending(x => x.LandMarkType))
+                    {
+                    <h5>
+                        <span class="coffee">
+                            @if (i.LandMarkType.Contains("Amusement"))
+                                {
+                            <i class="fa fa-play"></i>
+                                }
+                                else if (i.LandMarkType.Contains("Airport"))
+                                {
+                            <i class="fa fa-plane"></i>
+                                }
+                                else if (i.LandMarkType.Contains("Banks"))
+                                {
+                            <i class="fa fa-bank"></i>
+                                }
+                                else if (i.LandMarkType.Contains("Beaches"))
+                                {
+                            <i class="fa fa-shopping-basket"></i>
+                                }
+                                else if (i.LandMarkType.Contains("Church"))
+                                {
+                            <i class="fa fa-home"></i>
+                                }
+                                else if (i.LandMarkType.Contains("Filling"))
+                                {
+                            <i class="fa fa-contao"></i>
+                                }
+
+                                else
+                                {
+                            <i class="fa fa-black">LJ</i>
+                                }
+
+
+                        </span> @i.LandMarkType
+                    </h5>
+                    <ul class="marB20 yelp-nearby">
+                        <li>
+                            <div class="col span_9 first">
+                                <a href="#">@i.Name</a> <span class="business-distance muted">(@i.Distance)</span>
+                            </div>
+
+                            <div class="clear"></div>
+                        </li>
+
+                    </ul>
+
+                    }
+
+                </div>
+                <div class="listing-nearby" id="location">
+
+                    <h4 class="border-bottom marB20">Location</h4>
+                    @*<iframe src="https://www.google.com/maps/embed?pb=!4v1571921612719!6m8!1m7!1sr2zvGLgEHpsvKh1yX05n8Q!2m2!1d-37.86705333738109!2d144.9805612832599!3f5.221622!4f0!5f0.7820865974627469" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen=""></iframe>*@
+                    @Html.Raw(Model.MapLink)
+
+                </div>
+            </div>
+
+
+            <div class="clear"></div>
+
+
+        </div>
+    </div>
+</div>
+
+

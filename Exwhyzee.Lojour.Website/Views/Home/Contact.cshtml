@@ -1,0 +1,108 @@
+﻿
+@{
+    ViewData["Title"] = "Contact";
+}
+
+<section id="main-content">
+    <style type="text/css">
+        #single-header {
+            background: url(/img/big-image.jpg) no-repeat center center;
+            background-size: cover;
+        }
+    </style>
+    <!-- Single Header -->
+    <div id="single-header">
+        <div class="dark-overlay">
+            <div class="container">
+                <h1 class="marT0 marB0">Contact Us</h1>
+                <h2 class="marT0 marB0">We are always available for you</h2>
+            </div>
+        </div>
+    </div>
+    <!-- //Single Header -->
+
+    <div class="container marT60 padB60">
+
+        <!-- Page Content -->
+        <div class="content col span_9">
+
+            <!-- Inner Content -->
+            <div class="col span_11 first">
+                @if (TempData["mssg"] != null)
+                {
+                    <div class="alert alert-info">
+                        <strong>Info!</strong> @TempData["mssg"]
+                    </div>
+                }
+
+
+
+                <!-- Contact Form -->
+                <form asp-action="Mail" class="formular">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <fieldset>
+                        <div class="col span_4">
+                            <input type="text" name="name" id="name" class="text-input" placeholder="Name*">
+                        </div>
+
+                        <div class="col span_4">
+                            <input type="text" name="email" id="email" class="text-input" placeholder="Email*">
+                        </div>
+
+                        <div class="col span_4">
+                            <input type="text" name="phone" id="phone" class="text-input" placeholder="Phone">
+                        </div>
+
+                        <input type="text" name="subject" id="subject" class="text-input" placeholder="Subject*">
+
+                        <textarea class="text-input" name="messagees" id="message" rows="20" cols="10" placeholder="Message"></textarea>
+
+
+                        <div class="clear"></div>
+
+                        <input type="submit" name="Submit" value="Submit" id="submit" class="btn">
+                        <div class="clear"></div>
+                    </fieldset>
+                </form>
+                <!-- //Contact Form -->
+
+            </div>
+            <!-- //Inner Content -->
+
+        </div>
+        <!-- //Page Content -->
+        <!-- Sidebar -->
+        <div id="sidebar" class="col span_3">
+            <div id="sidebar-inner" class="contact-details">
+
+                <aside id="ct_contactinfo-1" class="widget widget_ct_contactinfo left">
+                    <h5>Contact Details</h5><div class="widget-inner">
+                        
+                        <ul class="contact-info">
+                            <li class="company-address">
+                                <i class="fa fa-home"></i>Wimbig Plaza Beside Ulochima Filing Station <br /> Naze Junction (Number 1)<br>
+
+                                Owerri, Imo State<br>
+                            </li>
+                            <li class="company-phone"><i class="fa fa-phone"></i> 07060530000</li>
+                            <li class="company-email"><i class="fa fa-envelope-o"></i> <a href="mailto:contact@lojour.com">contact@lojour.com</a></li>
+                        </ul>
+
+                        <ul class="contact-social">
+                            <li class="facebook"><a href="#"><i class="fa fa-facebook"></i></a></li>
+                            <li class="twitter"><a href="#"><i class="fa fa-twitter"></i></a></li>
+                            <li class="linkedin"><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                            <li class="instagram"><a href="#"><i class="fa fa-instagram"></i></a></li>
+                        </ul>
+                    </div>
+                </aside>
+            </div>
+        </div>
+        <!-- //Sidebar -->
+
+        <div class="clear"></div>
+    </div>
+
+    <div class="clear"></div>
+
+</section>

@@ -1,0 +1,6 @@
+﻿CREATE TABLE [dbo].[Community]
+(
+	[Id] BIGINT NOT NULL PRIMARY KEY IDENTITY(1,1),
+    [Name] NVARCHAR(MAX) NOT NULL,
+	[LGAId] BIGINT not null,
+)

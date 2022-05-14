@@ -1,0 +1,15 @@
+﻿@model IEnumerable<Exwhyzee.Lojour.Core.Page.PageData>
+
+
+
+<div id="footer-nav" class="menu-footer-container">
+    <ul id="menu-footer" class="menu">
+       
+        @foreach (var i in Model.OrderByDescending(x => x.Id).Take(8))
+        {
+            <li id="menu-item-1811" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1811">
+                <a href="@Url.Action("WebPage", "Home", new { id = i.Id, title = i.Title })">@i.Title</a>
+            </li>
+        }
+    </ul>
+</div>

@@ -1,0 +1,935 @@
+﻿@page
+@model Exwhyzee.Lojour.Web.Areas.Account.Pages.UpdateProfileModel
+@{
+    Layout = "/Views/Shared/_ClientLayout.cshtml";
+
+}
+
+<style>
+    .checkbox label, .radio label {
+        padding-left: 0px !important;
+    }
+</style>
+<div class="">
+    <div class="page-title">
+        <div class="title_left">
+            <h3>Update Profile</h3>
+        </div>
+
+    </div>
+    <div class="clearfix"></div>
+    <div class="row">
+
+        <div class="col-md-12 col-xs-12">
+            <div class="x_panel">
+                <div class="x_title">
+
+
+                    <h2>
+                        Profile
+                        <a class="collapse-link pull-right"><i class="fa fa-chevron-up">min/max</i></a>
+                    </h2>
+
+                    <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+
+                    <div class=" profile_left">
+                        <div class="profile_img">
+                            <div id="crop-avatar">
+                                <!-- Current avatar -->
+                                <img class="img-responsive avatar-view" src="@Model.userProfileModel.PhotoUrl" alt="Avatar" title="" style="max-height:100px;">
+                            </div>
+                        </div>
+
+                        <h3>@Model.userProfileModel.SurName @Model.userProfileModel.FirstName @Model.userProfileModel.LastName </h3>
+
+                        <ul class="list-unstyled user_data">
+                            <li>
+                                <i class="fa fa-file user-profile-icon"></i> @Model.userProfileModel.Title
+                            </li>
+                            <li>
+                                <i class="fa fa-map-marker user-profile-icon"></i> @Model.userProfileModel.ContactAddress, @Model.userProfileModel.Country
+                            </li>
+
+                            @*<li>
+            <i class="fa fa-briefcase user-profile-icon"></i> Occupation
+        </li>*@
+
+                            <li class="m-top-xs">
+                                <i class="fa fa-external-link user-profile-icon"></i>
+                                <a href="http://www.lojour.com/" target="_blank">www.lojour.com</a>
+                            </li>
+                        </ul>
+
+
+
+                    </div>
+                </div>
+
+                <div class="x_content">
+
+
+                    <form class="form-horizontal form-label-left" asp-page-handler="UserProfile" enctype="multipart/form-data" method="post">
+                        <input type="hidden" asp-for="userProfileModel.DateRegistered" name="userProfileModel.DateRegistered" />
+                        <input type="hidden" asp-for="userProfileModel.UserId" name="userProfileModel.UserId" />
+                        <input type="hidden" asp-for="userProfileModel.Id" name="userProfileModel.Id" />
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label class="control-label">
+                                        Job Title
+                                    </label>
+                                    <div class="">
+                                        <input type="text" asp-for="userProfileModel.Title" name="userProfileModel.Title" class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="control-label">
+                                        Surname
+                                    </label>
+                                    <div class="">
+                                        <input type="text" asp-for="userProfileModel.SurName" name="userProfileModel.SurName" class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="control-label">
+                                        First Name
+                                    </label>
+                                    <div class="">
+                                        <input type="text" asp-for="userProfileModel.FirstName" name="userProfileModel.FirstName" class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="control-label">
+                                        Last Name
+                                    </label>
+                                    <div class="">
+                                        <input type="text" asp-for="userProfileModel.LastName" name="userProfileModel.LastName" class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item form-group">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label">
+                                            Gender
+                                        </label>
+                                        <div class="">
+                                            <select class="form-control" asp-for="userProfileModel.Gender" name="userProfileModel.Gender">
+                                                <option value="">Choose</option>
+                                                <option value="Male">Male</option>
+                                                <option value="Female">Female</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label">
+                                            MaritalStatus
+                                        </label>
+                                        <div class="">
+                                            <select class="form-control" asp-for="userProfileModel.MaritalStatus" name="userProfileModel.MaritalStatus">
+                                                <option value="">Choose</option>
+                                                <option value="Single">Single</option>
+                                                <option value="Married">Married</option>
+                                                <option value="Widow">Widow</option>
+                                                <option value="Widower">Widower</option>
+                                                <option value="Divorced">Divorced</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="item form-group">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label">
+                                            Address
+                                        </label>
+                                        <div class="">
+                                            <textarea class="form-control" asp-for="userProfileModel.ContactAddress" name="userProfileModel.ContactAddress"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label">
+                                            Description
+                                        </label>
+                                        <div class="">
+                                            <textarea class="form-control" asp-for="userProfileModel.Description" name="userProfileModel.Description"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item form-group">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label">
+                                            Date
+                                        </label>
+                                        <div class="">
+                                            <input type="date" asp-for="userProfileModel.DateOfBirth" name="userProfileModel.DateOfBirth" class="form-control">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label">
+                                            Country
+                                        </label>
+                                        <div class="">
+                                            <input type="text" asp-for="userProfileModel.Country" name="userProfileModel.Country" class="form-control">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="control-label">
+                                        Facebook Link
+                                    </label>
+                                    <div class="">
+                                        <input type="text" asp-for="userProfileModel.FacebookLink" name="userProfileModel.FacebookLink" class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="control-label">
+                                        Twitter Link
+                                    </label>
+                                    <div class="">
+                                        <input type="text" asp-for="userProfileModel.TwitterLink" name="userProfileModel.TwitterLink" class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="control-label">
+                                        Linkedin Link
+                                    </label>
+                                    <div class="">
+                                        <input type="text" asp-for="userProfileModel.LinkedinLink" name="userProfileModel.LinkedinLink" class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">
+                                Complementry Card Keywords
+                            </label>
+                            <div class="">
+                                <input type="text" asp-for="userProfileModel.ComplementryCardKeywords" name="userProfileModel.ComplementryCardKeywords" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">
+                                Profile Photo
+                            </label>
+                            <div class="">
+                                <input class="form-control" type="file" name="files" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="">
+
+                                <button id="submit" type="submit" class="btn btn-success">Update</button>
+                            </div>
+                        </div>
+
+
+                    </form>
+                </div>
+            </div>
+        </div>
+
+
+
+
+        <div class="col-md-6 col-sm-6 col-xs-12">
+            <div class="x_panel">
+                <div class="x_title">
+
+
+                    <h2>
+                        Update Experience
+                        <a class="collapse-link pull-right"><i class="fa fa-chevron-up">min/max</i></a>
+                    </h2>
+
+                    <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+
+                   
+                        @foreach (var item in Model.ListExperienceModel)
+                        {
+                        <form id="ListExperienceModelForm" asp-page-handler="ExperienceDelete" enctype="multipart/form-data" method="post">
+                            <input type="hidden" name="experienceModelId" value="@item.Id" />
+
+                        </form>
+                        <div class="alert left_col alert-dismissible fade in" role="alert" style="padding:5px;margin-bottom:10px;border-radius:0px;padding-right:20px;">
+
+                            <form asp-page-handler="ExperienceDelete" asp-route-id="@item.Id" method="post">
+                                <button class="pull-right" style="font-weight:900;">X</button>
+                            </form>
+                           
+                                <p>
+                                    Title: @item.Title
+                                    @if (item.IsCurrent == true)
+                                    {
+                                        <span class="btn-sm btn-success">
+                                            Is Current
+                                        </span>
+                                    }
+                                    else
+                                    {
+
+
+                                    }
+
+
+
+                                </p>
+
+                                <p>Address: @item.Address</p>
+
+                                <p>Start - End Date: @item.StartDate - @item.EndDate</p>
+
+                                <p>Description: @item.Description</p>
+
+                            
+                        </div>
+
+
+                        }
+
+                    
+                <form class="form-horizontal form-label-left" asp-page-handler="Experience" enctype="multipart/form-data" method="post">
+                    <input type="hidden" asp-for="userProfileModel.Id" name="userProfileModel.Id" />
+
+                    <div class="form-group">
+                        <label class="control-label">
+                            Title
+                        </label>
+                        <div class="">
+                            <input type="text" name="Title" class="form-control">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="control-label">
+                                    Start Year
+                                </label>
+                                <div class="">
+                                    <input type="text" name="StartDate" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="control-label">
+                                    End Year
+                                </label>
+                                <div class="">
+                                    <input type="text" name="EndDate" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    @*<div class="checkbox">
+                        <label>
+                            <input type="checkbox" name="IsCurrent"> Is Current
+                        </label>
+                    </div>*@
+                    <div class="item form-group">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="control-label">
+                                        Address
+                                    </label>
+                                    <div class="">
+                                        <textarea class="form-control" name="Address"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="control-label">
+                                        Description
+                                    </label>
+                                    <div class="">
+                                        <textarea class="form-control" name="Description"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="">
+
+                            <button id="submit" type="submit" class="btn btn-success">Add</button>
+                        </div>
+                    </div>
+
+
+                </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6 col-sm-6 col-xs-12">
+            <div class="x_panel">
+                <div class="x_title">
+
+
+                    <h2>
+                        Update Education
+                        <a class="collapse-link pull-right"><i class="fa fa-chevron-up">min/max</i></a>
+                    </h2>
+
+                    <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+                    @foreach (var item in Model.ListEducationHistoryModel)
+                    {
+                        <form id="ListEducationHistoryModelForm" asp-page-handler="EducationDelete" enctype="multipart/form-data" method="post">
+                            <input type="hidden" name="educationModelId" value="@item.Id" />
+
+                        </form>
+                        <div class="alert left_col alert-dismissible fade in" role="alert" style="padding:5px;margin-bottom:10px;border-radius:0px;padding-right:20px;">
+
+                            <form asp-page-handler="EducationDelete" asp-route-id="@item.Id" method="post">
+                                <button class="pull-right" style="font-weight:900;">X</button>
+                            </form>
+                           
+                            <p>
+                                School: @item.SchoolAttended
+                                @if (item.IsCurrent == true)
+                                {
+                                    <span class="btn-sm btn-success">
+                                        Is Current
+                                    </span>
+                                }
+                                else
+                                {
+
+
+                                }
+
+
+
+                            </p>
+
+                            <p>Course: @item.Course</p>
+
+                            <p>Start - End Date: @item.StartDate - @item.EndDate</p>
+
+                            <p>Grade: @item.Grade</p>
+
+
+                        </div>
+
+
+                    }
+                  
+
+
+                <form class="form-horizontal form-label-left" asp-page-handler="Education" enctype="multipart/form-data" method="post">
+                    <input type="hidden" asp-for="userProfileModel.Id" name="userProfileModel.Id" />
+
+                    <div class="form-group">
+                        <label class="control-label">
+                            School
+                        </label>
+                        <div class="">
+                            <input type="text" name="SchoolAttended" required="required" class="form-control">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="control-label">
+                                    Start Year
+                                </label>
+                                <div class="">
+                                    <input type="text" name="StartDate" required="required" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="control-label">
+                                    End Year
+                                </label>
+                                <div class="">
+                                    <input type="text" name="EndDate" required="required" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" class="flat" checked="checked"> Checked
+                        </label>
+                    </div>
+                    <div class="item form-group">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="control-label">
+                                        Course
+                                    </label>
+                                    <div class="">
+                                        <textarea class="form-control" name="Course"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="control-label">
+                                        Grade
+                                    </label>
+                                    <div class="">
+                                        <textarea class="form-control" name="Grade"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="">
+
+                            <button id="submit" type="submit" class="btn btn-success">Add</button>
+                        </div>
+                    </div>
+
+
+                </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6 col-sm-6 col-xs-12">
+            <div class="x_panel">
+                <div class="x_title">
+
+
+                    <h2>
+                        Update Skills
+                        <a class="collapse-link pull-right"><i class="fa fa-chevron-up">min/max</i></a>
+                    </h2>
+
+                    <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+                    @foreach (var item in Model.ListSkillModel)
+                    {
+                        <form id="ListSkillModelForm" asp-page-handler="SkillDelete" enctype="multipart/form-data" method="post">
+                            <input type="hidden" name="skillModelId" value="@item.Id" />
+
+                        </form>
+                        <div class="alert left_col alert-dismissible fade in" role="alert" style="padding:5px;margin-bottom:10px;border-radius:0px;padding-right:20px;">
+
+                            <form asp-page-handler="SkillDelete" asp-route-id="@item.Id" method="post">
+                                <button class="pull-right" style="font-weight:900;">X</button>
+                            </form>
+
+                            <p>Skill: @item.Title</p>
+
+
+                        </div>
+
+
+                    }
+                  
+
+                <form class="form-horizontal form-label-left" asp-page-handler="Skill" enctype="multipart/form-data" method="post">
+                    <input type="hidden" asp-for="userProfileModel.Id" name="userProfileModel.Id" />
+
+                    <div class="form-group">
+                        <label class="control-label">
+                            Skill
+                        </label>
+                        <div class="">
+                            <input type="text" name="Title" required="required" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="">
+
+                            <button id="submit" type="submit" class="btn btn-success">Add</button>
+                        </div>
+                    </div>
+
+
+                </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-sm-6 col-xs-12">
+            <div class="x_panel">
+                <div class="x_title">
+
+
+                    <h2>
+                        Update Langauge
+                        <a class="collapse-link pull-right"><i class="fa fa-chevron-up">min/max</i></a>
+                    </h2>
+
+                    <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+                    @foreach (var item in Model.ListLanguageSpokenModel)
+                    {
+                        <form id="ListLanguageSpokenModelForm" asp-page-handler="LanguageDelete" enctype="multipart/form-data" method="post">
+                            <input type="hidden" name="languageModelId" value="@item.Id" />
+
+                        </form>
+                        <div class="alert left_col alert-dismissible fade in" role="alert" style="padding:5px;margin-bottom:10px;border-radius:0px;padding-right:20px;">
+
+                            <form asp-page-handler="LanguageDelete" asp-route-id="@item.Id" method="post">
+                                <button class="pull-right" style="font-weight:900;">X</button>
+                            </form>
+                            
+                            <p>@item.Title</p>
+
+
+                        </div>
+
+
+                    }
+
+
+                <form class="form-horizontal form-label-left" asp-page-handler="Language" enctype="multipart/form-data" method="post">
+                    <input type="hidden" asp-for="userProfileModel.Id" name="userProfileModel.Id" />
+
+                    <div class="form-group">
+                        <label class="control-label">
+                            Langauge
+                        </label>
+                        <div class="">
+                            <input type="text" name="Title" required="required" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="">
+
+                            <button id="submit" type="submit" class="btn btn-success">Add</button>
+                        </div>
+                    </div>
+
+
+                </form>
+                </div>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+        <div class="col-md-6 col-sm-6 col-xs-12">
+            <div class="x_panel">
+                <div class="x_title">
+
+
+                    <h2>
+                        Update Certificates
+                        <a class="collapse-link pull-right"><i class="fa fa-chevron-up">min/max</i></a>
+                    </h2>
+
+                    <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+                    @foreach (var item in Model.ListMeritCertificateModel)
+                    {
+                        <form id="ListMeritCertificateModelForm" asp-page-handler="MeritCertificateDelete" enctype="multipart/form-data" method="post">
+                            <input type="hidden" name="meritCertificateModelId" value="@item.Id" />
+
+                        </form>
+                        <div class="alert left_col alert-dismissible fade in" role="alert" style="padding:5px;margin-bottom:10px;border-radius:0px;padding-right:20px;">
+
+                            <form asp-page-handler="MeritCertificateDelete" asp-route-id="@item.Id" method="post">
+                                <button class="pull-right" style="font-weight:900;">X</button>
+                            </form>
+
+                            <p>@item.Title (@item.StartDate)</p>
+
+
+                        </div>
+
+                    }
+                    
+
+
+                <form class="form-horizontal form-label-left" asp-page-handler="MeritCertificate" enctype="multipart/form-data" method="post">
+                    <input type="hidden" asp-for="userProfileModel.Id" name="userProfileModel.Id" />
+
+                    <div class="form-group">
+                        <label class="control-label">
+                            Title
+                        </label>
+                        <div class="">
+                            <input type="text" required="required" name="Title" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">
+                            Year
+                        </label>
+                        <div class="">
+                            <input type="text" required="required" name="StartDate" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="">
+
+                            <button id="submit" type="submit" class="btn btn-success">Add</button>
+                        </div>
+                    </div>
+
+
+                </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-sm-6 col-xs-12">
+            <div class="x_panel">
+                <div class="x_title">
+
+
+                    <h2>
+                        Update Membership of Learned Member
+                        <a class="collapse-link pull-right"><i class="fa fa-chevron-up">min/max</i></a>
+                    </h2>
+
+                    <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+
+                
+                    @foreach (var item in Model.ListMembershipOfLearneredSocietyModel)
+                    {
+                        <form id="ListMembershipOfLearneredSocietyModelForm" asp-page-handler="MembershipOfLearneredSocietyDelete" enctype="multipart/form-data" method="post">
+                            <input type="hidden" name="meritCertificateModelId" value="@item.Id" />
+
+                        </form>
+                        <div class="alert left_col alert-dismissible fade in" role="alert" style="padding:5px;margin-bottom:10px;border-radius:0px;padding-right:20px;">
+
+                            <form asp-page-handler="MembershipOfLearneredSocietyDelete" asp-route-id="@item.Id" method="post">
+                                <button class="pull-right" style="font-weight:900;">X</button>
+                            </form>
+
+                            <p>@item.Title (@item.Abbr)</p>
+
+
+                        </div>
+
+                    }
+
+                <form class="form-horizontal form-label-left" asp-page-handler="MembershipOfLearneredSociety" enctype="multipart/form-data" method="post">
+                    <input type="hidden" asp-for="userProfileModel.Id" name="userProfileModel.Id" />
+
+                    <div class="form-group">
+                        <label class="control-label">
+                            Name of Organization
+                        </label>
+                        <div class="">
+                            <input type="text" required="required" name="Title" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">
+                            Abbreviation
+                        </label>
+                        <div class="">
+                            <input type="text" required="required" name="Abbr" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="">
+
+                            <button id="submit" type="submit" class="btn btn-success">Add</button>
+                        </div>
+                    </div>
+
+
+                </form>
+                </div>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+        <div class="col-md-6 col-sm-6 col-xs-12">
+            <div class="x_panel">
+                <div class="x_title">
+
+
+                    <h2>
+                        Update Trainings and Workshop
+                        <a class="collapse-link pull-right"><i class="fa fa-chevron-up">min/max</i></a>
+                    </h2>
+
+                    <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+
+
+                    @foreach (var item in Model.ListTrainingAndWorkShopModel)
+                    {
+                        <form id="ListTrainingAndWorkShopModelForm" asp-page-handler="TrainingAndWorkShopDelete" enctype="multipart/form-data" method="post">
+                            <input type="hidden" name="trainingAndWorkShoModelId" value="@item.Id" />
+
+                        </form>
+                        <div class="alert left_col alert-dismissible fade in" role="alert" style="padding:5px;margin-bottom:10px;border-radius:0px;padding-right:20px;">
+
+                            <form asp-page-handler="TrainingAndWorkShopDelete" asp-route-id="@item.Id" method="post">
+                                <button class="pull-right" style="font-weight:900;">X</button>
+                            </form>
+
+                            <p>Title: @item.Title </p>
+                            <p>Location: @item.Location</p>
+                            <p>Date: @item.Date</p>
+
+                        </div>
+
+                    }
+
+                <form class="form-horizontal form-label-left" asp-page-handler="TrainingAndWorkShop" enctype="multipart/form-data" method="post">
+                    <input type="hidden" asp-for="userProfileModel.Id" name="userProfileModel.Id" />
+
+                    <div class="form-group">
+                        <label class="control-label">
+                            Title
+                        </label>
+                        <div class="">
+                            <input type="text" required="required" name="Title" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">
+                            Location
+                        </label>
+                        <div class="">
+                            <textarea class="form-control" name="Location"></textarea>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">
+                            Year
+                        </label>
+                        <div class="">
+                            <input type="text" required="required" name="Date" class="form-control">
+                        </div>
+                    </div>
+
+
+
+                    <div class="form-group">
+                        <div class="">
+
+                            <button id="submit" type="submit" class="btn btn-success">Add</button>
+                        </div>
+                    </div>
+
+
+                </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- /page content -->
+@section scripts{
+    <!---->
+    <script type="text/javascript">
+        $(function () {
+            // multiple images prevuiew in browser
+            var imagesPreview = function (input, placeToInsertImagePreview) {
+                if (input.files) {
+                    var regex = /^([a-zA-Z0-9\s_\\.\-:])+(.jpg|.jpeg|.gif|.png|.bmp)$/;
+                    var filesAmount = input.files.length;
+                    if (filesAmount <= 5) {
+                        for (i = 0; i < filesAmount; i++) {
+                            var reader = new FileReader();
+                            reader.onload = function (event) {
+                                $($.parseHTML('<img>')).attr('src', event.target.result).attr('width', '100px').attr('height', '100px').attr('margin', '10px').attr('padding', '10px').appendTo(placeToInsertImagePreview);
+                            }
+                            reader.readAsDataURL(input.files[i]);
+                        }
+                    } else {
+                        window.alert("You cant upload more than 5 images");
+                    }
+                }
+            };
+            $('#gallery-photo-add').on('change', function () {
+                imagesPreview(this, 'div.gallery');
+            });
+        });
+
+
+    </script>
+    <script type="text/jscript">
+        $(function () {
+            $('#State').change(function () {
+
+                var fruits = ["apple", "orange", "cherry"];
+                fruits.forEach(myFunction);
+                var res = "";
+                function myFunction(item, index) {
+                    res += index + ":" + item + "<br>";
+                }
+                console.log(res);
+                $.getJSON('/Home/LGAList/', {
+                    name: $('#State').val()
+                }, function (data) {
+
+                    var items = '<option>Choose LGA in the State</option>';
+                    $.each(jQuery.map(data, function (i, local) {
+                        items += "<option value='" + i.value + "'>" + i.text + "</option>";
+
+                    }));
+                    items += '<option value="None">Not Listed</option>';
+
+                    console.log(data);
+                    console.log("jd");
+                    console.log(data.data);
+
+                    console.log(items);
+                    $('#LGA').html(items);
+                });
+            });
+        });
+    </script>
+    <script>
+        var img = new Image;
+img.src = URL.createObjectURL(file);
+img.onload = function() {
+    var picWidth = this.width;
+    var picHeight = this.height;
+
+    if (Number(picWidth) > maxwidth || Number(picHeight) > maxheight) {
+        alert("Maximum dimension of the image to be 1024px by 768px");
+        return false;
+    }
+}
+    </script>
+}

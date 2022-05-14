@@ -1,0 +1,349 @@
+﻿@page
+@model Exwhyzee.Lojour.Web.Areas.APanel.Pages.Property.NewPropertyModel
+@{
+    ViewData["Title"] = "New Property";
+
+    Layout = "~/Views/Shared/_APanelLayout.cshtml";
+}
+
+
+
+@using Exwhyzee.Lojour.Web.Extensions.Enums
+
+<!-- page content -->
+
+<div class="row">
+    <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="x_panel table-responsive">
+            <div class="x_title">
+                <h2>Add Property <small></small></h2>
+
+                <ul class="nav navbar-right panel_toolbox"></ul>
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content table-responsive">
+                <form class="form-horizontal form-label-left" enctype="multipart/form-data" method="post">
+
+                    <span class="section">Property Info</span>
+
+                    <div class="row">
+                        <!--Raffle Properties-->
+                        <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
+                            <div class="item form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">
+                                    Name <span class="required">*</span>
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <input id="name" class="form-control col-md-7 col-xs-12" asp-for="EstatePropertyDto.PropertyName" name="EstatePropertyDto.PropertyName" placeholder="Enter name of property" autofocus required="required" type="text">
+                                </div>
+                            </div>
+
+                            <div class="item form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="textarea">
+                                    Description <span class="required">*</span>
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <textarea rows="5" id="description" placeholder="Provide a description about this property" asp-for="EstatePropertyDto.Description" required="required" name="EstatePropertyDto.Description" class="form-control col-md-7 col-xs-12"></textarea>
+                                </div>
+                            </div>
+                            <div class="item form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="textarea">
+                                    AgentDetails <span class="required">*</span>
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <textarea rows="5" id="description" placeholder="Provide all the landmark of this property" asp-for="EstatePropertyDto.AgentDetails" required="required" name="EstatePropertyDto.LandMark" class="form-control col-md-7 col-xs-12"></textarea>
+                                </div>
+                            </div>
+                            <div class="item form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">
+                                    Longitude
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <input id="name" class="form-control col-md-7 col-xs-12" asp-for="EstatePropertyDto.Longitude" name="EstatePropertyDto.Longitude" placeholder="Enter Longitude of the property" autofocus type="text">
+                                </div>
+                            </div>
+                            <div class="item form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">
+                                    Latitude
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <input id="name" class="form-control col-md-7 col-xs-12" asp-for="EstatePropertyDto.Latitude" name="EstatePropertyDto.Latitude" placeholder="Enter Latitude of the property" autofocus type="text">
+                                </div>
+                            </div>
+                            <div class="item form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="pricePerTicket">
+                                    Price <span class="required">*</span>
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <input id="pricePerTicket" asp-for="EstatePropertyDto.Amount" name="EstatePropertyDto.Amount" placeholder="Enter Price" class="optional form-control col-md-7 col-xs-12">
+                                </div>
+                            </div>
+                            <div class="item form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="textarea">
+                                    Property Profile <span class="required">*</span>
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <textarea rows="5" id="description" placeholder="Provide the profile of this property" asp-for="EstatePropertyDto.PropertyProfile" required="required" name="EstatePropertyDto.PropertyProfile" class="form-control col-md-7 col-xs-12"></textarea>
+                                </div>
+                            </div>
+                            <div class="item form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">
+                                    Type of Property
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <input id="name" class="form-control col-md-7 col-xs-12" asp-for="EstatePropertyDto.PropertyType" name="EstatePropertyDto.PropertyType" placeholder="Enter the type property" autofocus type="text">
+                                </div>
+                            </div>
+                            <div class="item form-group">
+                                <label for="sortOrder" class="control-label col-md-3">Sort Order</label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <input id="sortOrder" type="number" asp-for="EstatePropertyDto.SortOrder" name="EstatePropertyDto.SortOrder" placeholder="sort order" class="form-control col-md-7 col-xs-12" required="required">
+                                </div>
+                            </div>
+                            <div class="item form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="telephone">
+                                    Property Status <span class="required">*</span>
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    @Html.DropDownListFor(model => model.EstatePropertyDto.PropertyStatus, new SelectList(Enum.GetValues(typeof(Exwhyzee.Enums.PropertyStatus))), new { @class = "form-control col-md-7 col-xs-12" })
+                                </div>
+                            </div>
+                            <div class="item form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="telephone">
+                                    Position in Home <span class="required">*</span>
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    @Html.DropDownListFor(model => model.EstatePropertyDto.HomeLocation, new SelectList(Enum.GetValues(typeof(Exwhyzee.Enums.HomeLocation))), new { @class = "form-control col-md-7 col-xs-12" })
+                                </div>
+                            </div>
+                            <div class="item form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="telephone">
+                                    Verification Status <span class="required">*</span>
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    @Html.DropDownListFor(model => model.EstatePropertyDto.VerificationStatus, new SelectList(Enum.GetValues(typeof(Exwhyzee.Enums.VerificationStatus))), new { @class = "form-control col-md-7 col-xs-12" })
+                                </div>
+                            </div>
+                            <div class="item form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="telephone">
+                                    Verification Status <span class="required">*</span>
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    @Html.DropDownListFor(model => model.EstatePropertyDto.DescriptiveStatus, new SelectList(Enum.GetValues(typeof(Exwhyzee.Enums.DescriptiveStatus))), new { @class = "form-control col-md-7 col-xs-12" })
+                                </div>
+                            </div>
+                            <div class="item form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">
+                                    Address
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <input id="name" class="form-control col-md-7 col-xs-12" asp-for="EstatePropertyDto.PropertyAddress" name="EstatePropertyDto.PropertyAddress" placeholder="Address" autofocus type="text">
+                                </div>
+                            </div>
+                            @*<div class="item form-group">
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">
+                                        State
+                                    </label>
+                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                        <input id="name" class="form-control col-md-7 col-xs-12" asp-for="EstatePropertyDto.State" name="EstatePropertyDto.State" placeholder="State in which property is located" autofocus type="text">
+                                    </div>
+                                </div>*@
+
+
+                            <div class="item form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="category">
+                                    State <span class="required">*</span>
+                                </label>
+
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <select class="form-control selectpicker" id="State" asp-for="EstatePropertyDto.State" name="EstatePropertyDto.State" data-live-search="true" asp-items="@(new SelectList(Model.item, "Name", "Name"))">
+                                        <option value="" disabled selected>Select the State</option>
+                                    </select>
+                                </div>
+                            </div>
+
+
+                            <div class="item form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">
+                                    LGA
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <select name="EstatePropertyDto.LGA" id="LGA" class="form-control col-md-7 col-xs-12" required="" placeholder="L.G.A in which property is located"></select>
+                                </div>
+                            </div>
+
+
+                            <div class="item form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">
+                                    Community
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+
+                                    <select name="EstatePropertyDto.Community" id="Community" class="form-control col-md-7 col-xs-12" required="" placeholder="Community in which property is located"></select>
+
+                                </div>
+                            </div>
+                            <div class="item form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">
+                                    Kinderd
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+
+                                    <select name="EstatePropertyDto.Kindred" id="Kindred" class="form-control col-md-7 col-xs-12" required="" placeholder="Kindred in which property is located"></select>
+
+                                </div>
+                            </div>
+                            <!--Images of Raffle-->
+                            <div class="item form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="file">
+                                    Upload one or more images, Note! Not more than 5 images <span class="required"></span>
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <input class="form-control" type="file" name="files" id="gallery-photo-add" multiple />
+                                    <div class="gallery"></div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                    <div class="ln_solid"></div>
+                    <div class="form-group">
+                        <div class="col-md-6 col-md-offset-3">
+                            <button type="button" class="btn btn-primary" asp-route="/RaffleManagement/Index">Cancel</button>
+                            <button id="submit" type="submit" class="btn btn-success">Submit</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- /page content -->
+@section scripts{
+    <!---->
+    <script type="text/javascript">
+        $(function () {
+            // multiple images prevuiew in browser
+            var imagesPreview = function (input, placeToInsertImagePreview) {
+                if (input.files) {
+                    var regex = /^([a-zA-Z0-9\s_\\.\-:])+(.jpg|.jpeg|.gif|.png|.bmp)$/;
+                    var filesAmount = input.files.length;
+                    if (filesAmount <= 5) {
+                        for (i = 0; i < filesAmount; i++) {
+                            var reader = new FileReader();
+                            reader.onload = function (event) {
+                                $($.parseHTML('<img>')).attr('src', event.target.result).attr('width', '100px').attr('height', '100px').attr('margin', '10px').attr('padding', '10px').appendTo(placeToInsertImagePreview);
+                            }
+                            reader.readAsDataURL(input.files[i]);
+                        }
+                    } else {
+                        window.alert("You cant upload more than 5 images");
+                    }
+                }
+            };
+            $('#gallery-photo-add').on('change', function () {
+                imagesPreview(this, 'div.gallery');
+            });
+        });
+
+
+    </script>
+    <script type="text/jscript">
+        $(function () {
+            $('#State').change(function () {
+
+                var fruits = ["apple", "orange", "cherry"];
+                fruits.forEach(myFunction);
+                var res = "";
+                function myFunction(item, index) {
+                    res += index + ":" + item + "<br>";
+                }
+                console.log(res);
+                $.getJSON('/Web/LGAList/', {
+                    name: $('#State').val()
+                }, function (data) {
+
+                    var items = '<option>Choose LGA in the State</option>';
+                    $.each(jQuery.map(data, function (i, local) {
+                        items += "<option value='" + i.value + "'>" + i.text + "</option>";
+
+                    }));
+                    items += '<option value="None">Not Listed</option>';
+
+                    console.log(data);
+                    console.log("jd");
+                    console.log(data.data);
+
+                    console.log(items);
+                    $('#LGA').html(items);
+                });
+            });
+        });
+    </script>
+
+    <script type="text/jscript">
+        $(function () {
+            $('#LGA').change(function () {
+
+                var fruits = ["apple", "orange", "cherry"];
+                fruits.forEach(myFunction);
+                var res = "";
+                function myFunction(item, index) {
+                    res += index + ":" + item + "<br>";
+                }
+                console.log(res);
+                $.getJSON('/Web/CommunityList/' + $('#LGA').val(), function (data) {
+
+                    var items = '<option>Choose Community in the LGA</option>';
+                    $.each(jQuery.map(data, function (i, local) {
+                        items += "<option value='" + i.value + "'>" + i.text + "</option>";
+
+                    }));
+                    items += '<option value="None">Not Listed</option>';
+
+                    console.log(data);
+                    console.log("jd");
+                    console.log(data.data);
+
+                    console.log(items);
+                    $('#Community').html(items);
+                });
+            });
+        });
+    </script>
+
+    <script type="text/jscript">
+        $(function () {
+            $('#Community').change(function () {
+
+                var fruits = ["apple", "orange", "cherry"];
+                fruits.forEach(myFunction);
+                var res = "";
+                function myFunction(item, index) {
+                    res += index + ":" + item + "<br>";
+                }
+                console.log(res);
+                $.getJSON('/Web/KindredList/' + $('#Community').val(), function (data) {
+
+                    var items = '<option>Choose Kindred in the city</option>';
+                    $.each(jQuery.map(data, function (i, local) {
+                        items += "<option value='" + i.value + "'>" + i.text + "</option>";
+
+                    }));
+                    items += '<option value="None">Not Listed</option>';
+
+                    console.log(data);
+                    console.log("jd");
+                    console.log(data.data);
+
+                    console.log(items);
+                    $('#Kindred').html(items);
+                });
+            });
+        });
+    </script>
+
+
+}

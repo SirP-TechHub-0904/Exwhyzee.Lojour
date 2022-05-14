@@ -1,0 +1,275 @@
+/* Style the packages-tab */
+div.packages-tab {
+    overflow: hidden;
+    border: 1px solid #d5d9dd;
+    border-radius: 3px;
+    overflow: hidden;
+    background-color: #efefef;
+}
+
+/* Style the buttons inside the packages-tab */
+div.packages-tab .tablinks {
+    position: relative;
+    text-transform: uppercase;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 0px;
+    transition: 0.3s;
+    font-size: 14px;
+    width: 33.3%;
+    text-align: center;
+}
+
+.tablinks-bar {
+    position: absolute;
+    bottom: 0;
+    border: 2px solid #ccc;   
+    cursor: pointer;
+	width: 99%;	
+}
+
+/* Change background color of buttons on hover */
+div.packages-tab .tablinks:hover {
+}
+
+/* Create an active/current tablink class */
+div.packages-tab .tablinks.active {
+    background-color: #29333d;
+    color: #fff;
+	
+}
+
+div.packages-tab .tablinks.active .tablinks-bar{
+	 border: 2px solid #29333d;	
+}
+
+/* Style the packages-tab content */
+.tabcontent {
+    display: none;
+    padding: 20px;
+}
+
+.tabcontent {
+    width: 100%;
+    float: left;
+    margin-top: 40px;
+    border: 1px solid #d5d9dd;
+    padding: 20px;
+    border-radius: 3px;
+}
+
+    #package.tabcontent { margin-top: 60px; padding-top: 100px; padding: 0; border: none;}
+
+/* Post boxex design */
+.packages-container {
+    width: 100%;
+    float: left;
+    height: auto;
+	position: relative;
+}
+.package-posts.col.span_3 {
+    text-align: center;
+	padding-bottom: 20px;
+    border: 1px solid #d5d9dd;
+    border-radius: 3px;
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+}
+    .package-posts:first-child {}
+
+    .package-posts.col.span_3.popular { position: relative; top: -32px; padding: 0 0 20px 0;}
+    .package-posts .popular-heading { padding: 2px 10px; font-size: 11px; color: #fff; text-transform: uppercase; background: #27ae60;}
+
+.package-posts h5 {
+    text-transform: uppercase;
+    text-align: center;
+    margin: 40px 0;
+    font-weight: 800;
+}
+.packages-container .price {
+    font-size: 2.5em;
+    font-weight: bold;
+    color: #27ae60;
+}
+
+ul.pack-boxes {
+    list-style: none !important;
+	margin: 0 0 20px 0 !important; 
+}
+    .package-posts:hover {
+        box-shadow: 0 10px 20px rgba(0,0,0,.15);
+    }
+
+    .pack-boxes li {
+        padding: 10px 0px;
+        border-bottom: 1px solid #ddd;
+    }
+        .pack-boxes li:last-child { border-bottom: none !important;}
+            .pack-boxes li i { display: none;}
+
+.package-posts button { margin-bottom: 30px;}
+    .package-posts button:hover { cursor: pointer;}
+
+/* #loadingmessage{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 10;
+} */
+
+#loadingmessage {
+    background: #000 none repeat scroll 0 0;
+    height: 100%;
+    opacity: 0.8;
+    position: absolute;
+    width: 100%;
+    z-index: 9999999;
+}
+#loadingmessage > img {  
+    left: 50%;
+    position: absolute;
+    top: 45%;
+}
+.payment-content {
+    width: 100%;
+    float: left;
+    height: auto;
+} 
+.payment-block-left {
+    height: auto;
+    border: 1px solid #d5d9dd;
+    border-radius: 3px;
+    margin: 0 0 30px 0;
+}
+.payemt-block-right {
+    height: auto;
+}
+ul.payment-right {
+    list-style-type: none !important;
+    margin: 0 !important;
+}
+.payment-right li {
+    border-bottom: 1px solid #eee;
+    padding: 14px 0px;
+    font-size: 13px;
+    font-weight: 600;
+}
+.payment-right li:first-child {
+	    border-top: 1px solid #eee;
+}
+.payment-right li:last-child {
+	border-top: 2px solid #000;
+	border-bottom: none;
+}
+.payment-right .left {
+    float: left;
+    width: auto;
+    text-align: left;
+    font-weight: 400;
+}
+.payment-right .right {
+     text-align: right;
+}
+.payment-methods-container {
+    width: 100%;
+    height: auto;
+    float: left;
+}
+.payment-methods-container ul.payment-methods {
+	float: left;
+	list-style: outside none none;
+	margin-left: 0;
+	width: 100%;
+}
+    .payment-methods div.left { margin-left: 10px;}
+.payment-methods input {
+    float: left;
+}
+.payment-methods li {
+  border-bottom: 2px solid #eeeeee;
+  display: inline-block;
+  min-height: auto;
+  width: 100%;
+}
+.stripe-form fieldset {
+  border: 1px solid #e1e1e1;
+  border-radius: 3px;
+  display: inline-block;
+  margin: 0 0 20px 2%;
+  padding: 20px;
+  width: 96%;
+}
+.payment-methods .left,
+ .payment-methods .right {
+	padding: 20px 0px;
+}
+
+.payment-methods .span_11 .span_5 { width: 44%;}
+
+.payment-methods input {
+    margin-top: 28px;
+}
+
+.payment-methods li > .col.span_11 { margin-left: 2%;}
+
+.paypal-recurring { background: #efefef;}
+    .paypal-recurring input { margin-left: 2%;}
+
+button.membership {
+    background-color: #298900;
+    text-transform: uppercase;
+    width: 99%;
+    margin: 0px 5px;
+}
+.complete-membership {
+    width: 100%;
+    float: left;
+    text-align: center;
+}
+a.membership {
+    width: 96%;
+    margin: 0px 2%;
+}
+.complete-membership p {
+    margin-top: 1rem;
+    color: #a0a5aa;
+}
+.pack-boxes li i {
+    padding-right: 8px;
+}
+
+.stripeleft {
+  display: inline-block;
+  width: 100%;
+}
+.stripeleft > input {
+  margin-top: 7px;
+}
+    #stripe-cc-icons { position: relative; right: -35px;}
+
+.form_error_month,.form_error_cardnumber,.form_error_cardcvv{
+	color:red;
+}
+.must-be-logged-in.packaes {
+    padding: 4% 8%;
+}
+
+.packages-container .response { text-align: center;}
+.packages-container #thanks { color: #27ae60;}
+
+/* All Mobile Sizes (devices and browser) */
+@media only screen and (max-width: 767px) {
+    div.packages-tab .tablinks { display: block; float: none; width: 100%; clear: both;}
+        .tablinks-bar { width: 100%;}
+
+    .package-posts.col.span_3 { margin-bottom: 20px;}
+        .package-posts.col.span_3.popular { top: 0;}
+            .payment-methods input[type="radio"],
+            .payment-methods .paypal-recurring input { display: inline-block; margin-right: 20px; margin-left: 20px;}
+            .payment-methods li .col.span_6 { width: 50% !important;}
+            .payment-methods #stripe-cc-icons { left: 20px; padding: 0 0 20px 0; float: none;}
+}
+

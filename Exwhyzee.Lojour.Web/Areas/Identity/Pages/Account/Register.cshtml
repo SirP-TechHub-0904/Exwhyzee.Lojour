@@ -1,0 +1,215 @@
+﻿@page
+@model RegisterModel
+@{
+    ViewData["Title"] = "Register";
+    Layout = "/Views/Shared/_AccountLayout.cshtml";
+}
+
+<style>
+    .form-group {
+        width: 100%;
+    }
+
+    input[type="text"], input[type="tel"], input[type="password"], input[type="email"], input[type="number"], input[type="date"], textarea, select {
+        border: 1px solid #ccc;
+        border-radius: 0px;
+    }
+
+    .form-control {
+        margin: 0 0 16px 0;
+        padding: 11px 16px;
+        height: 42px;
+        border-radius: 0px;
+        border: 1px solid #ccc;
+    }
+
+    .announcement {
+        background-color: rgba(255,229,229,.7);
+        border-color: rgba(255,229,229,.7);
+        color: #2f3d46;
+    }
+
+    .voffset-20 {
+        margin-top: 20px !important;
+    }
+
+    .panel-body {
+        padding: 15px;
+    }
+
+    .text-center {
+        text-align: center;
+    }
+
+    .form-group {
+        margin-bottom: 0px;
+    }
+
+    .row {
+        margin-bottom: 0px;
+    }
+
+    a.btn, .btn, button, #reply-title small a, .comment-reply-link, .grid figcaption a, input[type="submit"], input[type="reset"], input[type="button"], input[type="btn"], .featured-listings .owl-prev, .featured-listings .owl-next {
+        display: inline-block;
+        position: relative;
+        border-radius: 0px;
+        border: none;
+        -webkit-appearance: none;
+        -webkit-transition: all 0.2s linear;
+        moz-transition: all 0.2s linear;
+        -o-transition: all 0.2s linear;
+        -ms-transition: all 0.2s linear;
+        transition: all 0.2s linear;
+        font-size: .75em;
+        line-height: 42px;
+        height: 42px;
+        padding: 0 2em;
+        text-align: center;
+        text-transform: uppercase;
+        color: #fff;
+        background: #29333d;
+        text-shadow: none !important;
+        font-weight: normal !important;
+    }
+
+    .btn-default:hover {
+        color: #ccc;
+        background-color: #ff0000;
+        border-color: #ff0000;
+    }
+</style>
+
+
+<div style="display: block;" class="container">
+    <div class="row">
+        <div class="col-md-7">
+
+
+            <h4 class="marB20">Create an account</h4>
+            <p class="muted marB20">It takes less than a minute. If you already have an account <a class="" href="#" style="color:#ff0000;font-weight:800;">login</a>.</p>
+
+            <div id="ct_account_errors">
+            </div>
+            <form asp-route-returnUrl="@Model.ReturnUrl" method="post">
+
+                <div asp-validation-summary="All" class="text-danger"></div>
+                @if (TempData["error"]!= null)
+                {
+                    <div class="alert alert-success alert-dismissible">
+                        <button type="button" class="close" data-dismiss="alert">&times;</button>
+                        @TempData["error"]
+                    </div>
+                }
+                
+
+
+
+
+
+                <div class="form-group">
+                    <label asp-for="Input.Email"></label>
+                    <input asp-for="Input.Email" class="form-control" />
+                    <span asp-validation-for="Input.Email" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label>Buyer, Seller or Agent?</label>
+
+                    <select name="Input.RoleString" asp-items="Model.Roles" id="" class="form-control" required="required"></select>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Input.PhoneNumber"></label>
+                    <input asp-for="Input.PhoneNumber" type="number" class="form-control" />
+                    <span asp-validation-for="Input.PhoneNumber" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Input.Password"></label>
+                    <input asp-for="Input.Password" class="form-control" />
+                    <span asp-validation-for="Input.Password" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Input.ConfirmPassword"></label>
+                    <input asp-for="Input.ConfirmPassword" class="form-control" />
+                    <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    By registering you accept our <a target="_blank" href="#" style="color:#ff0000;font-weight:800;">Terms of Use</a> and <a href="#" style="color:#ff0000;font-weight:800;" target="_blank">Privacy</a> and agree that we and our selected partners may contact you with relevant offers and services.
+                </div>
+
+                <button type="submit" class="btn btn-default">Register</button>
+            </form>
+        </div>
+
+        <div class="col-md-5" style="margin-top: 115px;">
+            <div class="panel-body text-center announcement voffset-20" style="background-color:#29333d !important;color:#fff;">
+
+                <div id="myCarousel" class="carousel slide" data-ride="carousel">
+
+                    <!-- Wrapper for slides -->
+                    <div class="carousel-inner">
+                        <div class="item active text-center">
+
+
+                            <blockquote style="color:#a2a9bf;font-weight:700;">
+                                “Do you Know That Landlords grow rich in their sleep without working.”
+                            </blockquote> Peter Onwuka, IT Specialist and Developer
+                        </div>
+
+                        <div class="item">
+                            <blockquote style="color:#a2a9bf;font-weight:700;">
+                                “Owning a home is a keystone of wealth… both financial affluence and emotional security ”.
+                            </blockquote>Suze Orman
+                        </div>
+
+                        <div class="item">
+                            <blockquote style="color:#a2a9bf;font-weight:700;">
+                                “Now, one thing I tell everyone is learn about real estate. Repeat after me:
+                                real estate provides the highest returns, the greatest values and the least risk. ”
+
+                            </blockquote>
+                            Armstrong Williams
+                        </div>
+                    </div>
+
+
+                </div>
+
+            </div>
+            <br />
+            <div class="panel-body text-center announcement voffset-20">
+                <h4 class="title voffset-bottom-0">Need help? Contact Us.</h4>
+                <p class="voffset-10">
+                    <i class="fa fa-whatsapp"></i> &nbsp;<strong>WhatsApp:</strong> +234 806 568 0904
+                </p>
+                <i class="fa fa-envelope"></i> <a target="_blank" href="mailto:support@m.com" class="underline">support@lojour.com</a>
+            </div>
+            <br />
+            <style>
+                .list-group-item:first-child {
+                    border-top-left-radius: 0px;
+                    border-top-right-radius: 0px;
+                }
+
+                .list-group-item:last-child {
+                    margin-bottom: 0;
+                    border-bottom-right-radius: 0px;
+                    border-bottom-left-radius: 0px;
+                }
+            </style>
+            <div class="card" style="border-radius:0px !important;margin-bottom:0px !important;">
+                <div class="card-header">
+                    <div class="h4" style="border-radius:0px !important;">Why create an account?</div>
+                </div>
+                <ul class="list-group list-group-flush" style="border-radius:0px !important;margin-bottom:0px;">
+                    <li class="list-group-item"> <i class="fa fa-2x fa-envelope"></i> <span class="h5 pl-1"> Receive E-mail Alerts </span> when properties become available</li>
+                    <li class="list-group-item"><i class="fa fa-2x fa-book"></i>  Know verified Lands from Ministery of Lands </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
